@@ -16,8 +16,13 @@ std::string Sommet::getNom()
     return m_nom;
 }
 
+std::pair<int,int> Sommet::getCoords()
+{
+    return m_coordonnees;
+}
+
 void Sommet::afficher()
 {
-    std::cout << m_coordonnees.first << m_coordonnees.second;
+    std::cout << m_coordonnees.first << " " << m_coordonnees.second;
 }
 

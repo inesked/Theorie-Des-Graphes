@@ -1,6 +1,8 @@
 #include "graphe.h"
 #include <fstream>
 #include <iostream>
+#include <utility>
+#include "Svgfile.h"
 
 Graphe::Graphe(std::string nomFichier)
 {
@@ -35,21 +37,43 @@ Graphe::Graphe(std::string nomFichier)
     int id,num1,num2;
     for(int i = 0; i<m_taille; ++i)
     {
+        std::vector<int> extremites;
         ifs >> id >> num1 >> num2;// a modifier si orientation
-        m_arete.push_back(new Arete{id, std::make_pair(m_sommets[num1],m_sommets[num2])});
+        extremites.push_back(num1);
+        extremites.push_back(num2);
+        m_arete.push_back(new Arete{id,extremites});
     }
 
 }
 
 void Graphe::Afficher()
 {
-    std::cout <<"orientation: "<<m_orientation <<std::endl;
-    std::cout <<"ordre: "<<m_ordre <<std::endl<<std::endl;
+    std::cout <<"orientation: "<< m_orientation <<std::endl;
+    std::cout <<"ordre: "<< m_ordre <<std::endl<<std::endl;
     for(int i=0; i<m_ordre ; ++i)
     {
-        std::cout << m_sommets[i]->getNum() << ": " << m_sommets[i]->afficher() << std::endl;
+        std::cout << m_sommets[i]->getNum() << ": ";
+        m_sommets[i]->afficher();
+        std::cout << std::endl;
+    }
+    std::cout <<"taille: "<<m_taille << std::endl;
+    for(int i=0; i<m_taille; ++i)
+    {
+        std::cout << m_arete[i]->getId() << ": ";
+        m_arete[i]->afficher();
+        std::cout << std::endl;
     }
     std::cout<<std::endl;
+}
+
+void Graphe::dessinerGraphe(Svgfile &svgout)
+{
+    for(int i=0; i<m_ordre; ++i)
+    {
+        svgout.addCircle(((m_sommets[i]->getCoords).first)*100,((m_sommets[i]->getCoords).second)*100,1,"black");
+        svgout.addText(((m_sommets[i]->getCoords).first)*100,((m_sommets[i]->getCoords).second)*100-10,m_sommets[i]->getNom(),"black");
+    }
+
 }
 /*
 /// Comparateur de sommet selon leur distance:

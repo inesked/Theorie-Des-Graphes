@@ -5,9 +5,12 @@
 #include <queue>
 #include <fstream>
 #include <stack>
+#include "Svgfile.h"
 
 int main()
 {
+    Svgfile svgout;
+    svgout.addGrid();
     Graphe graphe1("graphe_etoile1_topo.txt");
 
     /*int s_initial;//num»ro du sommet initial
@@ -27,7 +30,7 @@ int main()
 
 
 
-
+/*
 
     ///menu du programme final
 
@@ -81,7 +84,7 @@ int main()
     }while(choix != 5);
     return 0;
 }
-
+*/
 
     return 0;
 }

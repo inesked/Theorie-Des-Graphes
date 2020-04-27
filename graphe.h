@@ -1,6 +1,6 @@
 #ifndef GRAPHE_H_INCLUDED
 #define GRAPHE_H_INCLUDED
-
+#include "Svgfile.h"
 #include <stdio.h>
 #include <iostream>
 #include "Sommet.h"
@@ -19,6 +19,7 @@ public:
     Graphe();
     Graphe(std::string nomFichier);
     void Afficher();
+    void dessinerGraphe(Svgfile &svgout);
     //void Dijkstra (int s_initial, int s_final);
 };
 

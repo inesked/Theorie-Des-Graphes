@@ -18,6 +18,7 @@ class Sommet
         int getNum();
         std::string getNom();
         void afficher();
+        std::pair<int,int> getCoords();
 };
 
 
