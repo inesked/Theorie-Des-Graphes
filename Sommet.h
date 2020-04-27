@@ -12,7 +12,6 @@ class Sommet
 
         Sommet(int num, char nom, std::pair coordonnees);
 
-
 };
 
 
