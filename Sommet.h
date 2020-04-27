@@ -10,8 +10,11 @@ class Sommet
 
     public:
 
-        Sommet(int num, char nom, std::pair coordonnees);
+        Sommet(int num, char nom, std::pair coordonnees):
+            m_num{num}, m_nom{nom}, m_coordonnees{coordonnes};
 
+        ///méthode de la centralité de degré
+        void
 };
 
 
