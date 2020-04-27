@@ -4,7 +4,7 @@
 
 Graphe::Graphe(std::string nomFichier)
 {
-    std::ifstream ifs{nomFichier};// ouvre un fichier
+    /*std::ifstream ifs{nomFichier};// ouvre un fichier
     if (!ifs)//test si  le fichier existe
         throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier );
 //orientation
@@ -14,7 +14,49 @@ Graphe::Graphe(std::string nomFichier)
 
     ifs >> m_ordre;
     if ( ifs.fail() )
-        throw std::runtime_error("Problème lecture m_ordre du graphe");
+        throw std::runtime_error("Problème lecture m_ordre du graphe");*/
+     std::ifstream ifs{nomFichier};
+            if (!ifs)
+                throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier );
+            ifs >> m_orientation;
+            if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture orientation du graphe");
+            int ordre;
+            ifs >> ordre;
+            if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture ordre du graphe");
+
+
+            //int taille;
+            //ifs >> taille;
+            //if ( ifs.fail() )
+            //    throw std::runtime_error("Probleme lecture taille du graphe");
+            int num0,num2,num3;
+            char let1;
+            std::vector<int> deg;
+            deg.resize(ordre);
+            for (int i=0; i<ordre; ++i){
+                ifs>>num0>>let1>>num2>>num3;
+                if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture arc");
+                deg[i] = 0;
+            }
+            int taille;
+            ifs >> taille;
+            if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture taille du graphe");
+            int num4,num5,num6;
+            for (int i=0;i<taille;++i)
+            {
+                ifs>>num4>>num5>>num6;
+                if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture arc");
+                deg[num5] += 1;
+                deg[num6] += 1;
+            }
+
+
+
 
 //sommet
     int num;
@@ -118,3 +160,14 @@ void Graphe::Dijkstra(int s_initial, int s_final)
     }
 }
 */
+
+
+///centralité de degré pour non normalisé <=> dégré du sommet
+void Graphe::CentraliteDegreNonNorma()
+{
+    int ndeg;
+    std::cout <<"Donnez un numero de sommet pour connaitre sa centralite de degre: ";
+    std::cin >> ndeg;
+    std::cout << "Le sommet " << ndeg << " a un degres de "<< deg[ndeg]; << std::endl;
+}
+

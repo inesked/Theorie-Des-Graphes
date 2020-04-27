@@ -20,7 +20,7 @@ public:
     Graphe();
     Graphe(std::string nomFichier);
     void Afficher();
-    void CentraliteDegreNonNorma{};
+    void CentraliteDegreNonNorma();
     //void Dijkstra (int s_initial, int s_final);
 };
 
