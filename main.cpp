@@ -21,8 +21,68 @@ int main()
     graphe1.Afficher(); //affiche le graphe avec la liste des sommets adjacents
 
     std::cout<<"Algorithme de Dijstra"<<std::endl;
-    graphe1.Dijkstra(s_initial, s_final);
-*/
+    graphe1.Dijkstra(s_initial, s_final);*/
+
+
+
+
+
+
+
+    ///menu du programme final
+
+    std::vector < Graphe* > mesGraphe;
+    bool continuer;
+    int nom;
+    int supprimer;
+
+     std::cout << std::endl;
+    std::cout << "Bienvenue sur notre projet de l'accessibilite et la vulnerabilite des reseaux" << std::endl;
+
+    do{
+        std::cout << std::endl;
+        std::cout << "Selectionnez une action :" << std::endl;
+        std::cout << "1. Charger un graphe" << std::endl;
+        std::cout << "2. Changer le système de pondération du graphe "<< std::endl;
+        std::cout << "3. Calculer, afficher et sauvegarder les différents indices de centralité" << std::endl;
+        std::cout << "4. Tester la vulnérabilité du graphe" << std::endl;
+        std::cout << "5. Quitter" << std::endl;
+        std::cout << std::endl;
+        std::cout << "Entrez choix (numero) : " << std::endl;
+        std::cin >> choix;
+        switch(choix)
+        {
+            case 1:
+                {
+                    std::cout << "Quel graphe voulez-vous charger ?" << std::endl;///on demande à l'utilisateur le nom du graphe qu'il veut charger
+                    std::cin >> nom;
+                    nom="graphe.txt";
+                    Graphe g{"graphe.txt"};
+                    break;
+                }
+            case 2:
+                {
+
+
+                    break;
+                }
+            case 3:
+
+
+                    break;
+                }
+            case 4:
+
+
+
+                    break;
+                }
+        }
+    }while(choix != 5);
+    return 0;
+}
+
+
     return 0;
 }
 
