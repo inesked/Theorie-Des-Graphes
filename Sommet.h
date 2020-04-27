@@ -6,15 +6,11 @@ class Sommet
     private:
         int m_indice;
         char m_nom;
-        std::pair <int , int> m_coordonn�es;
+        std::pair <int , int> m_coordonnees;
 
     public:
 
-        Sommet(int num, char nom, std::pair coordonn�es);
-
-        aaaaa
-        oui ?
-
+        Sommet(int num, char nom, std::pair coordonnees);
 
 
 };
