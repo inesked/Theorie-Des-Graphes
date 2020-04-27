@@ -26,14 +26,8 @@ Graphe::Graphe(std::string nomFichier)
             if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture ordre du graphe");
 
-
-            //int taille;
-            //ifs >> taille;
-            //if ( ifs.fail() )
-            //    throw std::runtime_error("Probleme lecture taille du graphe");
             int num0,num2,num3;
             char let1;
-            std::vector<int> deg;
             deg.resize(ordre);
             for (int i=0; i<ordre; ++i){
                 ifs>>num0>>let1>>num2>>num3;
@@ -57,7 +51,7 @@ Graphe::Graphe(std::string nomFichier)
 
 
 
-
+/*
 //sommet
     int num;
     std::string nom;
@@ -80,10 +74,10 @@ Graphe::Graphe(std::string nomFichier)
         ifs >> id >> num1 >> num2;// a modifier si orientation
         m_arete.push_back(new Arete{id, std::make_pair(m_sommets[num1],m_sommets[num2])});
     }
-
+*/
 }
 
-void Graphe::Afficher()
+/*void Graphe::Afficher()
 {
     std::cout <<"orientation: "<<m_orientation <<std::endl;
     std::cout <<"ordre: "<<m_ordre <<std::endl<<std::endl;
@@ -92,7 +86,7 @@ void Graphe::Afficher()
         std::cout << m_sommets[i]->getNum() << ": " << m_sommets[i]->afficher() << std::endl;
     }
     std::cout<<std::endl;
-}
+}*/
 /*
 /// Comparateur de sommet selon leur distance:
 /// (necessaire pour la piority_queue)
@@ -168,6 +162,6 @@ void Graphe::CentraliteDegreNonNorma()
     int ndeg;
     std::cout <<"Donnez un numero de sommet pour connaitre sa centralite de degre: ";
     std::cin >> ndeg;
-    std::cout << "Le sommet " << ndeg << " a un degres de "<< deg[ndeg]; << std::endl;
+    std::cout << "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
 }
 
