@@ -21,7 +21,8 @@ int main()
     std::cout<<"Saisir identifiant du sommet d'arrivee"<<std::endl;
     std::cin >> s_final;*/
 
-    graphe1.Afficher(); //affiche le graphe avec la liste des sommets adjacents
+//    graphe1.Afficher(); //affiche le graphe avec la liste des sommets adjacents
+    graphe1.CentraliteDegreNonNorma();
 /*
     std::cout<<"Algorithme de Dijstra"<<std::endl;
     graphe1.Dijkstra(s_initial, s_final);*/
@@ -32,7 +33,7 @@ int main()
 
 /*
 
-    ///menu du programme final
+/*    ///menu du programme final
 
     std::vector < Graphe* > mesGraphe;
     bool continuer;
@@ -52,8 +53,8 @@ int main()
         std::cout << "5. Quitter" << std::endl;
         std::cout << std::endl;
         std::cout << "Entrez choix (numero) : " << std::endl;
-        std::cin >> choix;
-        switch(choix)
+        std::cin >> nom;
+        switch(nom)
         {
             case 1:
                 {

@@ -6,17 +6,42 @@
 
 Graphe::Graphe(std::string nomFichier)
 {
-    std::ifstream ifs{nomFichier};// ouvre un fichier
-    if (!ifs)//test si  le fichier existe
-        throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier );
-//orientation
-    ifs >> m_orientation;
-    if ( ifs.fail() )
-        throw std::runtime_error("Problème lecture m_orientation du graphe");
+     std::ifstream ifs{nomFichier};
+            if (!ifs)
+                throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier );
+            ifs >> m_orientation;
+            if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture orientation du graphe");
+            int ordre;
+            ifs >> ordre;
+            if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture ordre du graphe");
 
-    ifs >> m_ordre;
-    if ( ifs.fail() )
-        throw std::runtime_error("Problème lecture m_ordre du graphe");
+            int num0,num2,num3;
+            char let1;
+            deg.resize(ordre);
+            for (int i=0; i<ordre; ++i){
+                ifs>>num0>>let1>>num2>>num3;
+                if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture arc");
+                deg[i] = 0;
+            }
+            int taille;
+            ifs >> taille;
+            if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture taille du graphe");
+            int num4,num5,num6;
+            for (int i=0;i<taille;++i)
+            {
+                ifs>>num4>>num5>>num6;
+                if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture arc");
+                deg[num5] += 1;
+                deg[num6] += 1;
+            }
+
+
+
 
 //sommet
     int num;
@@ -34,13 +59,13 @@ Graphe::Graphe(std::string nomFichier)
 
 //arete
 
-    int id,num1,num2;
+    int id,numero1,numero2;
     for(int i = 0; i<m_taille; ++i)
     {
         std::vector<int> extremites;
-        ifs >> id >> num1 >> num2;// a modifier si orientation
-        extremites.push_back(num1);
-        extremites.push_back(num2);
+        ifs >> id >> numero1 >> numero2;// a modifier si orientation
+        extremites.push_back(numero1);
+        extremites.push_back(numero2);
         m_arete.push_back(new Arete{id,extremites});
     }
 
@@ -64,6 +89,7 @@ void Graphe::Afficher()
         std::cout << std::endl;
     }
     std::cout<<std::endl;
+
 }
 
 void Graphe::dessinerGraphe(Svgfile &svgout)
@@ -142,3 +168,14 @@ void Graphe::Dijkstra(int s_initial, int s_final)
     }
 }
 */
+
+
+///centralité de degré pour non normalisé <=> dégré du sommet
+void Graphe::CentraliteDegreNonNorma()
+{
+    int ndeg;
+    std::cout <<"Donnez un numero de sommet pour connaitre sa centralite de degre: ";
+    std::cin >> ndeg;
+    std::cout << "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
+}
+
