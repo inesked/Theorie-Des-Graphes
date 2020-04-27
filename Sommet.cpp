@@ -1,4 +1,5 @@
 #include "Sommet.h"
+#include<iostream>
 
 
 Sommet::Sommet(int num, std::string nom, std::pair<int,int> coordonnees)
@@ -15,8 +16,8 @@ std::string Sommet::getNom()
     return m_nom;
 }
 
-std::pair<int,int> Sommet::getCoords()
+void Sommet::afficher()
 {
-    return m_coordonnees;
+    std::cout << m_coordonnees.first << m_coordonnees.second;
 }
 

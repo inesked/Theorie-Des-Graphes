@@ -14,7 +14,10 @@ class Sommet
 
     public:
 
-        Sommet(int num, std::string nom, std::pair coordonnees);
+        Sommet(int num, std::string nom, std::pair<int,int> coordonnees);
+        int getNum();
+        std::string getNom();
+        void afficher();
 };
 
 

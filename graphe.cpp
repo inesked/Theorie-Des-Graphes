@@ -1,5 +1,6 @@
 #include "graphe.h"
-
+#include <fstream>
+#include <iostream>
 
 Graphe::Graphe(std::string nomFichier)
 {
@@ -19,47 +20,34 @@ Graphe::Graphe(std::string nomFichier)
     int num;
     std::string nom;
     int x,y;
-    for (i; i<m_ordre; ++i)
+    for (int i=0; i<m_ordre; ++i)
     {
-        ifs >> num;
-        m_sommets.push_back(new Sommet{num});
+        ifs >> num >> nom >> x >> y;
+        m_sommets.push_back(new Sommet{num, nom , std::make_pair(x,y)});
     }
 
     ifs >> m_taille;
     if ( ifs.fail() )
         throw std::runtime_error("Problème lecture m_ordre du graphe");
 
-        //arete
+//arete
 
-/*
-    //On créer le vecteur qui va stocker tous les sommets récupérés
-    for (int i=0; i<m_ordre; ++i) //parcourt tous les sommets : ordre = nombre de sommet
+    int id,num1,num2;
+    for(int i = 0; i<m_taille; ++i)
     {
-        int sommet;
-        ifs >> sommet;
+        ifs >> id >> num1 >> num2;// a modifier si orientation
+        m_arete.push_back(new Arete{id, std::make_pair(m_sommets[num1],m_sommets[num2])});
+    }
 
-        //ON CREE UN NOUVEAU SOMMET A CHAQUE FOIS
-        m_sommets.push_back(new Sommet((ifs),sommet));//mets les données dans un vecteur de taille "ordre"
-    }
-    for(auto i=0; i<m_taille; ++i) //parcourt de 0 a nombres d'arêtes
-    {
-        int id1, id2, poid;//recupère les éléments du fichier mot par moi
-        ifs >> id1;//1e element de la ligne
-        ifs >> id2;//2e element de la ligne
-        ifs >> poid;//3e element de la ligne = distance entre id1 et id2
-        m_sommets[id1]->Ajouter_adj(m_sommets[id2], poid);
-    }
 }
-*/
-/*void Graphe::Afficher()
-{
-    std::cout <<"ordre: "<<m_ordre<<std::endl;
-    std::cout <<"taille: "<<m_taille<<std::endl<<std::endl;
 
-    /*std::cout<<"Sommets adjacences : "<<std::endl<<std::endl;
-    for(size_t i=0; i<m_sommets.size(); ++i)
+void Graphe::Afficher()
+{
+    std::cout <<"orientation: "<<m_orientation <<std::endl;
+    std::cout <<"ordre: "<<m_ordre <<std::endl<<std::endl;
+    for(int i=0; i<m_ordre ; ++i)
     {
-        m_sommets[i]->Afficher();
+        std::cout << m_sommets[i]->getNum() << ": " << m_sommets[i]->afficher() << std::endl;
     }
     std::cout<<std::endl;
 }

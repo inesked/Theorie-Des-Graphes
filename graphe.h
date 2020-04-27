@@ -2,8 +2,9 @@
 #define GRAPHE_H_INCLUDED
 
 #include <stdio.h>
-
+#include <iostream>
 #include "Sommet.h"
+#include "arete.h"
 
 class Graphe
 {
@@ -12,7 +13,7 @@ private :
     int m_ordre;
     int m_taille; //2e element du fichier
     std::vector <Sommet*> m_sommets; //1er liste du fichier aretes
-    std::vector <std::pair<Sommet*, Sommet*>> m_arete;
+    std::vector <Arete*> m_arete;
 
 public:
     Graphe();
