@@ -6,14 +6,31 @@ Graphe::Graphe(std::string nomFichier)
     std::ifstream ifs{nomFichier};// ouvre un fichier
     if (!ifs)//test si  le fichier existe
         throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier );
+//orientation
+    ifs >> m_orientation;
+    if ( ifs.fail() )
+        throw std::runtime_error("Problème lecture m_orientation du graphe");
 
     ifs >> m_ordre;
     if ( ifs.fail() )
-        throw std::runtime_error("Probleme lecture m_ordre du graphe");
+        throw std::runtime_error("Problème lecture m_ordre du graphe");
+
+//sommet
+    int num;
+    std::string nom;
+    int x,y;
+    for (i; i<m_ordre; ++i)
+    {
+        ifs >> num;
+        m_sommets.push_back(new Sommet{num});
+    }
 
     ifs >> m_taille;
     if ( ifs.fail() )
-        throw std::runtime_error("Probleme lecture m_ordre du graphe");
+        throw std::runtime_error("Problème lecture m_ordre du graphe");
+
+        //arete
+
 /*
     //On créer le vecteur qui va stocker tous les sommets récupérés
     for (int i=0; i<m_ordre; ++i) //parcourt tous les sommets : ordre = nombre de sommet
@@ -34,7 +51,7 @@ Graphe::Graphe(std::string nomFichier)
     }
 }
 */
-void Graphe::Afficher()
+/*void Graphe::Afficher()
 {
     std::cout <<"ordre: "<<m_ordre<<std::endl;
     std::cout <<"taille: "<<m_taille<<std::endl<<std::endl;
@@ -44,7 +61,7 @@ void Graphe::Afficher()
     {
         m_sommets[i]->Afficher();
     }
-    std::cout<<std::endl;*/
+    std::cout<<std::endl;
 }
 /*
 /// Comparateur de sommet selon leur distance:

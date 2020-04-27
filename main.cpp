@@ -8,7 +8,7 @@
 #include <stack>
 int main()
 {
-    Graphe graphe1("graphe_etoile1_topo.txt");
+    //Graphe graphe1("graphe_etoile1_topo.txt");
 /*
     int s_initial;//num»ro du sommet initial
     std::cout<<"Saisir identifiant du sommet de depart"<<std::endl;

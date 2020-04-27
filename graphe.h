@@ -8,9 +8,11 @@
 class Graphe
 {
 private :
-    int m_ordre; //1 element du fichier
+    int m_orientation; //1 element du fichier
+    int m_ordre;
     int m_taille; //2e element du fichier
-    std::vector <Sommet*> m_sommets; //1er liste du fichier
+    std::vector <Sommet*> m_sommets; //1er liste du fichier aretes
+    std::vector <std::pair<Sommet*, Sommet*>> m_arete;
 
 public:
     Graphe();
