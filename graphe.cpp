@@ -12,59 +12,33 @@ Graphe::Graphe(std::string nomFichier)
             ifs >> m_orientation;
             if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture orientation du graphe");
-            int ordre;
             ifs >> m_ordre;
             if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture ordre du graphe");
 
-            /*int num0,num2,num3;
-            char let1;
-            deg.resize(ordre);
-            for (int i=0; i<ordre; ++i){
+            int num0,num2,num3;
+            std::string let1;
+            deg.resize(m_ordre);
+            for (int i=0; i<m_ordre; ++i){
                 ifs>>num0>>let1>>num2>>num3;
                 if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture arc");
+                m_sommets.push_back(new Sommet{num0, let1 , std::make_pair(num2,num3)});
                 deg[i] = 0;
             }
-            int taille;
-            ifs >> taille;
+            ifs >> m_taille;
             if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture taille du graphe");
-            /*int num4,num5,num6;
-            for (int i=0;i<taille;++i)
+            int num4,num5,num6;
+            for (int i=0;i<m_taille;++i)
             {
                 ifs>>num4>>num5>>num6;
                 if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture arc");
+                m_arete.push_back(new Arete{num4, std::make_pair(num5,num6)});
                 deg[num5] += 1;
                 deg[num6] += 1;
-            }*/
-
-
-
-
-//sommet
-    int num;
-    std::string nom;
-    double x,y;
-    for (int i=0; i<m_ordre; ++i)
-    {
-        ifs >> num >> nom >> x >> y;
-        m_sommets.push_back(new Sommet{num, nom , std::make_pair(x,y)});
-    }
-
-    ifs >> m_taille;
-    if ( ifs.fail() )
-        throw std::runtime_error("Problème lecture m_ordre du graphe");
-
-//arete
-
-    int id,numero1,numero2;
-    for(int i = 0; i<m_taille; ++i)
-    {
-        ifs >> id >> numero1 >> numero2;// a modifier si orientation
-        m_arete.push_back(new Arete{id,std::make_pair(numero1,numero2)});
-    }
+            }
 
 }
 
@@ -111,7 +85,6 @@ void Graphe::dessinerGraphe() const
             }
         }
     }*/
-
 }
 /*
 /// Comparateur de sommet selon leur distance:
@@ -194,9 +167,9 @@ void Graphe::CentraliteDegreNonNorma()
 ///centralité de degré normalisé <=> deg/(ordre-1)
 void Graphe::CentraliteDegreNormalise()
 {
-    int ndeg, ordre, CD;
-    CD=ndeg/(ordre-1);
-    std::cout << "Le sommet choisi à pour Centralité de degré normalisé; CD(s) : " << CD <<std::endl;
+    int ndeg, CD;
+    CD=deg[ndeg]/(m_ordre-1);
+    std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
 }
 
 void Graphe::Vecteur propre()
