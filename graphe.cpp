@@ -13,11 +13,11 @@ Graphe::Graphe(std::string nomFichier)
             if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture orientation du graphe");
             int ordre;
-            ifs >> ordre;
+            ifs >> m_ordre;
             if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture ordre du graphe");
 
-            int num0,num2,num3;
+            /*int num0,num2,num3;
             char let1;
             deg.resize(ordre);
             for (int i=0; i<ordre; ++i){
@@ -30,7 +30,7 @@ Graphe::Graphe(std::string nomFichier)
             ifs >> taille;
             if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture taille du graphe");
-            int num4,num5,num6;
+            /*int num4,num5,num6;
             for (int i=0;i<taille;++i)
             {
                 ifs>>num4>>num5>>num6;
@@ -38,7 +38,7 @@ Graphe::Graphe(std::string nomFichier)
                 throw std::runtime_error("Probleme lecture arc");
                 deg[num5] += 1;
                 deg[num6] += 1;
-            }
+            }*/
 
 
 
@@ -46,7 +46,7 @@ Graphe::Graphe(std::string nomFichier)
 //sommet
     int num;
     std::string nom;
-    int x,y;
+    double x,y;
     for (int i=0; i<m_ordre; ++i)
     {
         ifs >> num >> nom >> x >> y;
@@ -77,7 +77,7 @@ void Graphe::Afficher()
     std::cout <<"ordre: "<< m_ordre <<std::endl<<std::endl;
     for(int i=0; i<m_ordre ; ++i)
     {
-        std::cout << m_sommets[i]->getNum() << ": ";
+        std::cout << m_sommets[i]->getNum() << ": " << m_sommets[i]->getNom();
         m_sommets[i]->afficher();
         std::cout << std::endl;
     }
@@ -92,13 +92,18 @@ void Graphe::Afficher()
 
 }
 
-void Graphe::dessinerGraphe(Svgfile &svgout)
+void Graphe::dessinerGraphe(Svgfile &svgout) const
 {
     for(int i=0; i<m_ordre; ++i)
     {
-        svgout.addCircle(((m_sommets[i]->getCoords).first)*100,((m_sommets[i]->getCoords).second)*100,1,"black");
-        svgout.addText(((m_sommets[i]->getCoords).first)*100,((m_sommets[i]->getCoords).second)*100-10,m_sommets[i]->getNom(),"black");
+        svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
+        //svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
     }
+    /*
+    for(int i=0; i<m_taille; ++i)
+    {
+        svgout.addLine()
+    }*/
 
 }
 /*

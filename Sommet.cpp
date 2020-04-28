@@ -2,7 +2,7 @@
 #include<iostream>
 
 
-Sommet::Sommet(int num, std::string nom, std::pair<int,int> coordonnees)
+Sommet::Sommet(int num, std::string nom, std::pair<double,double> coordonnees)
     : m_num{num} , m_nom{nom} , m_coordonnees{coordonnees}
 {}
 
@@ -16,9 +16,14 @@ std::string Sommet::getNom()
     return m_nom;
 }
 
-std::pair<int,int> Sommet::getCoords()
+double Sommet::getCoords1()
 {
-    return m_coordonnees;
+    return m_coordonnees.first;
+}
+
+double Sommet::getCoords2()
+{
+    return m_coordonnees.second;
 }
 
 void Sommet::afficher()

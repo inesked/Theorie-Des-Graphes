@@ -10,15 +10,16 @@ class Sommet
     private:
         int m_num;
         std::string m_nom;
-        std::pair <int,int> m_coordonnees;
+        std::pair <double,double> m_coordonnees;
 
     public:
 
-        Sommet(int num, std::string nom, std::pair<int,int> coordonnees);
+        Sommet(int num, std::string nom, std::pair<double,double> coordonnees);
         int getNum();
         std::string getNom();
         void afficher();
-        std::pair<int,int> getCoords();
+        double getCoords1();
+        double getCoords2();
 };
 
 
