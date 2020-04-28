@@ -8,10 +8,10 @@
 class Sommet
 {
     private:
-        int m_num;
-        std::string m_nom;
-        std::pair <double,double> m_coordonnees;
-        std::vector<int> m_successeurs;
+        int m_num; //numero du sommet (id nombre)
+        std::string m_nom; //numero du sommet (id lettre)
+        std::pair <double,double> m_coordonnees; //coordonnées du sommet par pair (x,y)
+        std::vector<int> m_successeurs; //vecteur d'entier avec tout les successeurs du sommet
 
     public:
 

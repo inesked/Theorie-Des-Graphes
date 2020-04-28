@@ -5,33 +5,33 @@
 #include <fstream>
 #include <set>
 
-constexpr char defcol[] = "black";
+constexpr char defcol[] = "black"; //couleur de defaut des traits
 
 class Svgfile
 {
 public:
-    Svgfile(std::string _filename = "output.svg", int _width=1000, int _height=800);
+    Svgfile(std::string _filename = "output.svg", int _width=1000, int _height=800); //creation de la file svg
     ~Svgfile();
-
-    void addDisk(double x, double y, double r, std::string color=defcol);
-    void addCircle(double x, double y, double r, double ep, std::string color=defcol);
+//pour chaque forme on a ses coord, sa couleur de remplissage, sa couleur de bordure et son épaisseur
+    void addDisk(double x, double y, double r, std::string color=defcol); //fct pour crer disque
+    void addCircle(double x, double y, double r, double ep, std::string color=defcol); //fct pour crée cercle
     void addTriangle(double x1, double y1, double x2, double y2,
                      double x3, double y3, std::string colorFill,
-                     double thickness, std::string colorStroke);
+                     double thickness, std::string colorStroke);//fct pour creer rectangle
     void addTriangle(double x1, double y1, double x2, double y2,
-                     double x3, double y3, std::string colorFill=defcol);
+                     double x3, double y3, std::string colorFill=defcol); //rectangle avec couleur de défaut indiquée au début
     void addRectangle(double x1, double y1, double x2, double y2,
                       double x3, double y3,double x4, double y4,
-                      std::string colorFill,double thickness, std::string colorStroke);
+                      std::string colorFill,double thickness, std::string colorStroke); //ajout de réctangle
 
-    void addLine(double x1, double y1, double x2, double y2, std::string color=defcol);
-    void addLines(double x1, double y1, double x2, double y2, std::string color=defcol);
-    void addCross(double x, double y, double span, std::string color=defcol);
+    void addLine(double x1, double y1, double x2, double y2, std::string color=defcol); //ajout ligne
+    void addLines(double x1, double y1, double x2, double y2, std::string color=defcol); //ajout lignes
+    void addCross(double x, double y, double span, std::string color=defcol); //ajout croix
 
-    void addText(double x, double y, std::string text, std::string color=defcol);
+    void addText(double x, double y, std::string text, std::string color=defcol); //ajout texte
     void addText(double x, double y, double val, std::string color=defcol);
 
-    void addGrid(double span=100.0, bool numbering=true, std::string color="lightgrey");
+    void addGrid(double span=100.0, bool numbering=true, std::string color="lightgrey"); //grille de fond
 
     static std::string makeRGB(int r, int g, int b);
 
@@ -39,13 +39,13 @@ public:
     Svgfile(const Svgfile&) = delete;
     Svgfile& operator=(const Svgfile&) = delete;
 
-    static bool s_verbose;
+    static bool s_verbose; //couleur
 
 private:
-    std::string m_filename;
+    std::string m_filename; //nom de la file
     std::ofstream m_ostrm;
-    int m_width;
-    int m_height;
+    int m_width; //taille
+    int m_height; //taille
 
     // Pour éviter les ouverture multiples
     static std::set<std::string> s_openfiles;
