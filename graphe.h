@@ -19,6 +19,7 @@ private :
 public:
     Graphe();
     Graphe(std::string nomFichier);
+    //void Dijkstra(int num_s0,num_sf);
     void Afficher();
     void dessinerGraphe() const;
     void CentraliteDegreNonNorma();

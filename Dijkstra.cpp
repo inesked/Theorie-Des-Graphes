@@ -3,7 +3,7 @@
 #include <fstream>
 #include <queue>
 
-void Dijkstra(int num_s0, int num_sf)
+/*void Graphe::Dijkstra(int num_s0, int num_sf)
        {
            std::vector<int> preds((int) m_sommets.size(), -1); /// vecteur de pr�d�cesseurs
            std::vector<int> marquage ((int)m_sommets.size(),0); /// vecteur de marquage
@@ -62,3 +62,4 @@ void Dijkstra(int num_s0, int num_sf)
 
        }
 
+*/
