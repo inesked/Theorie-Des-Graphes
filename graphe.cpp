@@ -92,12 +92,14 @@ void Graphe::Afficher()
 
 }
 
-void Graphe::dessinerGraphe(Svgfile &svgout) const
+void Graphe::dessinerGraphe() const
 {
+    Svgfile svgout;
+    svgout.addGrid();
     for(int i=0; i<m_ordre; ++i)
     {
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
-        //svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
+        svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
     }
     /*
     for(int i=0; i<m_taille; ++i)
