@@ -22,7 +22,7 @@ public:
     void Afficher();
     void dessinerGraphe(Svgfile &svgout);
     void CentraliteDegreNonNorma();
-
+    void CentraliteDegreNormalise()
     //void Dijkstra (int s_initial, int s_final);
 };
 
