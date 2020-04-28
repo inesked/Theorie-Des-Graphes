@@ -4,7 +4,7 @@
 #include <utility>
 #include "Svgfile.h"
 #include "Sommet.h"
-#include <cmath>
+
 
 Graphe::Graphe(std::string nomFichier)
 {
@@ -74,10 +74,19 @@ void Graphe::dessinerGraphe() const
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
         svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
     }
-    for(int i=0; i<m_taille; ++i)
+    /*for(int i=0; i<m_taille; ++i)
     {
-        svgout.addLine((m_sommets[m_arete[i]->getExt1()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt1()]->getCoords2())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords2())*100,"black");
-    }
+        if(m_sommets[i]->getNum() == m_arete[i]->getExt1())
+        {
+            for(int j=0; j<m_taille ;++i)
+            {
+                if(m_sommets[j]->getNum() == m_arete[j]->getExt2())
+                {
+                    svgout.addLines((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,(m_sommets[j]->getCoords1())*100,(m_sommets[j]->getCoords2())*100,"black");
+                }
+            }
+        }
+    }*/
 }
 /*
 /// Comparateur de sommet selon leur distance:
@@ -165,34 +174,25 @@ void Graphe::CentraliteDegreNormalise()
     std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
 }
 
-void Graphe::VecteurPropre()
+void Graphe::Vecteur propre()
 {
-    int s;
     int CVP(s);
+
+
     int deg(s);
     int CD(s);
-    //for (s=0, s<m_ordre, ++s)
+    for (s=0, s<m_ordre, ++s);
     double a();
     double const b(2);
 
-        do
-        {
-//deg(s)=somme CVP des adj
-        int deg(s), sum = 0 ;
-        for(deg = 1 ; deg < nbAdj ; ++deg)
-        sum += CVP(adj) ;
+    int somme;
+    somme = CVP(s)
 
-//a=somme degres de s = somme degrés de ses adjacents OU = somme de CD
-        int a, sum = 0 ;
-        for( a = 0 ; a < nbAdj ; ++a)
-        sum += CD(adj) ;
+    /*
+    deg(s)=somme CVP des adj
+    a=somme degres de s = somme degrés de ses adjacents OU = somme de CD
+    lambda(s)=sqrt(pow(a,b))
+    CVP(s)= deg (s)/lambda
 
- //calcul lambda
-        lambda(s)=sqrt(pow(a,b))
-
-//calcul CVP(s)
-        CVP(s)= deg (s)/lambda
-        }
-
-    while lambda<0,2 //tant que lambda "varie trop" donc <0,2
-}
+    while (lambda<0,2); //tant que lambda "varie trop" donc <0,2
+}*/

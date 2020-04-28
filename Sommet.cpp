@@ -1,10 +1,12 @@
 #include "Sommet.h"
+#include "arete.h"
 #include<iostream>
 
 
 Sommet::Sommet(int num, std::string nom, std::pair<double,double> coordonnees)
     : m_num{num} , m_nom{nom} , m_coordonnees{coordonnees}
 {}
+
 
 int Sommet::getNum()
 {
