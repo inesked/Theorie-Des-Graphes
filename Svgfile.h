@@ -5,24 +5,26 @@
 #include <fstream>
 #include <set>
 
-constexpr char defcol[] = "black"; //couleur de defaut des traits
+///la couleur du tracï¿½ sur le output sera noir
+constexpr char defcol[] = "black";
 
+///classe associï¿½e ï¿½ l'affichage des graphes
 class Svgfile
 {
 public:
     Svgfile(std::string _filename = "output.svg", int _width=1000, int _height=800); //creation de la file svg
     ~Svgfile();
-//pour chaque forme on a ses coord, sa couleur de remplissage, sa couleur de bordure et son épaisseur
+//pour chaque forme on a ses coord, sa couleur de remplissage, sa couleur de bordure et son ï¿½paisseur
     void addDisk(double x, double y, double r, std::string color=defcol); //fct pour crer disque
-    void addCircle(double x, double y, double r, double ep, std::string color=defcol); //fct pour crée cercle
+    void addCircle(double x, double y, double r, double ep, std::string color=defcol); //fct pour crï¿½e cercle
     void addTriangle(double x1, double y1, double x2, double y2,
                      double x3, double y3, std::string colorFill,
                      double thickness, std::string colorStroke);//fct pour creer rectangle
     void addTriangle(double x1, double y1, double x2, double y2,
-                     double x3, double y3, std::string colorFill=defcol); //rectangle avec couleur de défaut indiquée au début
+                     double x3, double y3, std::string colorFill=defcol); //rectangle avec couleur de dï¿½faut indiquï¿½e au dï¿½but
     void addRectangle(double x1, double y1, double x2, double y2,
                       double x3, double y3,double x4, double y4,
-                      std::string colorFill,double thickness, std::string colorStroke); //ajout de réctangle
+                      std::string colorFill,double thickness, std::string colorStroke); //ajout de rï¿½ctangle
 
     void addLine(double x1, double y1, double x2, double y2, std::string color=defcol); //ajout ligne
     void addLines(double x1, double y1, double x2, double y2, std::string color=defcol); //ajout lignes
@@ -47,7 +49,7 @@ private:
     int m_width; //taille
     int m_height; //taille
 
-    // Pour éviter les ouverture multiples
+    // Pour ï¿½viter les ouverture multiples
     static std::set<std::string> s_openfiles;
 };
 

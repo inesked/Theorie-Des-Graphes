@@ -5,16 +5,16 @@
 #include <iostream>
 #include "Sommet.h"
 #include "arete.h"
-//inès
+//inï¿½s
 class Graphe
 {
 private :
-    int m_orientation; //orientée ou non si = 1 oui si =0 non, en fonction du txt
-    int m_ordre; // nombre de sommet indiqué dans le txt
-    int m_taille; //nombre d'aretes indiqués dans le txt
+    int m_orientation; //orientï¿½e ou non si = 1 oui si =0 non, en fonction du txt
+    int m_ordre; // nombre de sommet indiquï¿½ dans le txt
+    int m_taille; //nombre d'aretes indiquï¿½s dans le txt
     std::vector <Sommet*> m_sommets; //vect avec les sommets
     std::vector <Arete*> m_arete; //vect avec les aretes
-    std::vector <int> deg; //vect avec les degrés
+    std::vector <int> deg; //vect avec les degrï¿½s
 
 public:
     Graphe();
@@ -22,10 +22,10 @@ public:
     //void Dijkstra(int num_s0,num_sf);
     void Afficher(); //appel de la fonction afficher
     void dessinerGraphe() const; //appel void dessiner graphe comme une constante
-    void CentraliteDegreNonNorma(); //premier algo centralité de degré non normalisé
-    void CentraliteDegreNormalise(); //premier algo centralité de degré normalisé
-    void VecteurPropre(); //deuxieme algo vecteur propre normalisé
-    void VecteurPropreNonN(); //deuxieme algo non normalisé
+    void CentraliteDegreNonNorma(); //premier algo centralitï¿½ de degrï¿½ non normalisï¿½
+    void CentraliteDegreNormalise(); //premier algo centralitï¿½ de degrï¿½ normalisï¿½
+    void VecteurPropre(); //deuxieme algo vecteur propre normalisï¿½
+    void VecteurPropreNonN(); //deuxieme algo non normalisï¿½
     //void Dijkstra (int s_initial, int s_final);
 };
 

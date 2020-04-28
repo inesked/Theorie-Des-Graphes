@@ -4,7 +4,7 @@
 #include <queue>
 #include "Sommet.h"
 #include <iostream>
-//inès
+//inï¿½s
 class Arete
 {
 private:
@@ -16,7 +16,7 @@ public:
     Arete(int indice, std::pair<int,int> extremites); //constructeur de la paire
     ~Arete();// destructeur de la paire
     int getId(); //initialisation de l'iD
-    int getExt1(); //initialisation de la premiere extremitée
+    int getExt1(); //initialisation de la premiere extremitï¿½e
     int getExt2(); //affichage
     void afficher(); //affichage
 
