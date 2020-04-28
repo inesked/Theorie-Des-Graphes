@@ -199,4 +199,24 @@ void Graphe::CentraliteDegreNormalise()
     std::cout << "Le sommet choisi à pour Centralité de degré normalisé; CD(s) : " << CD <<std::endl;
 }
 
+void Graphe::Vecteur propre()
+{
+    int CVP(s)
+    int deg(s);
+    int CD(s);
+    for (s=0, s<m_ordre, ++s);
+    double a();
+    double const b(2);
 
+    int somme;
+    somme = CVP(s)
+
+    /*
+    deg(s)=somme CVP des adj
+    a=somme degres de s = somme degrés de ses adjacents OU = somme de CD
+    lambda(s)=sqrt(pow(a,b))
+    CVP(s)= deg (s)/lambda
+
+    while lambda<0,2
+    */
+}
