@@ -10,13 +10,14 @@ class Arete
 private:
     int m_poids;
     int m_indice;
-    std::vector<int> m_extremites; ///creer une paire de sommets
+    std::pair<int,int> m_extremites; ///creer une paire de sommets
 
 public:
-    Arete(int indice, std::vector<int> extremites); ///constructeur
+    Arete(int indice, std::pair<int,int> extremites); ///constructeur
     ~Arete();///destructeur
     int getId();
-    std::vector<int> getExt();
+    int getExt1();
+    int getExt2();
     void afficher();
 
 };
