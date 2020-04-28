@@ -72,7 +72,7 @@ void Graphe::Afficher() //affichage du txt
 
 
 
-void Graphe::dessinerGraphe() const
+void Graphe::dessinerGraphe() const //dessin graphe avec le svg, voir commentaire svgfile
 {
     Svgfile svgout;
     svgout.addGrid();
@@ -124,7 +124,8 @@ void Graphe::CentraliteDegreNormalise()
 
 
 
-///centralité de vecteur propre normalisé
+///centralité de vecteur propre non-normalisé
+
 void Graphe::VecteurPropre()
 {
     float lambda;
@@ -134,7 +135,7 @@ void Graphe::VecteurPropre()
     std::cin >> s;
     std::vector<float> CVp;
     std::vector<float> deg;
-    for(int i=0; i< m_ordre ; ++i)
+    for(int i=0; i< m_ordre ; ++i) //crée deux vecteurs, un pour CVP et un pour les degrés, on les initialise à 1 et 0
     {
         CVp.push_back(1);
         deg.push_back(0);
@@ -145,10 +146,10 @@ void Graphe::VecteurPropre()
         {
             for(int j=0; j< m_arete.size(); ++j)
             {
-                if(m_arete[j]->getExt1() == m_sommets[i]->getNum())
+                if(m_arete[j]->getExt1() == m_sommets[i]->getNum()) //on attribue à larete la valeure d'une extremitée et au sommet son num
                 {
                     int successeurs = m_arete[j]->getExt1();
-                    deg[i]=deg[i]+CVp[successeurs];
+                    deg[i]=deg[i]+CVp[successeurs]; //le degré du sommet etudié est son degré initial + le CVP de ses succeceurs
                     //deg[i]=deg[i]+deg[successeurs];
                 }
                 if(m_arete[j]->getExt2() == m_sommets[i]->getNum())
@@ -162,15 +163,15 @@ void Graphe::VecteurPropre()
         }
         for(int k=0; k<deg.size(); ++k)
         {
-            temp = temp + pow(deg[k],2);
+            temp = temp + pow(deg[k],2); //création d'une valeure tampon pour faciliter le calcul, tampon ! degré au carré
         }
-        lambda = sqrt(temp);
+        lambda = sqrt(temp); //lambda = racine carrée de cette vlaure tampon
         for(int i=0; i<m_ordre; ++i)
         {
-            CVp[i] = deg[i]/lambda;
+            CVp[i] = deg[i]/lambda; // pour finir calcul de CVP = degré/lambda
         }
     }
-    while(lambda<0.2);
+    while(lambda<0.2); //des qu elambda ne varie plus trop donc lambda <0,2 on arete la boucle et on sort le CVp étudié
     std::cout << "voici le vecteur propre normalisé du sommet " << s << ": "<< CVp[s];
 }
 
@@ -178,7 +179,11 @@ void Graphe::VecteurPropre()
 
 
 
-///centralité de vecteur propre non-normalisé
+///centralité de vecteur propre normalisé
+/* pour ce sous programe les commentaires sont identiques aux précedents,
+la seule difference est que le degré utilisé ici est la centralité de degré normalisé,
+pour étudier le vecteur propre NORMALISE
+*/
 void Graphe::VecteurPropreNonN()
 {
 

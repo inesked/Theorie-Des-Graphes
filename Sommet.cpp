@@ -8,27 +8,27 @@ Sommet::Sommet(int num, std::string nom, std::pair<double,double> coordonnees)
 {}
 
 
-int Sommet::getNum()
+int Sommet::getNum() //id numero du sommet
 {
     return m_num;
 }
 
-std::string Sommet::getNom()
+std::string Sommet::getNom() //id lettre du sommet
 {
     return m_nom;
 }
 
-double Sommet::getCoords1()
+double Sommet::getCoords1() //coord x du sommet
 {
     return m_coordonnees.first;
 }
 
-double Sommet::getCoords2()
+double Sommet::getCoords2() //coord y du sommet
 {
     return m_coordonnees.second;
 }
 
-void Sommet::afficher()
+void Sommet::afficher() //fct afficher x" "y
 {
     std::cout << m_coordonnees.first << " " << m_coordonnees.second;
 }

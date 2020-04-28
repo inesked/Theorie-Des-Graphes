@@ -10,7 +10,7 @@
 int main()
 {
     int num_s0,num_sf;
-    Graphe graphe1("graphe_cycle4_topo.txt");
+    Graphe graphe1("graphe_cycle4_topo.txt"); //fichier txt étudié
     graphe1.dessinerGraphe();
     /*int s_initial;//numÈro du sommet initial
     std::cout<<"Saisir identifiant du sommet de depart"<<std::endl;
@@ -20,12 +20,13 @@ int main()
     std::cout<<"Saisir identifiant du sommet d'arrivee"<<std::endl;
     std::cin >> s_final;*/
 
-    graphe1.Afficher();
+    graphe1.Afficher(); //fonction afficher
      //affiche le graphe avec la liste des sommets adjacents
-    graphe1.CentraliteDegreNonNorma();
-    graphe1.CentraliteDegreNormalise();
-    graphe1.VecteurPropre();
-    graphe1.Dijkstra(num_s0,num_sf);
+    graphe1.CentraliteDegreNonNorma(); //fonction du premier algo non normalisé : "centralité de degré non normalisée"
+    graphe1.CentraliteDegreNormalise(); //fonction du premier algo normalisé : "centralité de degré normalisée"
+    graphe1.VecteurPropre(); //fonction du dexieme algo normalisé : "centralité de vecteur propre normalisé"
+    graphe1.VecteurPropreNonN(); //fonction du dexieme algo non normalisé : "centralité de vecteur propre non normalisé"
+    graphe1.Dijkstra(num_s0,num_sf); //dijkstra utile aux deux derniers algo
     //graphe1.VecteurPropre();
 
     /*std::cout<<"Algorithme de Dijstra"<<std::endl;
