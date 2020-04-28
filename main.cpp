@@ -23,6 +23,8 @@ int main()
      //affiche le graphe avec la liste des sommets adjacents
     graphe1.CentraliteDegreNonNorma();
     graphe1.CentraliteDegreNormalise();
+    graphe1.VecteurPropre();
+
     /*std::cout<<"Algorithme de Dijstra"<<std::endl;
     graphe1.CentraliteDegreNormalise();
 /*

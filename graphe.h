@@ -23,6 +23,7 @@ public:
     void dessinerGraphe() const;
     void CentraliteDegreNonNorma();
     void CentraliteDegreNormalise();
+    void VecteurPropre();
     //void Dijkstra (int s_initial, int s_final);
 };
 
