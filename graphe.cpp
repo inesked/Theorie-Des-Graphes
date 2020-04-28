@@ -72,19 +72,10 @@ void Graphe::dessinerGraphe() const
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
         svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
     }
-    /*for(int i=0; i<m_taille; ++i)
+    for(int i=0; i<m_taille; ++i)
     {
-        if(m_sommets[i]->getNum() == m_arete[i]->getExt1())
-        {
-            for(int j=0; j<m_taille ;++i)
-            {
-                if(m_sommets[j]->getNum() == m_arete[j]->getExt2())
-                {
-                    svgout.addLines((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,(m_sommets[j]->getCoords1())*100,(m_sommets[j]->getCoords2())*100,"black");
-                }
-            }
-        }
-    }*/
+        svgout.addLine((m_sommets[m_arete[i]->getExt1()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt1()]->getCoords2())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords2())*100,"black");
+    }
 }
 /*
 /// Comparateur de sommet selon leur distance:
@@ -167,9 +158,9 @@ void Graphe::CentraliteDegreNonNorma()
 ///centralité de degré normalisé <=> deg/(ordre-1)
 void Graphe::CentraliteDegreNormalise()
 {
-    int ndeg, ordre, CD;
-    CD=ndeg/(ordre-1);
-    std::cout << "Le sommet choisi à pour Centralité de degré normalisé; CD(s) : " << CD <<std::endl;
+    int ndeg, CD;
+    CD=deg[ndeg]/(m_ordre-1);
+    std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
 }
 
 
