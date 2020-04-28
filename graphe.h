@@ -25,6 +25,7 @@ public:
     void CentraliteDegreNonNorma();
     void CentraliteDegreNormalise();
     void VecteurPropre();
+    void VecteurPropreNonN();
     //void Dijkstra (int s_initial, int s_final);
 };
 

@@ -25,6 +25,7 @@ int main()
     graphe1.CentraliteDegreNormalise();
     graphe1.VecteurPropre();
     //graphe1.VecteurPropre();
+    graphe1.VecteurPropreNonN();
 
     /*std::cout<<"Algorithme de Dijstra"<<std::endl;
     graphe1.CentraliteDegreNormalise();
