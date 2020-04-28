@@ -19,13 +19,13 @@ private :
 public:
     Graphe();
     Graphe(std::string nomFichier);
-    //void Dijkstra(int num_s0,num_sf);
+    void Dijkstra(int num_s0,int num_sf);
     void Afficher();
     void dessinerGraphe() const;
     void CentraliteDegreNonNorma();
     void CentraliteDegreNormalise();
     void VecteurPropre();
-    void VecteurPropreNonN();
+    void GrapheCharger(std:: string nomFichier);
     //void Dijkstra (int s_initial, int s_final);
 };
 

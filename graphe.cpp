@@ -44,13 +44,13 @@ Graphe::Graphe(std::string nomFichier)
 
 }
 
-void GrapheCharger(std::string nomFichier)
+void Graphe::GrapheCharger(std::string nomFichier)
 {
     std::ifstream ifs{nomFichier};
     int taille;
     int poids;
     ifs >> taille;
-    for(int i=0, i<taille.size())
+    for(int i=0; i<taille.size(); ++i)
     {
         ifs >> poids;
         m_arete[i]->getPoids() = poids;

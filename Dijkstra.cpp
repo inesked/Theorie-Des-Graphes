@@ -23,13 +23,13 @@
            {
                paire = Queue.top(); /// on place la paire en d�but de queue
                Queue.pop(); /// puis on la traite directement donc on l'enl�ve
-               while((!Queue.empty())&&(marquage[paire.first->getNum()])) /// on r�p�te l'op�ration tant que le sommet est marqu�
+               while((!Queue.empty())&&(marquage[paire.first->getId()])) /// on r�p�te l'op�ration tant que le sommet est marqu�
                {
                   paire = Queue.top();
                   Queue.pop();
                }
                 /// on marque ensuite le sommet non marqu�
-               marquage[(paire.first)->getNum()] = 1;
+               marquage[(paire.first)->getId()] = 1;
                 /// on acc�de aux successeurs de la pair
                for(auto paire_successeurs: (paire.first)->getExt())
                {
@@ -37,9 +37,9 @@
                    {
                       if((distance[paire_successeurs.first->getNum()]== -1)||(paire.second + paire_successeurs.second < distance[paire_successeurs.first->getNum()])) /// comparaison de distance afin d'avoir la plus courte distance
                       {
-                          distance[paire_successeurs.first->getNum()] = paire.second + paire_successeurs.second; /// on attribue � la distance g�n�rale la distance actuelle + la distance de son pr�d�cesseurs
-                          preds[paire_successeurs.first->getNum()] = paire.first->getNum(); /// on attribue le sommet en question au vector de pr�d�cesseurs
-                          Queue.push(std::make_pair((paire_successeurs.first),distance[paire_successeurs.first->getNum()])); /// on mets ensuite le sommet puis la distance enregistr� dnas la queue
+                          distance[paire_successeurs.first->getId()] = paire.second + paire_successeurs.second; /// on attribue � la distance g�n�rale la distance actuelle + la distance de son pr�d�cesseurs
+                          preds[paire_successeurs.first->getId()] = paire.first->getId(); /// on attribue le sommet en question au vector de pr�d�cesseurs
+                          Queue.push(std::make_pair((paire_successeurs.first),distance[paire_successeurs.first->getId()])); /// on mets ensuite le sommet puis la distance enregistr� dnas la queue
                       }
                    }
                }
