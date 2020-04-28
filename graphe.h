@@ -9,11 +9,11 @@
 class Graphe
 {
 private :
-    int m_orientation; //1 element du fichier
-    int m_ordre;
-    int m_taille; //2e element du fichier
-    std::vector <Sommet*> m_sommets; //1er liste du fichier aretes
-    std::vector <Arete*> m_arete;
+    int m_orientation; //oui non
+    int m_ordre; // nb sommet
+    int m_taille; //nb aretes
+    std::vector <Sommet*> m_sommets; //vect avec les sommets
+    std::vector <Arete*> m_arete; //vect avec les aretes
     std::vector <int> deg;
 
 public:

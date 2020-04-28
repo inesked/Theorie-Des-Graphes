@@ -178,4 +178,13 @@ void Graphe::CentraliteDegreNonNorma()
     std::cin >> ndeg;
     std::cout << "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
 }
+/*
+///centralité de degré normalisé <=> deg/(ordre-1)
+void Graphe::CentraliteDegreNormalise()
+{
+    int const ndeg, ordre; CD(1);
+    CD=ndeg/(ordre-1)
+    std::cout << "Le sommet choisi à pour Centralité de degré normalisé; CD(s) : " << CD <<std::endl;
+}
+*/
 
