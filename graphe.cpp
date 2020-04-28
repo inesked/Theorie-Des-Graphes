@@ -62,11 +62,8 @@ Graphe::Graphe(std::string nomFichier)
     int id,numero1,numero2;
     for(int i = 0; i<m_taille; ++i)
     {
-        std::vector<int> extremites;
         ifs >> id >> numero1 >> numero2;// a modifier si orientation
-        extremites.push_back(numero1);
-        extremites.push_back(numero2);
-        m_arete.push_back(new Arete{id,extremites});
+        m_arete.push_back(new Arete{id,std::make_pair(numero1,numero2)});
     }
 
 }
@@ -101,10 +98,18 @@ void Graphe::dessinerGraphe() const
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
         svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
     }
-    /*
-    for(int i=0; i<m_taille; ++i)
+    /*for(int i=0; i<m_taille; ++i)
     {
-        svgout.addLine()
+        if(m_sommets[i]->getNum() == m_arete[i]->getExt1())
+        {
+            for(int j=0; j<m_taille ;++i)
+            {
+                if(m_sommets[j]->getNum() == m_arete[j]->getExt2())
+                {
+                    svgout.addLines((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,(m_sommets[j]->getCoords1())*100,(m_sommets[j]->getCoords2())*100,"black");
+                }
+            }
+        }
     }*/
 
 }

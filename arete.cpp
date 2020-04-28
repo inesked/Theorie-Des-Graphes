@@ -1,6 +1,6 @@
 #include "arete.h"
 
-Arete::Arete(int indice, std::vector<int> extremites)
+Arete::Arete(int indice, std::pair<int,int> extremites)
     : m_indice{indice}, m_extremites{extremites}
 {}
 
@@ -9,14 +9,18 @@ int Arete::getId()
     return m_indice;
 }
 
-std::vector<int> Arete::getExt()
+int Arete::getExt1()
 {
-    return m_extremites;
+    return m_extremites.first;
+}
+
+int Arete::getExt2()
+{
+    return m_extremites.second;
 }
 
 void Arete::afficher()
 {
-    for(int i=0; i<m_extremites.size(); ++i)
-        std::cout << m_extremites[i] << " ";
+        std::cout << m_extremites.first << " " << m_extremites.second;
 }
 
