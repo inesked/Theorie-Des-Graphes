@@ -11,7 +11,7 @@ class Sommet
         int m_num;
         std::string m_nom;
         std::pair <double,double> m_coordonnees;
-        //std::vector<const Sommet*> m_successeurs;
+        std::vector<int> m_successeurs;
 
     public:
 

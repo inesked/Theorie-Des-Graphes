@@ -165,10 +165,11 @@ void Graphe::CentraliteDegreNormalise()
     std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
 }
 
-void Graphe::VecteurPropre()
+/*void Graphe::VecteurPropre()
 {
     int s;
-    int CVP(s);
+    int CVPs;
+    std::vector CVPadj;
     int deg(s);
     int CD(s);
     //for (s=0, s<m_ordre, ++s)
@@ -194,5 +195,5 @@ void Graphe::VecteurPropre()
         CVP(s)= deg (s)/lambda
         }
 
-    while lambda<0,2 //tant que lambda "varie trop" donc <0,2
-}
+    while (lambda<0,2); //tant que lambda "varie trop" donc <0,2
+}*/

@@ -9,7 +9,7 @@
 
 int main()
 {
-    Graphe graphe1("graphe_etoile1_topo.txt");
+    Graphe graphe1("graphe_cycle4_topo.txt");
     graphe1.dessinerGraphe();
     /*int s_initial;//num»ro du sommet initial
     std::cout<<"Saisir identifiant du sommet de depart"<<std::endl;
@@ -23,7 +23,7 @@ int main()
      //affiche le graphe avec la liste des sommets adjacents
     graphe1.CentraliteDegreNonNorma();
     graphe1.CentraliteDegreNormalise();
-    graphe1.VecteurPropre();
+    //graphe1.VecteurPropre();
 
     /*std::cout<<"Algorithme de Dijstra"<<std::endl;
     graphe1.CentraliteDegreNormalise();
