@@ -194,7 +194,5 @@ void Graphe::Vecteur propre()
     lambda(s)=sqrt(pow(a,b))
     CVP(s)= deg (s)/lambda
 
-    while lambda<0,2
-    */
-}
-
+    while (lambda<0,2); //tant que lambda "varie trop" donc <0,2
+}*/
