@@ -9,6 +9,7 @@
 
 int main()
 {
+    int num_s0,num_sf;
     Graphe graphe1("graphe_cycle4_topo.txt");
     graphe1.dessinerGraphe();
     /*int s_initial;//num»ro du sommet initial
@@ -24,8 +25,8 @@ int main()
     graphe1.CentraliteDegreNonNorma();
     graphe1.CentraliteDegreNormalise();
     graphe1.VecteurPropre();
+    graphe1.Dijkstra(num_s0,num_sf);
     //graphe1.VecteurPropre();
-    graphe1.VecteurPropreNonN();
 
     /*std::cout<<"Algorithme de Dijstra"<<std::endl;
     graphe1.CentraliteDegreNormalise();

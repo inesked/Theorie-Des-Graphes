@@ -44,6 +44,20 @@ Graphe::Graphe(std::string nomFichier)
 
 }
 
+void GrapheCharger(std::string nomFichier)
+{
+    std::ifstream ifs{nomFichier};
+    int taille;
+    int poids;
+    ifs >> taille;
+    for(int i=0, i<taille.size())
+    {
+        ifs >> poids;
+        m_arete[i]->getPoids() = poids;
+    }
+
+}
+
 void Graphe::Afficher()
 {
     std::cout <<"orientation: "<< m_orientation <<std::endl;
@@ -74,19 +88,10 @@ void Graphe::dessinerGraphe() const
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
         svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
     }
-    /*for(int i=0; i<m_taille; ++i)
+    for(int i=0; i<m_taille; ++i)
     {
-        if(m_sommets[i]->getNum() == m_arete[i]->getExt1())
-        {
-            for(int j=0; j<m_taille ;++i)
-            {
-                if(m_sommets[j]->getNum() == m_arete[j]->getExt2())
-                {
-                    svgout.addLines((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,(m_sommets[j]->getCoords1())*100,(m_sommets[j]->getCoords2())*100,"black");
-                }
-            }
-        }
-    }*/
+        svgout.addLine((m_sommets[m_arete[i]->getExt1()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt1()]->getCoords2())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords2())*100,"black");
+    }
 }
 
 ///centralité de degré pour non normalisé <=> dégré du sommet
@@ -106,7 +111,6 @@ void Graphe::CentraliteDegreNormalise()
     std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
 }
 
-///centralité de vecteur propre normalisé
 void Graphe::VecteurPropre()
 {
     float lambda;
@@ -131,13 +135,11 @@ void Graphe::VecteurPropre()
                 {
                     int successeurs = m_arete[j]->getExt1();
                     deg[i]=deg[i]+CVp[successeurs];
-                    //deg[i]=deg[i]+deg[successeurs];
                 }
                 if(m_arete[j]->getExt2() == m_sommets[i]->getNum())
                 {
                     int successeurs = m_arete[j]->getExt2();
                     deg[i]=deg[i]+CVp[successeurs];
-                    //deg[i]=deg[i]+deg[successeurs];
                 }
 
             }
@@ -153,60 +155,5 @@ void Graphe::VecteurPropre()
         }
     }
     while(lambda<0.2);
-    std::cout << "voici le vecteur propre normalisé du sommet " << s << ": "<< CVp[s];
+    std::cout << "voici le vecteur propre du sommet " << s << ": "<< CVp[s];
 }
-
-///centralité de vecteur propre non-normalisé
-void Graphe::VecteurPropreNonN()
-{
-
-    //CD=deg[ndeg]/(m_ordre-1);
-    float lambda;
-    float temp;
-    int s;
-    std::cout << "Rentrer le sommet voulu" << std::endl;
-    std::cin >> s;
-    std::vector<float> CVp;
-    std::vector<float> CD;
-    for(int i=0; i< m_ordre ; ++i)
-    {
-        CVp.push_back(1);
-        CD.push_back(0);
-    }
-    do
-    {
-        for(int i= 0; i< m_ordre; ++i)
-        {
-            for(int j=0; j< m_arete.size(); ++j)
-            {
-                if(m_arete[j]->getExt1() == m_sommets[i]->getNum())
-                {
-                    int successeurs = m_arete[j]->getExt1();
-                    CD[i]=CD[i]+CVp[successeurs];
-                    //deg[i]=deg[i]+deg[successeurs];
-                }
-                if(m_arete[j]->getExt2() == m_sommets[i]->getNum())
-                {
-                    int successeurs = m_arete[j]->getExt2();
-                    CD[i]=CD[i]+CVp[successeurs];
-                    //deg[i]=deg[i]+deg[successeurs];
-                }
-
-            }
-        }
-        for(int k=0; k<deg.size(); ++k)
-        {
-            temp = temp + pow(CD[k],2);
-
-        }
-        lambda = sqrt(temp);
-        for(int i=0; i<m_ordre; ++i)
-        {
-            CVp[i] = CD[i]/lambda;
-        }
-    }
-    while(lambda<0.2);
-    std::cout << "voici le vecteur propre non-normalisé du sommet " << s << ": "<< CVp[s];
-}
-
-

@@ -9,6 +9,11 @@ int Arete::getId()
     return m_indice;
 }
 
+std::pair<int,int> Arete::getExt()
+{
+   return m_extremites;
+}
+
 int Arete::getExt1()
 {
     return m_extremites.first;
@@ -17,6 +22,11 @@ int Arete::getExt1()
 int Arete::getExt2()
 {
     return m_extremites.second;
+}
+
+int Arete::getPoids()
+{
+    return m_poids;
 }
 
 void Arete::afficher()

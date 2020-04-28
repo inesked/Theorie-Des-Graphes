@@ -18,6 +18,8 @@ public:
     int getId();
     int getExt1();
     int getExt2();
+    int getPoids();
+    std::pair<int,int> getExt();
     void afficher();
 
 };
