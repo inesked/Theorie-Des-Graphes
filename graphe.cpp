@@ -4,6 +4,7 @@
 #include <utility>
 #include "Svgfile.h"
 #include "Sommet.h"
+#include <cmath>
 
 
 Graphe::Graphe(std::string nomFichier)
