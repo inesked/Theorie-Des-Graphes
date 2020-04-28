@@ -4,7 +4,7 @@
 #include <utility>
 #include "Svgfile.h"
 #include "Sommet.h"
-
+#include <cmath>
 
 Graphe::Graphe(std::string nomFichier)
 {
@@ -106,6 +106,7 @@ void Graphe::CentraliteDegreNormalise()
     std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
 }
 
+///centralité de vecteur propre normalisé
 void Graphe::VecteurPropre()
 {
     float lambda;
@@ -152,6 +153,60 @@ void Graphe::VecteurPropre()
         }
     }
     while(lambda<0.2);
-    std::cout << "voici le vecteur propre du sommet " << s << ": "<< CVp[s];
+    std::cout << "voici le vecteur propre normalisé du sommet " << s << ": "<< CVp[s];
 }
+
+///centralité de vecteur propre non-normalisé
+void Graphe::VecteurPropreNonN()
+{
+
+    //CD=deg[ndeg]/(m_ordre-1);
+    float lambda;
+    float temp;
+    int s;
+    std::cout << "Rentrer le sommet voulu" << std::endl;
+    std::cin >> s;
+    std::vector<float> CVp;
+    std::vector<float> CD;
+    for(int i=0; i< m_ordre ; ++i)
+    {
+        CVp.push_back(1);
+        CD.push_back(0);
+    }
+    do
+    {
+        for(int i= 0; i< m_ordre; ++i)
+        {
+            for(int j=0; j< m_arete.size(); ++j)
+            {
+                if(m_arete[j]->getExt1() == m_sommets[i]->getNum())
+                {
+                    int successeurs = m_arete[j]->getExt1();
+                    CD[i]=CD[i]+CVp[successeurs];
+                    //deg[i]=deg[i]+deg[successeurs];
+                }
+                if(m_arete[j]->getExt2() == m_sommets[i]->getNum())
+                {
+                    int successeurs = m_arete[j]->getExt2();
+                    CD[i]=CD[i]+CVp[successeurs];
+                    //deg[i]=deg[i]+deg[successeurs];
+                }
+
+            }
+        }
+        for(int k=0; k<deg.size(); ++k)
+        {
+            temp = temp + pow(CD[k],2);
+
+        }
+        lambda = sqrt(temp);
+        for(int i=0; i<m_ordre; ++i)
+        {
+            CVp[i] = CD[i]/lambda;
+        }
+    }
+    while(lambda<0.2);
+    std::cout << "voici le vecteur propre non-normalisé du sommet " << s << ": "<< CVp[s];
+}
+
 
