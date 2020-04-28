@@ -5,18 +5,20 @@
 #include <list>
 #include <vector>
 
+///création de la classe Sommet
 class Sommet
 {
     private:
-        int m_num;
-        std::string m_nom;
-        std::pair <double,double> m_coordonnees;
-        std::vector<int> m_successeurs;
+        ///données qui correspondent au sommet dans la lecture de fichier
+        int m_num;///identifiant associé au sommet
+        std::string m_nom;///nom associé au sommet
+        std::pair <double,double> m_coordonnees;///coordonnees associées au sommet
+        std::vector<int> m_successeurs;///vecteur des successeurs (utile pour Dijkstra entre autre
 
     public:
 
-        Sommet(int num, std::string nom, std::pair<double,double> coordonnees);
-        int getNum();
+        Sommet(int num, std::string nom, std::pair<double,double> coordonnees);///constructeur
+        int getNum();///getteur
 
     /*    //accesseur : pour la liste des successeurs
         const std::vector<const Sommet*>& getSuccesseurs()const {return m_successeurs;}

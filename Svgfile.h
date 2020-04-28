@@ -5,8 +5,10 @@
 #include <fstream>
 #include <set>
 
+///la couleur du tracé sur le output sera noir
 constexpr char defcol[] = "black";
 
+///classe associée à l'affichage des graphes
 class Svgfile
 {
 public:
