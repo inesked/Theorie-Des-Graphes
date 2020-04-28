@@ -11,25 +11,25 @@ class Sommet
         int m_num;
         std::string m_nom;
         std::pair <double,double> m_coordonnees;
-        std::vector<const Sommet*> m_successeurs;
+        //std::vector<const Sommet*> m_successeurs;
 
     public:
 
         Sommet(int num, std::string nom, std::pair<double,double> coordonnees);
         int getNum();
 
-        ///accesseur : pour la liste des successeurs
+    /*    //accesseur : pour la liste des successeurs
         const std::vector<const Sommet*>& getSuccesseurs()const {return m_successeurs;}
-        /* pour ajouter un successeur ‡ la liste*/
+        //pour ajouter un successeur ‡ la liste
         void ajouterSucc(const Sommet*s){
             m_successeurs.push_back(s);
         }
-        /* mÈthode d'affichage*/
+        //mèthode d'affichage
         void afficher() const{
             std::cout<<"     sommet "<<m_num<<" : ";
             for (auto s : m_successeurs) std::cout<<s->getNum()<<" ";
         }
-
+*/
 
         std::string getNom();
         void afficher();

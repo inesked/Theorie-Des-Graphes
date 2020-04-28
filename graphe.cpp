@@ -3,6 +3,7 @@
 #include <iostream>
 #include <utility>
 #include "Svgfile.h"
+#include "Sommet.h"
 
 Graphe::Graphe(std::string nomFichier)
 {
@@ -172,24 +173,34 @@ void Graphe::CentraliteDegreNormalise()
     std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
 }
 
-void Graphe::Vecteur propre()
+void Graphe::VecteurPropre()
 {
-    int CVP(s)
+    int s;
+    int CVP(s);
     int deg(s);
     int CD(s);
-    for (s=0, s<m_ordre, ++s);
+    //for (s=0, s<m_ordre, ++s)
     double a();
     double const b(2);
 
-    int somme;
-    somme = CVP(s)
+        do
+        {
+//deg(s)=somme CVP des adj
+        int deg(s), sum = 0 ;
+        for(deg = 1 ; deg < nbAdj ; ++deg)
+        sum += CVP(adj) ;
 
-    /*
-    deg(s)=somme CVP des adj
-    a=somme degres de s = somme degrés de ses adjacents OU = somme de CD
-    lambda(s)=sqrt(pow(a,b))
-    CVP(s)= deg (s)/lambda
+//a=somme degres de s = somme degrés de ses adjacents OU = somme de CD
+        int a, sum = 0 ;
+        for( a = 0 ; a < nbAdj ; ++a)
+        sum += CD(adj) ;
 
-    while lambda<0,2
-    */
+ //calcul lambda
+        lambda(s)=sqrt(pow(a,b))
+
+//calcul CVP(s)
+        CVP(s)= deg (s)/lambda
+        }
+
+    while lambda<0,2 //tant que lambda "varie trop" donc <0,2
 }
