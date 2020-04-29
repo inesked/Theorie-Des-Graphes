@@ -25,6 +25,7 @@ class Sommet
         void afficherFichier();
         double getCoords1();
         double getCoords2();
+        int getSuccSize();
         void ajouterSucc(std::pair<Sommet*,int> successeurs);
         std::vector<std::pair<Sommet*,int>> getSucc();
         void afficherSucc();

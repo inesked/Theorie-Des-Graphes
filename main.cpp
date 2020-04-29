@@ -32,7 +32,7 @@ int main()
     graphe1.CentraliteProxNonN();
     graphe1.CentraliteProxN();
 
-
+    graphe1.AfficherFichier();
 /*
 
 /*    ///menu du programme final

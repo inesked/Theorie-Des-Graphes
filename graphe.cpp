@@ -4,8 +4,9 @@
 #include <utility>
 #include "Svgfile.h"
 #include "Sommet.h"
+#include "arete.h"
 #include <cmath>
-//inès
+#include <vector>
 Graphe::Graphe(std::string nomFichier) //lecture de fichier
 {
     fichier.open("resultat.txt");
@@ -56,7 +57,8 @@ void Graphe::AfficherFichier()
     fichier << "************************************" << std::endl;
     for (int i=0 ; i<m_sommets.size() ; ++i)
     {
-        fichier<<m_sommets[i]->getCoords1();
+        fichier<<m_sommets[i]->getCoords1()<<std::endl;
+
     }
 }
 
@@ -97,7 +99,8 @@ void Graphe::Afficher() //affichage du txt
         std::cout << std::endl;///affichage dans la console
 
         fichier << m_sommets[i]->getNum() << ": " << m_sommets[i]->getNom() <<" ";
-        m_sommets[i]->afficher();
+        fichier << m_sommets[i]->getCoords1()<<" ";
+        fichier << m_sommets[i]->getCoords2()<<" ";
         fichier << std::endl;///affichage dans le txt
     }
     std::cout <<"taille: "<<m_taille << std::endl; //affichage de la taille du graphe dans la console
@@ -109,8 +112,9 @@ void Graphe::Afficher() //affichage du txt
         m_arete[i]->afficher();
         std::cout << std::endl;///affichage dans la console
 
-        /*fichier << m_arete[i]->getId() << ": ";
-        m_arete[i]->afficher();
+        fichier << m_arete[i]->getId() << ": ";
+        fichier << m_arete[i]->getExt1()<<" ";
+        fichier << m_arete[i]->getExt2()<<" ";
         fichier << std::endl<<std::endl;///affichage de le txt*/
     }
     std::cout<<std::endl;
@@ -123,12 +127,14 @@ void Graphe::Afficher() //affichage du txt
          m_sommets[i]->afficherSucc();
          std::cout << std::endl;///affichage console
 
+        /*fichier << m_sommets[i]->getNum() <<": ";
+        fichier << m_sommets[i]->getSucc() <<" ";
+         fichier << std::endl;///affichage console*/
 
-
-        fichier << m_sommets[i]->getNum() <<":: ";
-        //m_sommets[i]->getSucc();
-        /*for(int k=0; k<m_successeurs.size(); ++k) fichier << m_sommets[i]->returnSuccFirst(k);*/
-        fichier << std::endl;///affichage txt
+       /*fichier << m_sommets[i]->getNum() <<": ";
+        m_sommets[i]->afficherSucc();
+        for(int k=0; k<(m_sommets[i]->getSuccSize()) ; ++k) fichier <<  m_sommets[i]->returnSuccFirst(k) << " ";
+        fichier << std::endl;///affichage txt*/
 
     }
 

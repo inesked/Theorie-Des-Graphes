@@ -29,6 +29,10 @@ double Sommet::getCoords2() //coord y du sommet
 }
 
 
+
+
+
+
 void Sommet::ajouterSucc(std::pair<Sommet *,int> successeurs)
 {
     m_successeurs.push_back(successeurs);
@@ -39,19 +43,25 @@ std::vector<std::pair<Sommet*,int>> Sommet::getSucc()
     return m_successeurs;
 }
 
+int Sommet::getSuccSize(){
+    return m_successeurs.size();
+}
+
 void Sommet::afficherSucc()
 {
     for(int i=0; i<m_successeurs.size(); ++i)
     {
-        std::cout <<  (m_successeurs[i].first)->getNum() << "(" << m_successeurs[i].second << ")" << " ";
+        std::cout <<  (m_successeurs[i].first)->getNum() << "(" << m_successeurs[i].second << ")" << " "<<std::endl;
     }
 }
+
 int Sommet::returnSuccFirst(int i){
     return (m_successeurs[i].first)->getNum();
     }
 int Sommet::returnSuccSecond(int i){
     return m_successeurs[i].second;
 }
+
 void Sommet::afficher() //fct afficher x" "y
 {
     std::cout << m_coordonnees.first << " " << m_coordonnees.second <<" ";
