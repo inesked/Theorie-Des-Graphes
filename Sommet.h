@@ -12,7 +12,7 @@ class Sommet
         int m_num; //numero du sommet (id nombre)
         std::string m_nom; //numero du sommet (id lettre)
         std::pair <double,double> m_coordonnees; //coordonn�es du sommet par pair (x,y)
-        std::vector<Sommet*> m_successeurs; //vecteur d'entier avec tout les successeurs du sommet (utile pour Dijkstra entre autre)
+        std::vector<std::pair<Sommet*,int>> m_successeurs; //vecteur d'entier avec tout les successeurs du sommet (utile pour Dijkstra entre autre)
 
     public:
 
@@ -23,8 +23,8 @@ class Sommet
         void afficher();
         double getCoords1();
         double getCoords2();
-        void ajouterSucc(Sommet *successeurs);
-        std::vector<Sommet*> getSucc();
+        void ajouterSucc(std::pair<Sommet*,int> successeurs);
+        std::vector<std::pair<Sommet*,int>> getSucc();
         void afficherSucc();
 
 

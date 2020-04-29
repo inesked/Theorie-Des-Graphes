@@ -40,38 +40,34 @@ Graphe::Graphe(std::string nomFichier) //lecture de fichier
                 ifs>>num4>>num5>>num6;
                 if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture arc"); //blindage si pb lecture arc
-                m_arete.push_back(new Arete{num4, std::make_pair(num5,num6)}); //aijout d'une pair de coord correspondant à un arc
+                m_arete.push_back(new Arete{num4, std::make_pair(num5,num6)}); //ajout d'une pair de coord correspondant à un arc
                 deg[num5] += 1;
                 deg[num6] += 1;
             }
-            ///pb à résoudre
-            for(int i=0; i<m_arete.size(); ++i)
-            {
-                if(m_orientation == 0)
-                {
-                    m_sommets[m_arete[i]->getExt1()]->ajouterSucc(m_sommets[m_arete[i]->getExt2()]);
-                    m_sommets[m_arete[i]->getExt2()]->ajouterSucc(m_sommets[m_arete[i]->getExt1()]);
-                }
-                if(m_orientation == 1)
-                     m_sommets[m_arete[i]->getExt1()]->ajouterSucc(m_sommets[m_arete[i]->getExt2()]);
-            }
-
+            GrapheCharger("ponde_etoile1.txt");
 }
 
 
-/*void Graphe::GrapheCharger(std::string nomFichier)
+void Graphe::GrapheCharger(std::string nomFichier)
 {
     std::ifstream ifs{nomFichier};
     int taille;
     int poids;
+    int id;
     ifs >> taille;
     for(int i=0; i<taille; ++i)
     {
-        ifs >> poids;
-        m_arete[i]->getPoids() = poids;
+        ifs >> id >> poids;
+            if(m_orientation == 0)
+            {
+                    m_sommets[m_arete[id]->getExt1()]->ajouterSucc(std::make_pair(m_sommets[m_arete[id]->getExt2()],poids));
+                    m_sommets[m_arete[id]->getExt2()]->ajouterSucc(std::make_pair(m_sommets[m_arete[id]->getExt1()],poids));
+            }
+            if(m_orientation == 1)
+                     m_sommets[m_arete[id]->getExt1()]->ajouterSucc(std::make_pair(m_sommets[m_arete[id]->getExt2()],poids));
     }
 
-}*/
+}
 
 void Graphe::Afficher() //affichage du txt
 {
@@ -91,8 +87,10 @@ void Graphe::Afficher() //affichage du txt
         std::cout << std::endl;
     }
     std::cout<<std::endl;
+    std::cout << "voici les successeurs de chaque sommet:" << std::endl;
     for(int i=0; i<m_ordre ; ++i)
     {
+        std::cout << m_sommets[i]->getNum() <<": ";
          m_sommets[i]->afficherSucc();
          std::cout << std::endl;
     }
@@ -258,4 +256,46 @@ void Graphe::VecteurPropreNonN()
     std::cout << "voici le vecteur propre non-normalisé du sommet " << s << ": "<< CVp[s];
 }
 
+void Graphe::CentraliteProxNonN()
+{
+    int num_s0;
+    float longueurtot;
+    float CP;
+    std::cout << "Rentrer le sommet de depart" << std::endl;
+    std::cin >> num_s0;
+    for(int i=0; i<m_ordre; ++i)
+    {
+        if(i != num_s0)
+        {
+            longueurtot = longueurtot + Dijkstra(num_s0, i);
+            std::cout << std::endl;
+        }
+    }
+    std::cout << longueurtot << std::endl;
+    CP = (1/longueurtot);
+    std::cout << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << std::endl;
+    std::cout << CP << std::endl;
 
+}
+
+void Graphe::CentraliteProxN()
+{
+    int num_s0;
+    float longueurtotale;
+    float CP;
+    std::cout << "Rentrer le sommet de depart" << std::endl;
+    std::cin >> num_s0;
+    for(int i=0; i<m_ordre; ++i)
+    {
+        if(i != num_s0)
+        {
+            longueurtotale = longueurtotale + Dijkstra(num_s0, i);
+            std::cout << std::endl;
+        }
+    }
+    std::cout << longueurtotale << std::endl;
+    CP = ((m_ordre-1)/longueurtotale);
+    std::cout << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << std::endl;
+    std::cout << CP << std::endl;
+
+}
