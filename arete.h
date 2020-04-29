@@ -21,8 +21,7 @@ public:
     int getExt1(); //initialisation de la premiere extremit�e
     int getExt2(); //affichage
     void afficher(); //affichage
-    int getPoids();
-    std::pair<int,int> getExt();
+
 };
 
 #endif // ARETE_H_INCLUDED

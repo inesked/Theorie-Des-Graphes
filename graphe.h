@@ -28,7 +28,6 @@ public:
     void CentraliteDegreNonNorma(); //premier algo centralit� de degr� non normalis�
     void CentraliteDegreNormalise(); //premier algo centralit� de degr� normalis�
     void VecteurPropre(); //deuxieme algo vecteur propre normalis�
-    void VecteurPropreNonN();
     //void Dijkstra (int s_initial, int s_final);
 };
 

@@ -18,6 +18,7 @@ class Sommet
 
         Sommet(int num, std::string nom, std::pair<double,double> coordonnees);///constructeur
         int getNum();///getteur
+
         std::string getNom();
         void afficher();
         double getCoords1();
@@ -25,6 +26,7 @@ class Sommet
         void ajouterSucc(Sommet *successeurs);
         std::vector<Sommet*> getSucc();
         void afficherSucc();
+
 
 };
 
