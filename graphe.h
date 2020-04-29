@@ -20,7 +20,7 @@ public:
     Graphe();
     Graphe(std::string nomFichier);
 
-    //void GrapheCharger(std:: string nomFichier);
+    void GrapheCharger(std:: string nomFichier);
 
     void VecteurPropreNonN();
     void Afficher(); //appel de la fonction afficher
@@ -28,7 +28,9 @@ public:
     void CentraliteDegreNonNorma(); //premier algo centralit� de degr� non normalis�
     void CentraliteDegreNormalise(); //premier algo centralit� de degr� normalis�
     void VecteurPropre(); //deuxieme algo vecteur propre normalis�
-    //void Dijkstra (int s_initial, int s_final);
+    int Dijkstra (int s_initial, int s_final);
+    void CentraliteProxNonN();
+    void CentraliteProxN();
 };
 
 
