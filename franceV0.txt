@@ -1,0 +1,44 @@
+0
+20
+0 Paris 6 4
+1 Rouen 5 3
+2 Rennes 4 4
+3 Strasbourg 9 3
+4 Tours 5 5
+5 Lyon 8 6
+6 Bordeaux 4 7
+7 Toulouse 5 8
+8 Perpignan 7 10
+9 Marseille 9 9
+10 ext1 6 1
+11 ext2 10 3
+12 ext3 9 6
+13 ext4 10 8
+14 ext5 9 9
+15 ext6 7 9
+16 ext7 6 10
+17 ext8 3 9
+18 ext9 3 6
+19 ext10 1 4
+21
+0 ext1 ext2
+1 ext2 ext3
+2 ext3 ext4
+3 ext4 ext5
+4 ext5 ext6
+5 ext6 ext7
+6 ext7 ext8
+7 ext8 ext9
+8 ext9 ext10
+9 ext10 ext1
+10 0 5
+11 0 3
+12 0 4
+13 0 1
+14 0 2
+15 4 6
+16 4 7
+17 4 5
+18 5 8
+19 5 9
+20 5 7
