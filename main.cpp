@@ -12,7 +12,7 @@ int main()
     Svgfile svgout;
     svgout.addGrid();
     Graphe graphe1("graphe_etoile1_topo.txt");
-    graphe1.dessinerGraphe(svgout);
+    //graphe1.dessinerGraphe(svgout);
     /*int s_initial;//num�ro du sommet initial
     std::cout<<"Saisir identifiant du sommet de depart"<<std::endl;
     std::cin>>s_initial;

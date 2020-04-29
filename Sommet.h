@@ -19,13 +19,7 @@ class Sommet
         Sommet(int num, std::string nom, std::pair<double,double> coordonnees);///constructeur
         int getNum();///getteur
 
-    /*    //accesseur : pour la liste des successeurs
-        const std::vector<const Sommet*>& getSuccesseurs()const {return m_successeurs;}
-        //pour ajouter un successeur � la liste
-        void ajouterSucc(const Sommet*s){
-            m_successeurs.push_back(s);
-        }
-        //m�thode d'affichage
+       /*  //m�thode d'affichage
         void afficher() const{
             std::cout<<"     sommet "<<m_num<<" : ";
             for (auto s : m_successeurs) std::cout<<s->getNum()<<" ";
@@ -39,7 +33,6 @@ class Sommet
         void ajouterSucc(Sommet *successeurs);
         std::vector<Sommet*> getSucc();
         void afficherSucc();
-
 
 };
 
