@@ -50,9 +50,5 @@ void Sommet::afficherSucc()
 void Sommet::afficher() //fct afficher x" "y
 {
     std::cout << m_coordonnees.first << " " << m_coordonnees.second <<" ";
-    for(int i=0; i<m_successeurs.size(); ++i)
-    {
-        std::cout << m_successeurs[i] << " ";
-    }
 }
 

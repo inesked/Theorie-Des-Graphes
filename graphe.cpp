@@ -90,11 +90,11 @@ void Graphe::Afficher() //affichage du txt
         std::cout << std::endl;
     }
     std::cout<<std::endl;
-    /*for(int i=0; i<m_ordre ; ++i)
+    for(int i=0; i<m_ordre ; ++i)
     {
          m_sommets[i]->afficherSucc();
          std::cout << std::endl;
-    }*/
+    }
 
 }
 
@@ -111,19 +111,10 @@ void Graphe::dessinerGraphe() const //dessin graphe avec le svg, voir commentair
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
         svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
     }
-    /*for(int i=0; i<m_taille; ++i)
+    for(int i=0; i<m_taille; ++i)
     {
-        if(m_sommets[i]->getNum() == m_arete[i]->getExt1())
-        {
-            for(int j=0; j<m_taille ;++i)
-            {
-                if(m_sommets[j]->getNum() == m_arete[j]->getExt2())
-                {
-                    svgout.addLines((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,(m_sommets[j]->getCoords1())*100,(m_sommets[j]->getCoords2())*100,"black");
-                }
-            }
-        }
-    }*/
+        svgout.addLine((m_sommets[m_arete[i]->getExt1()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt1()]->getCoords2())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords2())*100,"black");
+    }
 }
 
 
