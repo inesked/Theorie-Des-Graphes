@@ -20,15 +20,15 @@ int main()
      //affiche le graphe avec la liste des sommets adjacents
 
 
-    std::cout<<"Centralité de degré"<<std::endl;
+    std::cout<< std::endl<<"CENTRALITE DE DEGRE"<<std::endl;
     graphe1.CentraliteDegreNonNorma();
     graphe1.CentraliteDegreNormalise();
 
-    std::cout<<"Centralité de degré"<<std::endl;
+    std::cout<< std::endl<<"CENTRALITE DE VECTEUR PROPRE"<<std::endl;
     graphe1.VecteurPropre();
     graphe1.VecteurPropreNonN();
 
-    std::cout<<"Centralié de proximité"<<std::endl;
+    std::cout<< std::endl<<"CENTRALITE DE PROXIMITE"<<std::endl;
     graphe1.CentraliteProxNonN();
     graphe1.CentraliteProxN();
 

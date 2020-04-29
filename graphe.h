@@ -7,6 +7,7 @@
 #include "arete.h"
 #include <fstream>
 //in�s
+
 class Graphe
 {
 private :
@@ -21,6 +22,7 @@ public:
     Graphe();
     Graphe(std::string nomFichier);
     std::ofstream fichier;
+
     void GrapheCharger(std:: string nomFichier);
 
     void VecteurPropreNonN();
@@ -32,6 +34,7 @@ public:
     int Dijkstra (int s_initial, int s_final);
     void CentraliteProxNonN();
     void CentraliteProxN();
+    void AfficherFichier();
 };
 
 

@@ -1,12 +1,12 @@
 #include "Sommet.h"
 #include "arete.h"
+#include "graphe.h"
 #include<iostream>
 
 
 Sommet::Sommet(int num, std::string nom, std::pair<double,double> coordonnees)
     : m_num{num} , m_nom{nom} , m_coordonnees{coordonnees}
 {}
-
 
 int Sommet::getNum() //id numero du sommet
 {
@@ -46,7 +46,12 @@ void Sommet::afficherSucc()
         std::cout <<  (m_successeurs[i].first)->getNum() << "(" << m_successeurs[i].second << ")" << " ";
     }
 }
-
+int Sommet::returnSuccFirst(int i){
+    return (m_successeurs[i].first)->getNum();
+    }
+int Sommet::returnSuccSecond(int i){
+    return m_successeurs[i].second;
+}
 void Sommet::afficher() //fct afficher x" "y
 {
     std::cout << m_coordonnees.first << " " << m_coordonnees.second <<" ";

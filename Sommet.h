@@ -4,6 +4,7 @@
 #include <string>
 #include <list>
 #include <vector>
+//#include "graphe.h"
 
 ///cr�ation de la classe Sommet
 class Sommet
@@ -15,17 +16,20 @@ class Sommet
         std::vector<std::pair<Sommet*,int>> m_successeurs; //vecteur d'entier avec tout les successeurs du sommet (utile pour Dijkstra entre autre)
 
     public:
-
+        std::vector<int> txtaffsuccfirst;
+        std::vector<int> txtaffsuccsecond;
         Sommet(int num, std::string nom, std::pair<double,double> coordonnees);///constructeur
         int getNum();///getteur
-
         std::string getNom();
         void afficher();
+        void afficherFichier();
         double getCoords1();
         double getCoords2();
         void ajouterSucc(std::pair<Sommet*,int> successeurs);
         std::vector<std::pair<Sommet*,int>> getSucc();
         void afficherSucc();
+        int returnSuccFirst(int i);
+        int returnSuccSecond(int i);
 
 
 };

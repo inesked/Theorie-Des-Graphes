@@ -10,7 +10,7 @@ Graphe::Graphe(std::string nomFichier) //lecture de fichier
 {
     fichier.open("resultat.txt");
     if(fichier.bad()) std::cout << "Erreur ecriture de fichier";
-    fichier << "Voici lees resultats de la console" << std::endl;
+
      std::ifstream ifs{nomFichier}; //lecture
             if (!ifs)
                 throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier ); //blindage overture du fichier
@@ -50,6 +50,15 @@ Graphe::Graphe(std::string nomFichier) //lecture de fichier
             GrapheCharger("ponde_etoile1.txt");
 }
 
+void Graphe::AfficherFichier()
+{
+    fichier << "Voici les resultats de la console : " << std::endl;
+    fichier << "************************************" << std::endl;
+    for (int i=0 ; i<m_sommets.size() ; ++i)
+    {
+        fichier<<m_sommets[i]->getCoords1();
+    }
+}
 
 void Graphe::GrapheCharger(std::string nomFichier)
 {
@@ -74,29 +83,53 @@ void Graphe::GrapheCharger(std::string nomFichier)
 
 void Graphe::Afficher() //affichage du txt
 {
-    std::cout <<"orientation: "<< m_orientation <<std::endl; //affichage orientation 1 ou 0
-    std::cout <<"ordre: "<< m_ordre <<std::endl<<std::endl; //affichage ordre
-
+    fichier << "Nous avons a faire au graphe suivant :"<<std::endl<<std::endl;
+    std::cout <<"orientation: "<< m_orientation <<std::endl; //affichage orientation 1 ou 0 dans la console
+    fichier << "orientation: "<< m_orientation <<std::endl; //affichage orientation 1 ou 0 dans le txt
+    //fichier << "************************************" << std::endl;
+    std::cout <<"ordre: "<< m_ordre <<std::endl<<std::endl; //affichage ordre dans la console
+    fichier <<"ordre: "<< m_ordre <<std::endl<<std::endl; //affichage ordre dans le txt
+    //fichier << "************************************" << std::endl;
     for(int i=0; i<m_ordre ; ++i) //lecture de tout les sommets ainsi que leurs id, lettre et coordonnées (x,y)
     {
         std::cout << m_sommets[i]->getNum() << ": " << m_sommets[i]->getNom() <<" ";
         m_sommets[i]->afficher();
-        std::cout << std::endl;
+        std::cout << std::endl;///affichage dans la console
+
+        fichier << m_sommets[i]->getNum() << ": " << m_sommets[i]->getNom() <<" ";
+        m_sommets[i]->afficher();
+        fichier << std::endl;///affichage dans le txt
     }
-    std::cout <<"taille: "<<m_taille << std::endl; //lecture de la taille du graphe
+    std::cout <<"taille: "<<m_taille << std::endl; //affichage de la taille du graphe dans la console
+    fichier <<"taille: "<<m_taille << std::endl; //affichage de la taille du graphe dans le .txt
+    ///fichier << "************************************" << std::endl;
     for(int i=0; i<m_taille; ++i)
     {
         std::cout << m_arete[i]->getId() << ": ";
         m_arete[i]->afficher();
-        std::cout << std::endl;
+        std::cout << std::endl;///affichage dans la console
+
+        /*fichier << m_arete[i]->getId() << ": ";
+        m_arete[i]->afficher();
+        fichier << std::endl<<std::endl;///affichage de le txt*/
     }
     std::cout<<std::endl;
-    std::cout << "voici les successeurs de chaque sommet:" << std::endl;
+    std::cout << "voici les successeurs de chaque sommet:" << std::endl;///affichage successeur dans la console
+    fichier << "************************************" << std::endl;
+    fichier << "voici les successeurs de chaque sommet:" << std::endl;///affichage successeur dans le txt
     for(int i=0; i<m_ordre ; ++i)
     {
         std::cout << m_sommets[i]->getNum() <<": ";
          m_sommets[i]->afficherSucc();
-         std::cout << std::endl;
+         std::cout << std::endl;///affichage console
+
+
+
+        fichier << m_sommets[i]->getNum() <<":: ";
+        //m_sommets[i]->getSucc();
+        /*for(int k=0; k<m_successeurs.size(); ++k) fichier << m_sommets[i]->returnSuccFirst(k);*/
+        fichier << std::endl;///affichage txt
+
     }
 
 }
@@ -131,6 +164,9 @@ void Graphe::CentraliteDegreNonNorma()
     std::cout <<"Donnez un numero de sommet pour connaitre sa centralite de degre: ";
     std::cin >> ndeg;
     std::cout << "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
+    fichier << "************************************" << std::endl;
+    fichier << "CENTRALITE DE DEGRE " << std::endl;
+    //fichier << "************************************" << std::endl;
     fichier <<  "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
 }
 
@@ -143,7 +179,7 @@ void Graphe::CentraliteDegreNormalise()
     int ndeg, CD;
     CD=deg[ndeg]/(m_ordre-1);
     std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
-    fichier <<  "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
+    fichier <<  "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl<<std::endl;
 
 }
 
@@ -197,8 +233,11 @@ void Graphe::VecteurPropre()
         }
     }
     while(lambda<0.2); //des qu elambda ne varie plus trop donc lambda <0,2 on arete la boucle et on sort le CVp étudié
-    std::cout << "voici le vecteur propre normalisé du sommet " << s << ": "<< CVp[s];
-    fichier << "voici le vecteur propre normalisé du sommet " << s << ": "<< CVp[s];
+    std::cout << "voici le vecteur propre normalise du sommet " << s << ": "<< CVp[s];
+    fichier << "************************************" << std::endl;
+    fichier << "CENTRALITE DE VECTEUR PROPRE" << std::endl;
+    //fichier << "************************************" << std::endl;
+    fichier << "voici le vecteur propre normalise du sommet " << s << ": "<< CVp[s]<<std::endl;
 }
 
 
@@ -217,7 +256,7 @@ void Graphe::VecteurPropreNonN()
     float lambda;
     float temp;
     int s;
-    std::cout << "Rentrer le sommet voulu" << std::endl;
+    std::cout <<std::endl<< "Rentrer le sommet voulu" << std::endl;
     std::cin >> s;
     std::vector<float> CVp;
     std::vector<float> CD;
@@ -259,8 +298,8 @@ void Graphe::VecteurPropreNonN()
         }
     }
     while(lambda<0.2);
-    std::cout << "voici le vecteur propre non-normalisé du sommet " << s << ": "<< CVp[s];
-    fichier << "voici le vecteur propre non-normalisé du sommet " << s << ": "<< CVp[s];
+    std::cout << "voici le vecteur propre non-normalise du sommet " << s << ": "<< CVp[s] <<std::endl;
+    fichier << "voici le vecteur propre non-normalise du sommet " << s << ": "<< CVp[s]<<std::endl<<std::endl;
 }
 
 void Graphe::CentraliteProxNonN()
@@ -282,6 +321,9 @@ void Graphe::CentraliteProxNonN()
     CP = (1/longueurtot);
     std::cout << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << std::endl;
     std::cout << CP << std::endl;
+    fichier << "************************************" << std::endl;
+    fichier << "CENTRALITE DE PROXIMITE" << std::endl;
+    //fichier << "************************************" << std::endl;
     fichier << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << CP << std::endl;
 
 }
@@ -305,6 +347,7 @@ void Graphe::CentraliteProxN()
     CP = ((m_ordre-1)/longueurtotale);
     std::cout << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << std::endl;
     std::cout << CP << std::endl;
-    fichier << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << CP << std::endl;
+    fichier << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << CP << std::endl<<std::endl;
 }
+
 
