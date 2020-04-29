@@ -26,7 +26,6 @@ class Sommet
         std::vector<Sommet*> getSucc();
         void afficherSucc();
 
-
 };
 
 

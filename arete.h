@@ -23,7 +23,8 @@ public:
     int getPoids();
     std::pair<int,int> getExt();
     void afficher(); //affichage
-
+    int getPoids();
+    std::pair<int,int> getExt();
 };
 
 #endif // ARETE_H_INCLUDED
