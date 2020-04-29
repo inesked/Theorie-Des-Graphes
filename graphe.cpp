@@ -44,6 +44,7 @@ Graphe::Graphe(std::string nomFichier) //lecture de fichier
                 deg[num5] += 1;
                 deg[num6] += 1;
             }
+            ///pb à résoudre
             for(int i=0; i<m_arete.size(); ++i)
             {
                 if(m_orientation == 0)
