@@ -43,7 +43,7 @@ void Sommet::afficherSucc()
 {
     for(int i=0; i<m_successeurs.size(); ++i)
     {
-        std::cout << m_successeurs[i] << " ";
+        std::cout << m_successeurs[i]->getNum() << " ";
     }
 }
 
