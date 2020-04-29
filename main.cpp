@@ -9,29 +9,22 @@
 
 int main()
 {
-    int num_s0,num_sf;
-    Graphe graphe1("graphe_cycle4_topo.txt");
-    graphe1.dessinerGraphe();
-    /*int s_initial;//numÈro du sommet initial
+    Svgfile svgout;
+    svgout.addGrid();
+    Graphe graphe1("graphe_etoile1_topo.txt");
+    graphe1.dessinerGraphe(svgout);
+    /*int s_initial;//numï¿½ro du sommet initial
     std::cout<<"Saisir identifiant du sommet de depart"<<std::endl;
     std::cin>>s_initial;
 
-    int s_final;//numÈro du sommet final
+    int s_final;//numï¿½ro du sommet final
     std::cout<<"Saisir identifiant du sommet d'arrivee"<<std::endl;
     std::cin >> s_final;*/
 
     graphe1.Afficher();
      //affiche le graphe avec la liste des sommets adjacents
     graphe1.CentraliteDegreNonNorma();
-    graphe1.CentraliteDegreNormalise();
-    graphe1.VecteurPropre();
-    //graphe1.Dijkstra(num_s0,num_sf);
-    //graphe1.VecteurPropre();
-
     /*std::cout<<"Algorithme de Dijstra"<<std::endl;
-    graphe1.CentraliteDegreNormalise();
-/*
-    std::cout<<"Algorithme de Dijstra"<<std::endl;
     graphe1.Dijkstra(s_initial, s_final);*/
 
 
@@ -54,9 +47,9 @@ int main()
         std::cout << std::endl;
         std::cout << "Selectionnez une action :" << std::endl;
         std::cout << "1. Charger un graphe" << std::endl;
-        std::cout << "2. Changer le système de pondération du graphe "<< std::endl;
-        std::cout << "3. Calculer, afficher et sauvegarder les différents indices de centralité" << std::endl;
-        std::cout << "4. Tester la vulnérabilité du graphe" << std::endl;
+        std::cout << "2. Changer le systï¿½me de pondï¿½ration du graphe "<< std::endl;
+        std::cout << "3. Calculer, afficher et sauvegarder les diffï¿½rents indices de centralitï¿½" << std::endl;
+        std::cout << "4. Tester la vulnï¿½rabilitï¿½ du graphe" << std::endl;
         std::cout << "5. Quitter" << std::endl;
         std::cout << std::endl;
         std::cout << "Entrez choix (numero) : " << std::endl;
@@ -65,7 +58,7 @@ int main()
         {
             case 1:
                 {
-                    std::cout << "Quel graphe voulez-vous charger ?" << std::endl;///on demande à l'utilisateur le nom du graphe qu'il veut charger
+                    std::cout << "Quel graphe voulez-vous charger ?" << std::endl;///on demande ï¿½ l'utilisateur le nom du graphe qu'il veut charger
                     std::cin >> nom;
                     nom="graphe.txt";
                     Graphe g{"graphe.txt"};

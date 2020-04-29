@@ -4,23 +4,21 @@
 #include <queue>
 #include "Sommet.h"
 #include <iostream>
-
+//in�s
 class Arete
 {
 private:
-    int m_poids;
-    int m_indice;
-    std::pair<int,int> m_extremites; ///creer une paire de sommets
+    int m_poids; //initialisation du poid
+    int m_indice; //initialisation de l'indice de l'arete
+    std::pair<int,int> m_extremites; //creation d'une paire de sommets
 
 public:
-    Arete(int indice, std::pair<int,int> extremites); ///constructeur
-    ~Arete();///destructeur
-    int getId();
-    int getExt1();
-    int getExt2();
-    int getPoids();
-    std::pair<int,int> getExt();
-    void afficher();
+    Arete(int indice, std::pair<int,int> extremites); //constructeur de la paire
+    ~Arete();// destructeur de la paire
+    int getId(); //initialisation de l'iD
+    int getExt1(); //initialisation de la premiere extremit�e
+    int getExt2(); //affichage
+    void afficher(); //affichage
 
 };
 
