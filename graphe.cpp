@@ -41,22 +41,32 @@ Graphe::Graphe(std::string nomFichier)
                 deg[num5] += 1;
                 deg[num6] += 1;
             }
+            for(int i=0; i<m_arete.size(); ++i)
+            {
+                if(m_orientation == 0)
+                {
+                    m_sommets[m_arete[i]->getExt1()]->ajouterSucc(m_sommets[m_arete[i]->getExt2()]);
+                    m_sommets[m_arete[i]->getExt2()]->ajouterSucc(m_sommets[m_arete[i]->getExt1()]);
+                }
+                if(m_orientation == 1)
+                     m_sommets[m_arete[i]->getExt1()]->ajouterSucc(m_sommets[m_arete[i]->getExt2()]);
+            }
 
 }
 
-void Graphe::GrapheCharger(std::string nomFichier)
+/*void Graphe::GrapheCharger(std::string nomFichier)
 {
     std::ifstream ifs{nomFichier};
     int taille;
     int poids;
     ifs >> taille;
-    for(int i=0; i<taille.size(); ++i)
+    for(int i=0; i<taille; ++i)
     {
         ifs >> poids;
         m_arete[i]->getPoids() = poids;
     }
 
-}
+}*/
 
 void Graphe::Afficher()
 {
@@ -64,7 +74,7 @@ void Graphe::Afficher()
     std::cout <<"ordre: "<< m_ordre <<std::endl<<std::endl;
     for(int i=0; i<m_ordre ; ++i)
     {
-        std::cout << m_sommets[i]->getNum() << ": " << m_sommets[i]->getNom();
+        std::cout << m_sommets[i]->getNum() << ": " << m_sommets[i]->getNom() <<" ";
         m_sommets[i]->afficher();
         std::cout << std::endl;
     }
@@ -76,6 +86,11 @@ void Graphe::Afficher()
         std::cout << std::endl;
     }
     std::cout<<std::endl;
+    /*for(int i=0; i<m_ordre ; ++i)
+    {
+         m_sommets[i]->afficherSucc();
+         std::cout << std::endl;
+    }*/
 
 }
 

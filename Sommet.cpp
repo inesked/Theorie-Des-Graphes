@@ -28,8 +28,30 @@ double Sommet::getCoords2()
     return m_coordonnees.second;
 }
 
+void Sommet::ajouterSucc(Sommet *successeurs)
+{
+    m_successeurs.push_back(successeurs);
+}
+
+std::vector<Sommet*> Sommet::getSucc()
+{
+    return m_successeurs;
+}
+
+void Sommet::afficherSucc()
+{
+    for(int i=0; i<m_successeurs.size(); ++i)
+    {
+        std::cout << m_successeurs[i] << " ";
+    }
+}
+
 void Sommet::afficher()
 {
-    std::cout << m_coordonnees.first << " " << m_coordonnees.second;
+    std::cout << m_coordonnees.first << " " << m_coordonnees.second <<" ";
+    for(int i=0; i<m_successeurs.size(); ++i)
+    {
+        std::cout << m_successeurs[i] << " ";
+    }
 }
 
