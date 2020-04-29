@@ -18,6 +18,8 @@ public:
     int getId(); //initialisation de l'iD
     int getExt1(); //initialisation de la premiere extremit�e
     int getExt2(); //affichage
+    int getPoids();
+    std::pair<int,int> getExt();
     void afficher(); //affichage
     int getPoids();
     std::pair<int,int> getExt();
