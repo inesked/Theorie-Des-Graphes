@@ -1,0 +1,3 @@
+Voici lees resultats de la console
+Le sommet 2 a un degres de 4
+Le sommet choisi a pour Centralite de degre normalise; CD(s) : 1

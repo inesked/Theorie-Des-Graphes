@@ -6,29 +6,31 @@
 #include <fstream>
 #include <stack>
 #include "Svgfile.h"
+#include <fstream>
+
+
+
 
 int main()
 {
-
     Graphe graphe1("graphe_etoile1_topo.txt");
     graphe1.dessinerGraphe();
-    /*int s_initial;//num�ro du sommet initial
-    std::cout<<"Saisir identifiant du sommet de depart"<<std::endl;
-    std::cin>>s_initial;
-
-    int s_final;//num�ro du sommet final
-    std::cout<<"Saisir identifiant du sommet d'arrivee"<<std::endl;
-    std::cin >> s_final;
 
     graphe1.Afficher();
      //affiche le graphe avec la liste des sommets adjacents
-    //graphe1.CentraliteDegreNonNorma();
-    std::cout<<"Algorithme de Dijstra"<<std::endl;
-    graphe1.Dijkstra(s_initial, s_final);*/
-    //graphe1.CentraliteProxNonN();
+
+
+    std::cout<<"Centralité de degré"<<std::endl;
+    graphe1.CentraliteDegreNonNorma();
+    graphe1.CentraliteDegreNormalise();
+
+    std::cout<<"Centralité de degré"<<std::endl;
+    graphe1.VecteurPropre();
+    graphe1.VecteurPropreNonN();
+
+    std::cout<<"Centralié de proximité"<<std::endl;
+    graphe1.CentraliteProxNonN();
     graphe1.CentraliteProxN();
-
-
 
 
 /*

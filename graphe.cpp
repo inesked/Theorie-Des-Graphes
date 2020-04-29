@@ -8,7 +8,10 @@
 //inès
 Graphe::Graphe(std::string nomFichier) //lecture de fichier
 {
-     std::ifstream ifs{nomFichier}; //
+    fichier.open("resultat.txt");
+    if(fichier.bad()) std::cout << "Erreur ecriture de fichier";
+    fichier << "Voici lees resultats de la console" << std::endl;
+     std::ifstream ifs{nomFichier}; //lecture
             if (!ifs)
                 throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier ); //blindage overture du fichier
             ifs >> m_orientation; //lecture de l'orientation
@@ -73,6 +76,7 @@ void Graphe::Afficher() //affichage du txt
 {
     std::cout <<"orientation: "<< m_orientation <<std::endl; //affichage orientation 1 ou 0
     std::cout <<"ordre: "<< m_ordre <<std::endl<<std::endl; //affichage ordre
+
     for(int i=0; i<m_ordre ; ++i) //lecture de tout les sommets ainsi que leurs id, lettre et coordonnées (x,y)
     {
         std::cout << m_sommets[i]->getNum() << ": " << m_sommets[i]->getNom() <<" ";
@@ -127,6 +131,7 @@ void Graphe::CentraliteDegreNonNorma()
     std::cout <<"Donnez un numero de sommet pour connaitre sa centralite de degre: ";
     std::cin >> ndeg;
     std::cout << "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
+    fichier <<  "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
 }
 
 
@@ -138,9 +143,9 @@ void Graphe::CentraliteDegreNormalise()
     int ndeg, CD;
     CD=deg[ndeg]/(m_ordre-1);
     std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
+    fichier <<  "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
+
 }
-
-
 
 
 
@@ -193,6 +198,7 @@ void Graphe::VecteurPropre()
     }
     while(lambda<0.2); //des qu elambda ne varie plus trop donc lambda <0,2 on arete la boucle et on sort le CVp étudié
     std::cout << "voici le vecteur propre normalisé du sommet " << s << ": "<< CVp[s];
+    fichier << "voici le vecteur propre normalisé du sommet " << s << ": "<< CVp[s];
 }
 
 
@@ -254,6 +260,7 @@ void Graphe::VecteurPropreNonN()
     }
     while(lambda<0.2);
     std::cout << "voici le vecteur propre non-normalisé du sommet " << s << ": "<< CVp[s];
+    fichier << "voici le vecteur propre non-normalisé du sommet " << s << ": "<< CVp[s];
 }
 
 void Graphe::CentraliteProxNonN()
@@ -275,6 +282,7 @@ void Graphe::CentraliteProxNonN()
     CP = (1/longueurtot);
     std::cout << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << std::endl;
     std::cout << CP << std::endl;
+    fichier << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << CP << std::endl;
 
 }
 
@@ -297,5 +305,6 @@ void Graphe::CentraliteProxN()
     CP = ((m_ordre-1)/longueurtotale);
     std::cout << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << std::endl;
     std::cout << CP << std::endl;
-
+    fichier << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << CP << std::endl;
 }
+
