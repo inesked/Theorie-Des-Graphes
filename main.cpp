@@ -49,7 +49,7 @@ int main()
                     std::cout << "Quel graphe voulez-vous charger ?" << std::endl;///on demande � l'utilisateur le nom du graphe qu'il veut charger
                     std::cin >> nomFichier;
                     g.GrapheCharger(nomFichier);
-                    //g.Afficher();
+                    g.Afficher(); //!!!!
                     g.CentraliteDegreNormalise();
                     g.dessinerGraphe();
                     break;

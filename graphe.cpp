@@ -148,7 +148,7 @@ void Graphe::dessinerGraphe() const //dessin graphe avec le svg, voir commentair
 
         //svgout.addVectProp ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-60,std::to_string(CVp[i]),"blue");
 
-        svgout.addVectPropN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-75,std::to_string(deg[m_sommets[i]->getNum()]),"magenta");
+       //!! //svgout.addVectPropN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-75,std::to_string(deg[m_sommets[i]->getNum()]),"magenta");
 
         svgout.addProx ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-90,std::to_string(deg[m_sommets[i]->getNum()]),"gray");
 
