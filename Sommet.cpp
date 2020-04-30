@@ -51,7 +51,7 @@ void Sommet::afficherSucc()
 {
     for(int i=0; i<m_successeurs.size(); ++i)
     {
-        std::cout <<  (m_successeurs[i].first)->getNum() << "(" << m_successeurs[i].second << ")" << " "<<std::endl;
+        std::cout <<  (m_successeurs[i].first)->getNum() << "(" << m_successeurs[i].second << ")" << " ";
     }
 }
 

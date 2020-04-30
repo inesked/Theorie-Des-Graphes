@@ -34,7 +34,7 @@ public:
     int Dijkstra (int s_initial, int s_final);
     void CentraliteProxNonN();
     void CentraliteProxN();
-    void AfficherFichier();
+    //void AfficherFichier();
 };
 
 

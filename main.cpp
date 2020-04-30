@@ -18,7 +18,7 @@ int main()
 
     graphe1.Afficher();
      //affiche le graphe avec la liste des sommets adjacents
-
+    //graphe1.AfficherFichier();
 
     std::cout<< std::endl<<"CENTRALITE DE DEGRE"<<std::endl;
     graphe1.CentraliteDegreNonNorma();
@@ -32,7 +32,7 @@ int main()
     graphe1.CentraliteProxNonN();
     graphe1.CentraliteProxN();
 
-    graphe1.AfficherFichier();
+
 /*
 
 /*    ///menu du programme final

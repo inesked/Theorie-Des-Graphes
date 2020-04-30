@@ -11,6 +11,8 @@ Graphe::Graphe(std::string nomFichier) //lecture de fichier
 {
     fichier.open("resultat.txt");
     if(fichier.bad()) std::cout << "Erreur ecriture de fichier";
+    fichier << "Voici les resultats de la console : " << std::endl;
+    fichier << "************************************" << std::endl;
 
      std::ifstream ifs{nomFichier}; //lecture
             if (!ifs)
@@ -51,7 +53,7 @@ Graphe::Graphe(std::string nomFichier) //lecture de fichier
             GrapheCharger("ponde_etoile1.txt");
 }
 
-void Graphe::AfficherFichier()
+/*void Graphe::AfficherFichier()
 {
     fichier << "Voici les resultats de la console : " << std::endl;
     fichier << "************************************" << std::endl;
@@ -60,7 +62,7 @@ void Graphe::AfficherFichier()
         fichier<<m_sommets[i]->getCoords1()<<std::endl;
 
     }
-}
+}*/
 
 void Graphe::GrapheCharger(std::string nomFichier)
 {
@@ -115,9 +117,10 @@ void Graphe::Afficher() //affichage du txt
         fichier << m_arete[i]->getId() << ": ";
         fichier << m_arete[i]->getExt1()<<" ";
         fichier << m_arete[i]->getExt2()<<" ";
-        fichier << std::endl<<std::endl;///affichage de le txt*/
+        fichier << std::endl;///affichage de le txt*/
     }
     std::cout<<std::endl;
+    fichier << std::endl;
     std::cout << "voici les successeurs de chaque sommet:" << std::endl;///affichage successeur dans la console
     fichier << "************************************" << std::endl;
     fichier << "voici les successeurs de chaque sommet:" << std::endl;///affichage successeur dans le txt
@@ -131,13 +134,13 @@ void Graphe::Afficher() //affichage du txt
         fichier << m_sommets[i]->getSucc() <<" ";
          fichier << std::endl;///affichage console*/
 
-       /*fichier << m_sommets[i]->getNum() <<": ";
-        m_sommets[i]->afficherSucc();
-        for(int k=0; k<(m_sommets[i]->getSuccSize()) ; ++k) fichier <<  m_sommets[i]->returnSuccFirst(k) << " ";
-        fichier << std::endl;///affichage txt*/
+       fichier << m_sommets[i]->getNum() <<": ";
+        //m_sommets[i]->afficherSucc();
+        for(int k=0; k<(m_sommets[i]->getSuccSize()) ; ++k) fichier <<  m_sommets[i]->returnSuccFirst(k) << "(" << m_sommets[i]->returnSuccSecond(k) << ")" ;
+        fichier << std::endl;///affichage txt
 
     }
-
+    fichier << std::endl;
 }
 
 

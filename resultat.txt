@@ -1,3 +1,5 @@
+Voici les resultats de la console : 
+************************************
 Nous avons a faire au graphe suivant :
 
 orientation: 0
@@ -10,12 +12,30 @@ ordre: 5
 4: E 2 3 
 taille: 4
 0: 0 2 
-
 1: 1 2 
-
 2: 2 3 
-
 3: 2 4 
 
 ************************************
 voici les successeurs de chaque sommet:
+0: 2(3)
+1: 2(2)
+2: 0(3)1(2)3(1)4(4)
+3: 2(1)
+4: 2(4)
+
+************************************
+CENTRALITE DE DEGRE 
+Le sommet 2 a un degres de 4
+Le sommet choisi a pour Centralite de degre normalise; CD(s) : 1
+
+************************************
+CENTRALITE DE VECTEUR PROPRE
+voici le vecteur propre normalise du sommet 2: 0.894427
+voici le vecteur propre non-normalise du sommet 2: 0.632456
+
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 2: 0.1
+Voici la centralite de proximite normalise pour le sommet 2: 0.2
+
