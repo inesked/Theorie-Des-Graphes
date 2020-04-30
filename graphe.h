@@ -5,7 +5,9 @@
 #include <iostream>
 #include "Sommet.h"
 #include "arete.h"
+#include <fstream>
 //in�s
+
 class Graphe
 {
 private :
@@ -17,8 +19,8 @@ private :
     std::vector <int> deg; //vect avec les degr�s
 
 public:
-    //Graphe();
-    //Graphe(std::string nomFichier);
+
+    std::ofstream fichier;
 
     void GrapheChargerPonde(std:: string nomFichierPonde);
     void GrapheCharger(std::string nomFichier);
