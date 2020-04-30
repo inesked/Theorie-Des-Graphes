@@ -12,12 +12,16 @@ class Sommet
     private:
         int m_num; //numero du sommet (id nombre)
         std::string m_nom; //numero du sommet (id lettre)
+
         std::pair <double,double> m_coordonnees; //coordonn�es du sommet par pair (x,y)
         std::vector<std::pair<Sommet*,int>> m_successeurs; //vecteur d'entier avec tout les successeurs du sommet (utile pour Dijkstra entre autre)
 
     public:
         std::vector<int> txtaffsuccfirst;
         std::vector<int> txtaffsuccsecond;
+
+        float getLambda();
+        int getDeg();
         Sommet(int num, std::string nom, std::pair<double,double> coordonnees);///constructeur
         int getNum();///getteur
         std::string getNom();

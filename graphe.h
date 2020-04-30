@@ -24,7 +24,6 @@ public:
 
     void GrapheChargerPonde(std:: string nomFichierPonde);
     void GrapheCharger(std::string nomFichier);
-
     void VecteurPropreNonN();
     void Afficher(); //appel de la fonction afficher
     void dessinerGraphe() const; //appel void dessiner graphe comme une constante

@@ -85,37 +85,82 @@
 <text x="1905" y="15" fill="lightgrey" >1900</text>
 <line x1="2000" y1="0" x2="2000" y2="2000" stroke="lightgrey" />
 <text x="2005" y="15" fill="lightgrey" >2000</text>
-<circle cx="600" cy="400" r="3" fill="black" />
-<text x="600" y="390" fill="black" >Paris</text>
-<circle cx="500" cy="300" r="3" fill="black" />
-<text x="500" y="290" fill="black" >Rouen</text>
+<circle cx="300" cy="100" r="3" fill="black" />
+<text x="300" y="90" fill="black" >A</text>
+<text x="310" y="70" fill="red" >2</text>
+<text x="310" y="55" fill="green" >0</text>
+<text x="310" y="25" fill="magenta" >2</text>
+<text x="310" y="10" fill="gray" >2</text>
+<text x="310" y="-5" fill="purple" >2</text>
+<circle cx="200" cy="200" r="3" fill="black" />
+<text x="200" y="190" fill="black" >B</text>
+<text x="210" y="170" fill="red" >3</text>
+<text x="210" y="155" fill="green" >0</text>
+<text x="210" y="125" fill="magenta" >3</text>
+<text x="210" y="110" fill="gray" >3</text>
+<text x="210" y="95" fill="purple" >3</text>
+<circle cx="400" cy="200" r="3" fill="black" />
+<text x="400" y="190" fill="black" >C</text>
+<text x="410" y="170" fill="red" >3</text>
+<text x="410" y="155" fill="green" >0</text>
+<text x="410" y="125" fill="magenta" >3</text>
+<text x="410" y="110" fill="gray" >3</text>
+<text x="410" y="95" fill="purple" >3</text>
+<circle cx="300" cy="300" r="3" fill="black" />
+<text x="300" y="290" fill="black" >D</text>
+<text x="310" y="270" fill="red" >4</text>
+<text x="310" y="255" fill="green" >0</text>
+<text x="310" y="225" fill="magenta" >4</text>
+<text x="310" y="210" fill="gray" >4</text>
+<text x="310" y="195" fill="purple" >4</text>
+<circle cx="200" cy="400" r="3" fill="black" />
+<text x="200" y="390" fill="black" >E</text>
+<text x="210" y="370" fill="red" >3</text>
+<text x="210" y="355" fill="green" >0</text>
+<text x="210" y="325" fill="magenta" >3</text>
+<text x="210" y="310" fill="gray" >3</text>
+<text x="210" y="295" fill="purple" >3</text>
+<circle cx="300" cy="400" r="3" fill="black" />
+<text x="300" y="390" fill="black" >F</text>
+<text x="310" y="370" fill="red" >2</text>
+<text x="310" y="355" fill="green" >0</text>
+<text x="310" y="325" fill="magenta" >2</text>
+<text x="310" y="310" fill="gray" >2</text>
+<text x="310" y="295" fill="purple" >2</text>
 <circle cx="400" cy="400" r="3" fill="black" />
-<text x="400" y="390" fill="black" >Rennes</text>
-<circle cx="900" cy="300" r="3" fill="black" />
-<text x="900" y="290" fill="black" >Strasbourg</text>
+<text x="400" y="390" fill="black" >G</text>
+<text x="410" y="370" fill="red" >3</text>
+<text x="410" y="355" fill="green" >0</text>
+<text x="410" y="325" fill="magenta" >3</text>
+<text x="410" y="310" fill="gray" >3</text>
+<text x="410" y="295" fill="purple" >3</text>
+<circle cx="100" cy="500" r="3" fill="black" />
+<text x="100" y="490" fill="black" >H</text>
+<text x="110" y="470" fill="red" >3</text>
+<text x="110" y="455" fill="green" >0</text>
+<text x="110" y="425" fill="magenta" >3</text>
+<text x="110" y="410" fill="gray" >3</text>
+<text x="110" y="395" fill="purple" >3</text>
 <circle cx="500" cy="500" r="3" fill="black" />
-<text x="500" y="490" fill="black" >Tours</text>
-<circle cx="800" cy="600" r="3" fill="black" />
-<text x="800" y="590" fill="black" >Lyon</text>
-<circle cx="400" cy="700" r="3" fill="black" />
-<text x="400" y="690" fill="black" >Bordeaux</text>
-<circle cx="500" cy="800" r="3" fill="black" />
-<text x="500" y="790" fill="black" >Toulouse</text>
-<circle cx="700" cy="1000" r="3" fill="black" />
-<text x="700" y="990" fill="black" >Perpignan</text>
-<circle cx="900" cy="900" r="3" fill="black" />
-<text x="900" y="890" fill="black" >Marseille</text>
-<line x1="600" y1="400" x2="800" y2="600" stroke="black" />
-<line x1="600" y1="400" x2="900" y2="300" stroke="black" />
-<line x1="600" y1="400" x2="500" y2="500" stroke="black" />
-<line x1="600" y1="400" x2="500" y2="300" stroke="black" />
-<line x1="600" y1="400" x2="400" y2="400" stroke="black" />
-<line x1="500" y1="500" x2="400" y2="700" stroke="black" />
-<line x1="500" y1="500" x2="500" y2="800" stroke="black" />
-<line x1="500" y1="500" x2="800" y2="600" stroke="black" />
-<line x1="800" y1="600" x2="700" y2="1000" stroke="black" />
-<line x1="800" y1="600" x2="900" y2="900" stroke="black" />
-<line x1="800" y1="600" x2="500" y2="800" stroke="black" />
+<text x="500" y="490" fill="black" >I</text>
+<text x="510" y="470" fill="red" >3</text>
+<text x="510" y="455" fill="green" >0</text>
+<text x="510" y="425" fill="magenta" >3</text>
+<text x="510" y="410" fill="gray" >3</text>
+<text x="510" y="395" fill="purple" >3</text>
+<line x1="300" y1="100" x2="200" y2="200" stroke="black" />
+<line x1="300" y1="100" x2="400" y2="200" stroke="black" />
+<line x1="200" y1="200" x2="300" y2="300" stroke="black" />
+<line x1="400" y1="200" x2="300" y2="300" stroke="black" />
+<line x1="300" y1="300" x2="200" y2="400" stroke="black" />
+<line x1="300" y1="300" x2="400" y2="400" stroke="black" />
+<line x1="200" y1="200" x2="100" y2="500" stroke="black" />
+<line x1="400" y1="200" x2="500" y2="500" stroke="black" />
+<line x1="200" y1="400" x2="300" y2="400" stroke="black" />
+<line x1="300" y1="400" x2="400" y2="400" stroke="black" />
+<line x1="400" y1="400" x2="500" y2="500" stroke="black" />
+<line x1="200" y1="400" x2="100" y2="500" stroke="black" />
+<line x1="100" y1="500" x2="500" y2="500" stroke="black" />
 
 
 </svg>

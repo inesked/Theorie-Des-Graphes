@@ -6,6 +6,7 @@
 #include "Sommet.h"
 #include "arete.h"
 #include <cmath>
+#include <string>
 //inès
 
 void Graphe::GrapheCharger(std::string nomFichier)
@@ -140,13 +141,24 @@ void Graphe::dessinerGraphe() const //dessin graphe avec le svg, voir commentair
     {
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
         svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
+
+        svgout.addDegre ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-30,std::to_string(deg[m_sommets[i]->getNum()]),"red");
+
+        svgout.addDegreN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-45,std::to_string((deg[m_sommets[i]->getNum()])/(m_ordre-1)),"green");
+
+        //svgout.addVectProp ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-60,std::to_string(CVp[i]),"blue");
+
+        svgout.addVectPropN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-75,std::to_string(deg[m_sommets[i]->getNum()]),"magenta");
+
+        svgout.addProx ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-90,std::to_string(deg[m_sommets[i]->getNum()]),"gray");
+
+        svgout.addProxN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-105,std::to_string(deg[m_sommets[i]->getNum()]),"purple");
     }
     for(int i=0; i<m_taille; ++i)
     {
         svgout.addLine((m_sommets[m_arete[i]->getExt1()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt1()]->getCoords2())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords1())*100,(m_sommets[m_arete[i]->getExt2()]->getCoords2())*100,"black");
     }
 }
-
 
 
 
@@ -160,22 +172,24 @@ void Graphe::CentraliteDegreNonNorma()
     std::cout << "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
     fichier << "************************************" << std::endl;
     fichier << "CENTRALITE DE DEGRE " << std::endl;
-    //fichier << "************************************" << std::endl;
     fichier <<  "Le sommet " << ndeg << " a un degres de "<< deg[ndeg] << std::endl;
+
 }
-
-
 
 
 ///centralité de degré normalisé <=> deg/(ordre-1)
 void Graphe::CentraliteDegreNormalise()
 {
-    int ndeg, CD;
+    int ndeg;
+    float CD;
     CD=deg[ndeg]/(m_ordre-1);
     std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
     fichier <<  "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl<<std::endl;
 
 }
+
+
+
 
 
 

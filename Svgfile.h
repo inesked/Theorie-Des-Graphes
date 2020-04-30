@@ -33,7 +33,27 @@ public:
     void addText(double x, double y, std::string text, std::string color=defcol); //ajout texte
     void addText(double x, double y, double val, std::string color=defcol);
 
-    void addGrid(double span=100.0, bool numbering=true, std::string color="lightgrey"); //grille de fond
+    void addGrid(double span=100.0, bool numbering=true, std::string color="lightgrey");//grille de fond
+
+   /// void addLegende ( )
+
+    void addDegre(double x, double y, std::string text, std::string color=defcol); //ajout texte
+    void addDegre(double x, double y, double val, std::string color=defcol);
+
+    void addDegreN(double x, double y, std::string text, std::string color=defcol); //ajout texte
+    void addDegreN(double x, double y, double val, std::string color=defcol);
+
+     void addVectProp(double x, double y, std::string text, std::string color=defcol); //ajout texte
+    void addVectProp(double x, double y, double val, std::string color=defcol);
+
+     void addVectPropN(double x, double y, std::string text, std::string color=defcol); //ajout texte
+    void addVectPropN(double x, double y, double val, std::string color=defcol);
+
+     void addProx(double x, double y, std::string text, std::string color=defcol); //ajout texte
+    void addProx(double x, double y, double val, std::string color=defcol);
+
+     void addProxN(double x, double y, std::string text, std::string color=defcol); //ajout texte
+    void addProxN(double x, double y, double val, std::string color=defcol);
 
     static std::string makeRGB(int r, int g, int b);
 
