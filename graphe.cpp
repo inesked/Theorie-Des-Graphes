@@ -298,9 +298,9 @@ void Graphe::VecteurPropreNonN()
 
 void Graphe::CentraliteProxNonN()
 {
-    int num_s0;
-    float longueurtot;
-    float CP;
+    int num_s0=0;
+    float longueurtot=0;
+    float CP=0;
     std::cout << "Rentrer le sommet de depart" << std::endl;
     std::cin >> num_s0;
     for(int i=0; i<m_ordre; ++i)
@@ -324,9 +324,9 @@ void Graphe::CentraliteProxNonN()
 
 void Graphe::CentraliteProxN()
 {
-    int num_s0;
-    float longueurtotale;
-    float CP;
+    int num_s0=0;
+    float longueurtotale=0;
+    float CP=0;
     std::cout << "Rentrer le sommet de depart" << std::endl;
     std::cin >> num_s0;
     for(int i=0; i<m_ordre; ++i)
@@ -346,27 +346,38 @@ void Graphe::CentraliteProxN()
 
 void Graphe::CentraliteInter()
 {
-    int num_s0;
-    int b;
-    int CI;
-    std::cin >> num_s0;
+    int num_s0=0;
+    int b=0;
+    int CI=0;
     std::cin >> b;
     float compteur =0;
     std::vector<int> PCC;
     for(int i= 0 ; i<m_ordre ; ++i)
     {
-        if(num_s0 < i)
-        {
             PCC = DijkstraAdap(num_s0,i);
-            std::cout << std::endl;
-            if(PCC[i] == b)
+            num_s0++;
+            for(int j= 0 ; j<m_ordre ; ++j)
             {
-                compteur ++;
+                if(j < b)
+                {
+                    PCC = DijkstraAdap(j,b);
+                    for(int k= 0 ; k<m_ordre ; ++k)
+                    {
+                        if(b < k)
+                        {
+                            PCC = DijkstraAdap(b,k);
+                            std::cout << std::endl;
+                            if(PCC[k] == b)
+                            {
+                                compteur ++;
+                            }
+                        }
+                    }
+                }
+                std::cout << compteur << std::endl;
             }
-        }
     }
     std::cout << std::endl;
-    std::cout << compteur << std::endl;
     CI = compteur/4;
     std::cout << CI;
 }

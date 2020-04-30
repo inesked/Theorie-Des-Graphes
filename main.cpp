@@ -57,6 +57,7 @@ int main()
                     std::cout <<"Quel fichier de ponderation voulez-vous charger ?" << std::endl;
                     std::cin >> Ponde;
                     g.GrapheChargerPonde(Ponde);
+                    g.Afficher();
                     break;
                 }
             case 3:
