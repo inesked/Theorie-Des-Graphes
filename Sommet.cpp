@@ -13,6 +13,12 @@ int Sommet::getNum() //id numero du sommet
     return m_num;
 }
 
+
+
+
+
+
+
 std::string Sommet::getNom() //id lettre du sommet
 {
     return m_nom;
@@ -27,9 +33,6 @@ double Sommet::getCoords2() //coord y du sommet
 {
     return m_coordonnees.second;
 }
-
-
-
 
 
 

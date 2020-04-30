@@ -164,8 +164,102 @@ void Svgfile::addText(double x, double y, std::string text, std::string color) /
             << attrib("fill", color)
             << ">" << text << "</text>\n";
 }
-
 void Svgfile::addText(double x, double y, double val, std::string color)
+{
+    std::ostringstream oss;
+    oss << val;
+    addText(x, y, oss.str(), color);
+}
+void Svgfile::addDegre(double x, double y, std::string text, std::string color) /// nom des objets
+{
+     /// <text x="180" y="60">Un texte</text>
+    m_ostrm << "<text "
+            << attrib("x", x)
+            << attrib("y", y)
+            << attrib("fill", color)
+            << ">" << text << "</text>\n";
+}
+void Svgfile::addDegre(double x, double y, double val, std::string color)
+{
+    std::ostringstream oss;
+    oss << val;
+    addText(x, y, oss.str(), color);
+}
+
+void Svgfile::addDegreN(double x, double y, std::string text, std::string color) /// nom des objets
+{
+     /// <text x="180" y="60">Un texte</text>
+    m_ostrm << "<text "
+            << attrib("x", x)
+            << attrib("y", y)
+            << attrib("fill", color)
+            << ">" << text << "</text>\n";
+}
+void Svgfile::addDegreN(double x, double y, double val, std::string color)
+{
+    std::ostringstream oss;
+    oss << val;
+    addText(x, y, oss.str(), color);
+}
+
+void Svgfile::addVectProp(double x, double y, std::string text, std::string color) /// nom des objets
+{
+     /// <text x="180" y="60">Un texte</text>
+    m_ostrm << "<text "
+            << attrib("x", x)
+            << attrib("y", y)
+            << attrib("fill", color)
+            << ">" << text << "</text>\n";
+}
+void Svgfile::addVectProp(double x, double y, double val, std::string color)
+{
+    std::ostringstream oss;
+    oss << val;
+    addText(x, y, oss.str(), color);
+}
+
+void Svgfile::addVectPropN(double x, double y, std::string text, std::string color) /// nom des objets
+{
+     /// <text x="180" y="60">Un texte</text>
+    m_ostrm << "<text "
+            << attrib("x", x)
+            << attrib("y", y)
+            << attrib("fill", color)
+            << ">" << text << "</text>\n";
+}
+void Svgfile::addVectPropN(double x, double y, double val, std::string color)
+{
+    std::ostringstream oss;
+    oss << val;
+    addText(x, y, oss.str(), color);
+}
+
+void Svgfile::addProx(double x, double y, std::string text, std::string color) /// nom des objets
+{
+     /// <text x="180" y="60">Un texte</text>
+    m_ostrm << "<text "
+            << attrib("x", x)
+            << attrib("y", y)
+            << attrib("fill", color)
+            << ">" << text << "</text>\n";
+}
+void Svgfile::addProx(double x, double y, double val, std::string color)
+{
+    std::ostringstream oss;
+    oss << val;
+    addText(x, y, oss.str(), color);
+}
+
+void Svgfile::addProxN(double x, double y, std::string text, std::string color) /// nom des objets
+{
+     /// <text x="180" y="60">Un texte</text>
+    m_ostrm << "<text "
+            << attrib("x", x)
+            << attrib("y", y)
+            << attrib("fill", color)
+            << ">" << text << "</text>\n";
+}
+void Svgfile::addProxN(double x, double y, double val, std::string color)
 {
     std::ostringstream oss;
     oss << val;

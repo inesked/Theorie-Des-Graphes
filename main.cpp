@@ -50,6 +50,8 @@ int main()
                     std::cin >> nomFichier;
                     g.GrapheCharger(nomFichier);
                     //g.Afficher();
+                    g.CentraliteDegreNormalise();
+                    g.dessinerGraphe();
                     break;
                 }
             case 2:
