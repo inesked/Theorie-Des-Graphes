@@ -14,7 +14,6 @@ private:
 
 public:
     Arete(int indice, std::pair<int,int> extremites); //constructeur de la paire
-    ~Arete();// destructeur de la paire
     int getId();//initialisation de l'iD
     std::pair<int,int> getExt();
     int getPoids();

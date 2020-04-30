@@ -1,0 +1,24 @@
+0
+10
+0 Paris 6 4
+1 Rouen 5 3
+2 Rennes 4 4
+3 Strasbourg 9 3
+4 Tours 5 5
+5 Lyon 8 6
+6 Bordeaux 4 7
+7 Toulouse 5 8
+8 Perpignan 7 10
+9 Marseille 9 9
+11
+0 0 5
+1 0 3
+2 0 4
+3 0 1
+4 0 2
+5 4 6
+6 4 7
+7 4 5
+8 5 8
+9 5 9
+10 5 7

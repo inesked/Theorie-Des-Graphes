@@ -17,10 +17,11 @@ private :
     std::vector <int> deg; //vect avec les degr�s
 
 public:
-    Graphe();
-    Graphe(std::string nomFichier);
+    //Graphe();
+    //Graphe(std::string nomFichier);
 
-    void GrapheCharger(std:: string nomFichier);
+    void GrapheChargerPonde(std:: string nomFichierPonde);
+    void GrapheCharger(std::string nomFichier);
 
     void VecteurPropreNonN();
     void Afficher(); //appel de la fonction afficher
@@ -31,6 +32,8 @@ public:
     int Dijkstra (int s_initial, int s_final);
     void CentraliteProxNonN();
     void CentraliteProxN();
+    void CentraliteInter();
+    std::vector<int> DijkstraAdap(int num_s0, int num_sf);
 };
 
 

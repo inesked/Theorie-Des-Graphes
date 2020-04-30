@@ -6,9 +6,50 @@
 #include "Sommet.h"
 #include <cmath>
 //inès
-Graphe::Graphe(std::string nomFichier) //lecture de fichier
+/*Graphe::Graphe(std::string nomFichier) //lecture de fichier
 {
      std::ifstream ifs{nomFichier}; //
+            if (!ifs)
+                throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier ); //blindage overture du fichier
+            ifs >> m_orientation; //lecture de l'orientation
+            if ( ifs.fail() ) //si echec
+                throw std::runtime_error("Probleme lecture orientation du graphe"); //blindage lecture orientation
+            ifs >> m_ordre; //lecture de l'ordre
+            if ( ifs.fail() ) //si echec
+                throw std::runtime_error("Probleme lecture ordre du graphe"); //blindage de la lecture ordre
+
+            int num0,num2,num3; //3 valeurs dans le txt, la premiere est l'id le deuxieme la premiere coord (x) la deuxieme coord (y)
+            std::string let1;
+            deg.resize(m_ordre);
+            for (int i=0; i<m_ordre; ++i){ //pour i compris entre 0 et l'ordre, on esplore toutes les coord
+                ifs>>num0>>let1>>num2>>num3;
+                if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture arc"); //blindage, si il n'arrive pas à lire les coordonnées
+                m_sommets.push_back(new Sommet{num0, let1 , std::make_pair(num2,num3)}); //creation de la pair avec les coordonnées (x,y)
+                deg[i] = 0;
+            }
+            ifs >> m_taille; //lecture de la taille
+            if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture taille du graphe"); //blindage si pb de lecture de la taille
+            int num4,num5,num6;
+            for (int i=0;i<m_taille;++i)
+                /*3 valeurs dans le txt, la premiere est l'id
+                le deuxieme le premier sommet qui est extremité de l'arc
+                et la deuxieme qui est l'autre extrémitée de l'arc
+            {
+                ifs>>num4>>num5>>num6;
+                if ( ifs.fail() )
+                throw std::runtime_error("Probleme lecture arc"); //blindage si pb lecture arc
+                m_arete.push_back(new Arete{num4, std::make_pair(num5,num6)}); //ajout d'une pair de coord correspondant à un arc
+                deg[num5] += 1;
+                deg[num6] += 1;
+            }
+            //GrapheCharger("ponde_etoile1.txt");
+}*/
+
+void Graphe::GrapheCharger(std::string nomFichier)
+{
+         std::ifstream ifs{nomFichier}; //
             if (!ifs)
                 throw std::runtime_error( "Impossible d'ouvrir en lecture " + nomFichier ); //blindage overture du fichier
             ifs >> m_orientation; //lecture de l'orientation
@@ -44,13 +85,13 @@ Graphe::Graphe(std::string nomFichier) //lecture de fichier
                 deg[num5] += 1;
                 deg[num6] += 1;
             }
-            GrapheCharger("ponde_etoile1.txt");
 }
 
 
-void Graphe::GrapheCharger(std::string nomFichier)
+
+void Graphe::GrapheChargerPonde(std::string nomFichierPonde)
 {
-    std::ifstream ifs{nomFichier};
+    std::ifstream ifs{nomFichierPonde};
     int taille;
     int poids;
     int id;
@@ -298,4 +339,31 @@ void Graphe::CentraliteProxN()
     std::cout << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << std::endl;
     std::cout << CP << std::endl;
 
+}
+
+void Graphe::CentraliteInter()
+{
+    int num_s0;
+    int b;
+    int CI;
+    std::cin >> num_s0;
+    std::cin >> b;
+    float compteur =0;
+    std::vector<int> PCC;
+    for(int i= 0 ; i<m_ordre ; ++i)
+    {
+        if(num_s0 < i)
+        {
+            PCC = DijkstraAdap(num_s0,i);
+            std::cout << std::endl;
+            if(PCC[i] == b)
+            {
+                compteur ++;
+            }
+        }
+    }
+    std::cout << std::endl;
+    std::cout << compteur << std::endl;
+    CI = compteur/4;
+    std::cout << CI;
 }
