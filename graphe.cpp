@@ -155,12 +155,12 @@ void Graphe::dessinerGraphe()  //dessin graphe avec le svg, voir commentaire svg
     }
     Svgfile svgout;
     svgout.addGrid();
-    svgout.addText(0,10,"Centralite de proximite non-normalisé","purple");
-    svgout.addText(0,25,"Centralite de proximite normalisé","gray");
-    svgout.addText(0,40,"Centralite de vect propre normalisé","magenta");
-    svgout.addText(0,55,"Centralite de vect propre non-normalisé","blue");
-    svgout.addText(0,70,"Centralite de degre normalisé","green");
-    svgout.addText(0,85,"Centralite de degre non-normalisé","red");
+    svgout.addText(1000,110,"Centralite de proximite non-normalisé","purple");
+    svgout.addText(1000,125,"Centralite de proximite normalisé","gray");
+    svgout.addText(1000,140,"Centralite de vect propre normalisé","magenta");
+    svgout.addText(1000,155,"Centralite de vect propre non-normalisé","blue");
+    svgout.addText(1000,170,"Centralite de degre normalisé","green");
+    svgout.addText(1000,185,"Centralite de degre non-normalisé","red");
     for(int i=0; i<m_ordre; ++i)
     {
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");

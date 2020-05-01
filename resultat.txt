@@ -2,39 +2,67 @@ Voici les resultats de la console :
 ************************************
 CENTRALITE DE VECTEUR PROPRE
 ************************************
-voici le vecteur propre normalise du sommet 0: 0.0523424
-voici le vecteur propre normalise du sommet 1: 0.0523424
-voici le vecteur propre normalise du sommet 2: 0.994505
-voici le vecteur propre normalise du sommet 3: 0.0523424
-voici le vecteur propre normalise du sommet 4: 0.0523424
+voici le vecteur propre normalise du sommet 0: 0.194181
+voici le vecteur propre normalise du sommet 1: 0.37071
+voici le vecteur propre normalise du sommet 2: 0.37071
+voici le vecteur propre normalise du sommet 3: 0.547239
+voici le vecteur propre normalise du sommet 4: 0.37071
+voici le vecteur propre normalise du sommet 5: 0.194181
+voici le vecteur propre normalise du sommet 6: 0.37071
+voici le vecteur propre normalise du sommet 7: 0.194181
+voici le vecteur propre normalise du sommet 8: 0.194181
 
-voici le vecteur propre non-normalise du sommet 0: 0.223607
-voici le vecteur propre non-normalise du sommet 1: 0.223607
-voici le vecteur propre non-normalise du sommet 2: 0.894427
-voici le vecteur propre non-normalise du sommet 3: 0.223607
-voici le vecteur propre non-normalise du sommet 4: 0.223607
+voici le vecteur propre non-normalise du sommet 0: 0.242536
+voici le vecteur propre non-normalise du sommet 1: 0.363803
+voici le vecteur propre non-normalise du sommet 2: 0.363803
+voici le vecteur propre non-normalise du sommet 3: 0.485071
+voici le vecteur propre non-normalise du sommet 4: 0.363803
+voici le vecteur propre non-normalise du sommet 5: 0.242536
+voici le vecteur propre non-normalise du sommet 6: 0.363803
+voici le vecteur propre non-normalise du sommet 7: 0.242536
+voici le vecteur propre non-normalise du sommet 8: 0.242536
 ************************************
 CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 0: 0.0625
+Voici la centralite de proximite non normalise pour le sommet 0: 0.0196078
 ************************************
 CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 1: 0.0769231
+Voici la centralite de proximite non normalise pour le sommet 1: 0.0192308
 ************************************
 CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 2: 0.1
+Voici la centralite de proximite non normalise pour le sommet 2: 0.0232558
 ************************************
 CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 3: 0.0526316
+Voici la centralite de proximite non normalise pour le sommet 3: 0.025
 ************************************
 CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 4: 0.0454545
-Voici la centralite de proximite normalise pour le sommet 0: 0.25
+Voici la centralite de proximite non normalise pour le sommet 4: 0.0227273
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 5: 0.0192308
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 6: 0.0263158
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 7: 0.02
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 8: 0.025
+Voici la centralite de proximite normalise pour le sommet 0: 0.156863
 
-Voici la centralite de proximite normalise pour le sommet 1: 0.307692
+Voici la centralite de proximite normalise pour le sommet 1: 0.153846
 
-Voici la centralite de proximite normalise pour le sommet 2: 0.4
+Voici la centralite de proximite normalise pour le sommet 2: 0.186047
 
-Voici la centralite de proximite normalise pour le sommet 3: 0.210526
+Voici la centralite de proximite normalise pour le sommet 3: 0.2
 
 Voici la centralite de proximite normalise pour le sommet 4: 0.181818
+
+Voici la centralite de proximite normalise pour le sommet 5: 0.153846
+
+Voici la centralite de proximite normalise pour le sommet 6: 0.210526
+
+Voici la centralite de proximite normalise pour le sommet 7: 0.16
+
+Voici la centralite de proximite normalise pour le sommet 8: 0.2
 
