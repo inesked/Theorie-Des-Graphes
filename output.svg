@@ -85,6 +85,12 @@
 <text x="1905" y="15" fill="lightgrey" >1900</text>
 <line x1="2000" y1="0" x2="2000" y2="2000" stroke="lightgrey" />
 <text x="2005" y="15" fill="lightgrey" >2000</text>
+<text x="0" y="10" fill="purple" >Centralite de proximite non-normalisé</text>
+<text x="0" y="25" fill="gray" >Centralite de proximite normalisé</text>
+<text x="0" y="40" fill="pink" >Centralite de vect propre normalisé</text>
+<text x="0" y="55" fill="blue" >Centralite de vect propre non-normalisé</text>
+<text x="0" y="70" fill="green" >Centralite de degre normalisé</text>
+<text x="0" y="85" fill="red" >Centralite de degre non-normalisé</text>
 <circle cx="200" cy="100" r="3" fill="black" />
 <text x="200" y="90" fill="black" >A</text>
 <text x="210" y="70" fill="red" >1.000000</text>
