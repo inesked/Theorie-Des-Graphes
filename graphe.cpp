@@ -385,7 +385,7 @@ float Graphe::CentraliteProxN(int num_s0)
     return CP;
 }
 
-/*void Graphe::CentraliteInter()
+void Graphe::CentraliteInter()
 {
     int num_s0=0;
     int b=0;
@@ -395,8 +395,9 @@ float Graphe::CentraliteProxN(int num_s0)
     std::vector<int> PCC;
     for(int i= 0 ; i<m_ordre ; ++i)
     {
+        if( num_s0 < i )
+        {
             PCC = DijkstraAdap(num_s0,i);
-            num_s0++;
             for(int j= 0 ; j<m_ordre ; ++j)
             {
                 if(j < b)
@@ -417,11 +418,13 @@ float Graphe::CentraliteProxN(int num_s0)
                 }
                 std::cout << compteur << std::endl;
             }
+            num_s0 ++;
+        }
     }
     std::cout << std::endl;
     CI = compteur/4;
     std::cout << CI;
-}*/
+}
 
 /*void Graphe::CentraliteInter()
 {

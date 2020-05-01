@@ -65,7 +65,7 @@ int main()
                 }
             case 3:
                 {
-                    //g.CentraliteInter();
+                    g.CentraliteInter();
                     break;
                 }
             case 4:

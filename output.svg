@@ -91,40 +91,40 @@
 <text x="210" y="55" fill="green" >0.250000</text>
 <text x="210" y="40" fill="blue" >0.052342</text>
 <text x="210" y="25" fill="magenta" >0.223607</text>
-<text x="210" y="10" fill="gray" >0.250000</text>
-<text x="210" y="-5" fill="purple" >0.062500</text>
+<text x="210" y="10" fill="gray" >0.571429</text>
+<text x="210" y="-5" fill="purple" >0.142857</text>
 <circle cx="100" cy="200" r="3" fill="black" />
 <text x="100" y="190" fill="black" >B</text>
 <text x="110" y="170" fill="red" >1.000000</text>
 <text x="110" y="155" fill="green" >0.250000</text>
 <text x="110" y="140" fill="blue" >0.052342</text>
 <text x="110" y="125" fill="magenta" >0.223607</text>
-<text x="110" y="110" fill="gray" >0.307692</text>
-<text x="110" y="95" fill="purple" >0.076923</text>
+<text x="110" y="110" fill="gray" >0.571429</text>
+<text x="110" y="95" fill="purple" >0.142857</text>
 <circle cx="200" cy="200" r="3" fill="black" />
 <text x="200" y="190" fill="black" >C</text>
 <text x="210" y="170" fill="red" >4.000000</text>
 <text x="210" y="155" fill="green" >1.000000</text>
 <text x="210" y="140" fill="blue" >0.994505</text>
 <text x="210" y="125" fill="magenta" >0.894427</text>
-<text x="210" y="110" fill="gray" >0.400000</text>
-<text x="210" y="95" fill="purple" >0.100000</text>
+<text x="210" y="110" fill="gray" >1.000000</text>
+<text x="210" y="95" fill="purple" >0.250000</text>
 <circle cx="300" cy="200" r="3" fill="black" />
 <text x="300" y="190" fill="black" >D</text>
 <text x="310" y="170" fill="red" >1.000000</text>
 <text x="310" y="155" fill="green" >0.250000</text>
 <text x="310" y="140" fill="blue" >0.052342</text>
 <text x="310" y="125" fill="magenta" >0.223607</text>
-<text x="310" y="110" fill="gray" >0.210526</text>
-<text x="310" y="95" fill="purple" >0.052632</text>
+<text x="310" y="110" fill="gray" >0.571429</text>
+<text x="310" y="95" fill="purple" >0.142857</text>
 <circle cx="200" cy="300" r="3" fill="black" />
 <text x="200" y="290" fill="black" >E</text>
 <text x="210" y="270" fill="red" >1.000000</text>
 <text x="210" y="255" fill="green" >0.250000</text>
 <text x="210" y="240" fill="blue" >0.052342</text>
 <text x="210" y="225" fill="magenta" >0.223607</text>
-<text x="210" y="210" fill="gray" >0.181818</text>
-<text x="210" y="195" fill="purple" >0.045455</text>
+<text x="210" y="210" fill="gray" >0.571429</text>
+<text x="210" y="195" fill="purple" >0.142857</text>
 <line x1="200" y1="100" x2="200" y2="200" stroke="black" />
 <line x1="100" y1="200" x2="200" y2="200" stroke="black" />
 <line x1="200" y1="200" x2="300" y2="200" stroke="black" />
