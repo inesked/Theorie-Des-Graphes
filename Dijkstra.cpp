@@ -97,9 +97,9 @@ std::vector<int> Graphe::DijkstraAdap(int num_s0, int num_sf)
                    {
                       if((distance[paire_successeurs.first->getNum()]== -1)||(paire.second + paire_successeurs.second < distance[paire_successeurs.first->getNum()])) /// comparaison de distance afin d'avoir la plus courte distance
                       {
-                          distance[paire_successeurs.first->getNum()] = paire.second + paire_successeurs.second; /// on attribue à la distance générale la distance actuelle + la distance de son prédécesseurs
-                          preds[paire_successeurs.first->getNum()] = paire.first->getNum(); /// on attribue le sommet en question au vector de prédécesseurs
-                          Queue.push(std::make_pair((paire_successeurs.first),distance[paire_successeurs.first->getNum()])); /// on mets ensuite le sommet puis la distance enregistré dnas la queue
+                            distance[paire_successeurs.first->getNum()] = paire.second + paire_successeurs.second; /// on attribue à la distance générale la distance actuelle + la distance de son prédécesseurs
+                            preds[paire_successeurs.first->getNum()] = paire.first->getNum(); /// on attribue le sommet en question au vector de prédécesseurs
+                            Queue.push(std::make_pair((paire_successeurs.first),distance[paire_successeurs.first->getNum()])); /// on mets ensuite le sommet puis la distance enregistré dnas la queue
                       }
                    }
                }

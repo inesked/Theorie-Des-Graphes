@@ -21,7 +21,7 @@ private :
 public:
 
     std::ofstream fichier;
-
+    std::ofstream fichier1;
     void GrapheChargerPonde(std:: string nomFichierPonde);
     void GrapheCharger(std::string nomFichier);
     std::vector<float> VecteurPropreNonN();
@@ -35,6 +35,8 @@ public:
     float CentraliteProxN(int num_s0);
     void CentraliteInter();
     std::vector<int> DijkstraAdap(int num_s0, int num_sf);
+    void SauvegardeGraphe();
+    void SuppArete(int id);
 };
 
 

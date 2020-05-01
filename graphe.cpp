@@ -391,7 +391,7 @@ float Graphe::CentraliteProxN(int num_s0)
     return CP;
 }
 
-void Graphe::CentraliteInter()
+/*void Graphe::CentraliteInter()
 {
     int num_s0=0;
     int b=0;
@@ -430,7 +430,7 @@ void Graphe::CentraliteInter()
     std::cout << std::endl;
     CI = compteur/4;
     std::cout << CI;
-}
+}*/
 
 /*void Graphe::CentraliteInter()
 {

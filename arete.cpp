@@ -4,6 +4,11 @@ Arete::Arete(int indice, std::pair<int,int> extremites)
     : m_indice{indice}, m_extremites{extremites}
 {}//indice, et coord de l'arete
 
+void Arete::setId(int id)
+{
+    m_indice = id;
+}
+
 int Arete::getId() //iD de l'arete
 {
     return m_indice;

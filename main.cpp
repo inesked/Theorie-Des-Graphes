@@ -53,6 +53,7 @@ int main()
                     std::cin >> nomFichierPonde;
                     g.GrapheChargerPonde(nomFichierPonde);
                     g.dessinerGraphe();
+                    g.Afficher();
                     break;
                 }
             case 2:
@@ -61,15 +62,19 @@ int main()
                     std::cin >> Ponde;
                     g.GrapheChargerPonde(Ponde);
                     g.Afficher();
+                    g.dessinerGraphe();
                     break;
                 }
             case 3:
                 {
-                    g.CentraliteInter();
+                    g.SauvegardeGraphe();
                     break;
                 }
             case 4:
                 {
+                    int id;
+                    std::cin >> id;
+                    g.SuppArete(id);
                     break;
                 }
         }

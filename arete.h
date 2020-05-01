@@ -13,7 +13,8 @@ private:
     std::pair<int,int> m_extremites; //creation d'une paire de sommets
 
 public:
-    Arete(int indice, std::pair<int,int> extremites); //constructeur de la paire
+    Arete(int indice, std::pair<int,int> extremites);//constructeur de la paire
+    void setId(int id);
     int getId();//initialisation de l'iD
     std::pair<int,int> getExt();
     int getPoids();
