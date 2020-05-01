@@ -16,7 +16,7 @@ private :
     int m_taille; //nombre d'aretes indiqu�s dans le txt
     std::vector <Sommet*> m_sommets; //vect avec les sommets
     std::vector <Arete*> m_arete; //vect avec les aretes
-    std::vector <int> deg; //vect avec les degr�s
+    std::vector <float> deg; //vect avec les degr�s
 
 public:
 
@@ -24,15 +24,15 @@ public:
 
     void GrapheChargerPonde(std:: string nomFichierPonde);
     void GrapheCharger(std::string nomFichier);
-    void VecteurPropreNonN();
+    std::vector<float> VecteurPropreNonN();
     void Afficher(); //appel de la fonction afficher
-    void dessinerGraphe() const; //appel void dessiner graphe comme une constante
+    void dessinerGraphe(); //appel void dessiner graphe comme une constante
     void CentraliteDegreNonNorma(); //premier algo centralit� de degr� non normalis�
     void CentraliteDegreNormalise(); //premier algo centralit� de degr� normalis�
-    void VecteurPropre(); //deuxieme algo vecteur propre normalis�
+    std::vector<float> VecteurPropre(); //deuxieme algo vecteur propre normalis�
     int Dijkstra (int s_initial, int s_final);
-    void CentraliteProxNonN();
-    void CentraliteProxN();
+    float CentraliteProxNonN(int num_s0);
+    float CentraliteProxN(int num_s0);
     void CentraliteInter();
     std::vector<int> DijkstraAdap(int num_s0, int num_sf);
 };

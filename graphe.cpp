@@ -133,8 +133,26 @@ void Graphe::Afficher() //affichage du txt
 
 
 
-void Graphe::dessinerGraphe() const //dessin graphe avec le svg, voir commentaire svgfile
+void Graphe::dessinerGraphe()  //dessin graphe avec le svg, voir commentaire svgfile
 {
+    std::vector<float> CVp;
+    std::vector<float> CVpN;
+    std::vector<float> CPN;
+    std::vector <float> CP;
+    CVp = VecteurPropre();
+    CVpN = VecteurPropreNonN();
+    for(int i=0;i<m_ordre;++i)
+    {
+        float x ;
+        x = CentraliteProxNonN(i);
+        CPN.push_back(x);
+    }
+    for(int i=0;i<m_ordre;++i)
+    {
+        float x ;
+        x = CentraliteProxN(i);
+        CP.push_back(x);
+    }
     Svgfile svgout;
     svgout.addGrid();
     for(int i=0; i<m_ordre; ++i)
@@ -146,13 +164,13 @@ void Graphe::dessinerGraphe() const //dessin graphe avec le svg, voir commentair
 
         svgout.addDegreN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-45,std::to_string((deg[m_sommets[i]->getNum()])/(m_ordre-1)),"green");
 
-        //svgout.addVectProp ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-60,std::to_string(CVp[i]),"blue");
+        svgout.addVectProp ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-60,std::to_string(CVp[i]),"blue");
 
-        svgout.addVectPropN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-75,std::to_string(deg[m_sommets[i]->getNum()]),"magenta");
+        svgout.addVectPropN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-75,std::to_string(CVpN[i]),"magenta");
 
-        svgout.addProx ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-90,std::to_string(deg[m_sommets[i]->getNum()]),"gray");
+        svgout.addProx ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-90,std::to_string(CP[i]),"gray");
 
-        svgout.addProxN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-105,std::to_string(deg[m_sommets[i]->getNum()]),"purple");
+        svgout.addProxN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-105,std::to_string(CPN[i]),"purple");
     }
     for(int i=0; i<m_taille; ++i)
     {
@@ -182,9 +200,12 @@ void Graphe::CentraliteDegreNormalise()
 {
     int ndeg;
     float CD;
-    CD=deg[ndeg]/(m_ordre-1);
-    std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
-    fichier <<  "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl<<std::endl;
+    for(int i=0; i<m_ordre; ++i)
+    {
+        CD = (deg[i]/(m_ordre-1));
+        std::cout << "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
+        fichier <<  "Le sommet choisi a pour Centralite de degre normalise; CD(s) : " << CD <<std::endl<<std::endl;
+    }
 
 }
 
@@ -195,19 +216,16 @@ void Graphe::CentraliteDegreNormalise()
 
 ///centralité de vecteur propre non-normalisé
 
-void Graphe::VecteurPropre()
+std::vector<float> Graphe::VecteurPropre()
 {
     float lambda;
     float temp;
-    int s;
-    std::cout << "Rentrer le sommet voulu" << std::endl;
-    std::cin >> s;
     std::vector<float> CVp;
-    std::vector<float> deg;
+    std::vector<float> CV;
     for(int i=0; i< m_ordre ; ++i) //crée deux vecteurs, un pour CVP et un pour les degrés, on les initialise à 1 et 0
     {
         CVp.push_back(1);
-        deg.push_back(0);
+        CV.push_back(deg[i]/m_ordre-1);
     }
     do
     {
@@ -218,7 +236,73 @@ void Graphe::VecteurPropre()
                 if(m_arete[j]->getExt1() == m_sommets[i]->getNum()) //on attribue à larete la valeure d'une extremitée et au sommet son num
                 {
                     int successeurs = m_arete[j]->getExt1();
-                    deg[i]=deg[i]+CVp[successeurs]; //le degré du sommet etudié est son degré initial + le CVP de ses succeceurs
+                    CV[i]=CV[i]+CVp[successeurs]; //le degré du sommet etudié est son degré initial + le CVP de ses succeceurs
+                    //deg[i]=deg[i]+deg[successeurs];
+                }
+                if(m_arete[j]->getExt2() == m_sommets[i]->getNum())
+                {
+                    int successeurs = m_arete[j]->getExt2();
+                    CV[i]=CV[i]+CVp[successeurs];
+                    //deg[i]=deg[i]+deg[successeurs];
+                }
+
+            }
+        }
+        for(int k=0; k<deg.size(); ++k)
+        {
+            temp = temp + pow(CV[k],2); //création d'une valeure tampon pour faciliter le calcul, tampon ! degré au carré
+        }
+        lambda = sqrt(temp); //lambda = racine carrée de cette vlaure tampon
+        for(int i=0; i<m_ordre; ++i)
+        {
+            CVp[i] = CV[i]/lambda; // pour finir calcul de CVP = degré/lambda
+        }
+    }
+    while(lambda<0.2); //des qu elambda ne varie plus trop donc lambda <0,2 on arete la boucle et on sort le CVp étudié
+    //std::cout << "voici le vecteur propre normalise du sommet " << s << ": "<< CVp[s];
+    //fichier << "************************************" << std::endl;
+    fichier << "CENTRALITE DE VECTEUR PROPRE" << std::endl;
+    fichier << "************************************" << std::endl;
+    for(int i=0 ; i<m_ordre ;++i)
+    {
+        fichier << "voici le vecteur propre normalise du sommet " << i << ": "<< CVp[i]<<std::endl;
+    }
+    return CVp;
+}
+
+
+
+
+
+///centralité de vecteur propre normalisé
+/* pour ce sous programe les commentaires sont identiques aux précedents,
+la seule difference est que le degré utilisé ici est la centralité de degré normalisé,
+pour étudier le vecteur propre NORMALISE
+*/
+std::vector<float> Graphe::VecteurPropreNonN()
+{
+    float lambda;
+    float temp;
+    /*int s;
+    std::cout <<std::endl<< "Rentrer le sommet voulu" << std::endl;
+    std::cin >> s;*/
+    std::vector<float> CVp;
+    std::vector<float> deg;
+    for(int i=0; i< m_ordre ; ++i)
+    {
+        CVp.push_back(1);
+        deg.push_back(0);
+    }
+    do
+    {
+        for(int i= 0; i< m_ordre; ++i)
+        {
+            for(int j=0; j< m_arete.size(); ++j)
+            {
+                if(m_arete[j]->getExt1() == m_sommets[i]->getNum())
+                {
+                    int successeurs = m_arete[j]->getExt1();
+                    deg[i]=deg[i]+CVp[successeurs];
                     //deg[i]=deg[i]+deg[successeurs];
                 }
                 if(m_arete[j]->getExt2() == m_sommets[i]->getNum())
@@ -232,117 +316,59 @@ void Graphe::VecteurPropre()
         }
         for(int k=0; k<deg.size(); ++k)
         {
-            temp = temp + pow(deg[k],2); //création d'une valeure tampon pour faciliter le calcul, tampon ! degré au carré
-        }
-        lambda = sqrt(temp); //lambda = racine carrée de cette vlaure tampon
-        for(int i=0; i<m_ordre; ++i)
-        {
-            CVp[i] = deg[i]/lambda; // pour finir calcul de CVP = degré/lambda
-        }
-    }
-    while(lambda<0.2); //des qu elambda ne varie plus trop donc lambda <0,2 on arete la boucle et on sort le CVp étudié
-    std::cout << "voici le vecteur propre normalise du sommet " << s << ": "<< CVp[s];
-    fichier << "************************************" << std::endl;
-    fichier << "CENTRALITE DE VECTEUR PROPRE" << std::endl;
-    //fichier << "************************************" << std::endl;
-    fichier << "voici le vecteur propre normalise du sommet " << s << ": "<< CVp[s]<<std::endl;
-}
-
-
-
-
-
-///centralité de vecteur propre normalisé
-/* pour ce sous programe les commentaires sont identiques aux précedents,
-la seule difference est que le degré utilisé ici est la centralité de degré normalisé,
-pour étudier le vecteur propre NORMALISE
-*/
-void Graphe::VecteurPropreNonN()
-{
-
-    //CD=deg[ndeg]/(m_ordre-1);
-    float lambda;
-    float temp;
-    int s;
-    std::cout <<std::endl<< "Rentrer le sommet voulu" << std::endl;
-    std::cin >> s;
-    std::vector<float> CVp;
-    std::vector<float> CD;
-    for(int i=0; i< m_ordre ; ++i)
-    {
-        CVp.push_back(1);
-        CD.push_back(0);
-    }
-    do
-    {
-        for(int i= 0; i< m_ordre; ++i)
-        {
-            for(int j=0; j< m_arete.size(); ++j)
-            {
-                if(m_arete[j]->getExt1() == m_sommets[i]->getNum())
-                {
-                    int successeurs = m_arete[j]->getExt1();
-                    CD[i]=CD[i]+CVp[successeurs];
-                    //deg[i]=deg[i]+deg[successeurs];
-                }
-                if(m_arete[j]->getExt2() == m_sommets[i]->getNum())
-                {
-                    int successeurs = m_arete[j]->getExt2();
-                    CD[i]=CD[i]+CVp[successeurs];
-                    //deg[i]=deg[i]+deg[successeurs];
-                }
-
-            }
-        }
-        for(int k=0; k<deg.size(); ++k)
-        {
-            temp = temp + pow(CD[k],2);
+            temp = temp + pow(deg[k],2);
 
         }
         lambda = sqrt(temp);
         for(int i=0; i<m_ordre; ++i)
         {
-            CVp[i] = CD[i]/lambda;
+            CVp[i] = deg[i]/lambda;
         }
     }
     while(lambda<0.2);
-    std::cout << "voici le vecteur propre non-normalise du sommet " << s << ": "<< CVp[s] <<std::endl;
-    fichier << "voici le vecteur propre non-normalise du sommet " << s << ": "<< CVp[s]<<std::endl<<std::endl;
+    //std::cout << "voici le vecteur propre non-normalise du sommet " << s << ": "<< CVp[s] <<std::endl;
+    fichier << std::endl;
+    for(int i=0 ; i<m_ordre ; ++i)
+    {
+        fichier << "voici le vecteur propre non-normalise du sommet " << i << ": "<< CVp[i]<<std::endl;
+    }
+    return CVp;
 }
 
-void Graphe::CentraliteProxNonN()
+float Graphe::CentraliteProxNonN(int num_s0)
 {
-    int num_s0=0;
-    float longueurtot=0;
+    float longueurtot;
     float CP=0;
-    std::cout << "Rentrer le sommet de depart" << std::endl;
-    std::cin >> num_s0;
-    for(int i=0; i<m_ordre; ++i)
-    {
-        if(i != num_s0)
+    /*std::cout << "Rentrer le sommet de depart" << std::endl;
+    std::cin >> num_s0;*/
+    /*for(int j=0; j<m_ordre; ++j)
+    {*/
+        for(int i=0; i<m_ordre; ++i)
         {
-            longueurtot = longueurtot + Dijkstra(num_s0, i);
-            std::cout << std::endl;
+            if(i != num_s0)
+            {
+                longueurtot = longueurtot + Dijkstra(num_s0,i);
+                std::cout << std::endl;
+            }
         }
-    }
-    std::cout << longueurtot << std::endl;
-    CP = (1/longueurtot);
-    std::cout << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << std::endl;
-    std::cout << CP << std::endl;
+    //}
+    CP = 1/longueurtot;
+    /*std::cout << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << std::endl;
+    std::cout << CP << std::endl;*/
     fichier << "************************************" << std::endl;
     fichier << "CENTRALITE DE PROXIMITE" << std::endl;
     //fichier << "************************************" << std::endl;
     fichier << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << CP << std::endl;
-
+    std::cout << CP;
+    return CP;
 }
 
-void Graphe::CentraliteProxN()
+float Graphe::CentraliteProxN(int num_s0)
 {
-    int num_s0=0;
     float longueurtotale=0;
     float CP=0;
-    std::cout << "Rentrer le sommet de depart" << std::endl;
-    std::cin >> num_s0;
+    /*std::cout << "Rentrer le sommet de depart" << std::endl;
+    std::cin >> num_s0;*/
     for(int i=0; i<m_ordre; ++i)
     {
         if(i != num_s0)
@@ -351,14 +377,15 @@ void Graphe::CentraliteProxN()
             std::cout << std::endl;
         }
     }
-    std::cout << longueurtotale << std::endl;
+    //std::cout << longueurtotale << std::endl;
     CP = ((m_ordre-1)/longueurtotale);
-    std::cout << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << std::endl;
-    std::cout << CP << std::endl;
+    //std::cout << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << std::endl;
+    //std::cout << CP << std::endl;
     fichier << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << CP << std::endl<<std::endl;
+    return CP;
 }
 
-void Graphe::CentraliteInter()
+/*void Graphe::CentraliteInter()
 {
     int num_s0=0;
     int b=0;
@@ -394,4 +421,51 @@ void Graphe::CentraliteInter()
     std::cout << std::endl;
     CI = compteur/4;
     std::cout << CI;
-}
+}*/
+
+/*void Graphe::CentraliteInter()
+{
+    for()
+            /// déclaration de la pile
+            std::stack<Sommet*> DFS;
+            /// pour le marquage
+            std::vector<int> couleurs((int)m_sommets.size(),0);
+            ///pour noter les prédécesseurs : on note les numéros des prédécesseurs (on pourrait stocker des pointeurs sur ...)
+            std::vector<int> preds((int)m_sommets.size(),-1);
+
+            ///étape initiale : on enfile et on marque le sommet initial
+            /// on initiale les sommets précédent à une couleur 0
+            for(int i=0; i< num_s0;++i)
+            {
+                couleurs[i]= 0;
+            }
+            /// on enfile dans notre pile le premier sommet
+            DFS.push(m_sommets[num_s0]);
+            /// on le marque
+            couleurs[num_s0] = 1;
+            Sommet*s;
+            std::vector<Sommet*> successeurs;
+            ///tant que la file n'est pas vide
+            while(!DFS.empty())
+            {
+                ///on défile le prochain sommet
+                /// on le place au dessus de la pile
+                s = DFS.top();
+                /// on le détruit directement après (premier arrivée, premier servi)
+                DFS.pop();
+                /// on attribue à successeurs les successeurs du sommet initial.
+                successeurs = m_sommets[s->getNum()]->getSucc();
+
+                ///pour chaque successeur du sommet défilé
+                for(int i=0 ; i < successeurs.size() ; ++i){
+                     if(couleurs[successeurs[i]->getNum()] == 0)
+                        {
+
+                            couleurs[successeurs[i]->getNum()] = 1; ///s'il n'est pas marqué
+                            preds[successeurs[i]->getNum()]= s->getNum(); ///on le marque
+                            DFS.push(successeurs[i]); ///on note son prédecesseur (=le sommet défilé)
+                        }
+
+              }
+            }
+}*/

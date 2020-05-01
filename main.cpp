@@ -49,8 +49,9 @@ int main()
                     std::cout << "Quel graphe voulez-vous charger ?" << std::endl;///on demande � l'utilisateur le nom du graphe qu'il veut charger
                     std::cin >> nomFichier;
                     g.GrapheCharger(nomFichier);
-                    //g.Afficher();
-                    g.CentraliteDegreNormalise();
+                    std::string nomFichierPonde;
+                    std::cin >> nomFichierPonde;
+                    g.GrapheChargerPonde(nomFichierPonde);
                     g.dessinerGraphe();
                     break;
                 }
@@ -64,7 +65,7 @@ int main()
                 }
             case 3:
                 {
-                    g.CentraliteInter();
+                    //g.CentraliteInter();
                     break;
                 }
             case 4:
