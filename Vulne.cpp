@@ -46,17 +46,25 @@ void Graphe::SuppArete(int Ext1, int Ext2)
     {
         ofs << m_arete[j]->getId() << " " << m_arete[j]->getExt1() << " " << m_arete[j]->getExt2() << std::endl;
         ponde << m_arete[j]->getId() << " " ;
-        if( j != Ext1)
-        {
-                ponde << m_sommets[j]->returnSuccSecond(k) << std::endl;
-                if(m_sommets[j]->getSuccSize()>1)
-                    ++k;
-        }
-        else
-        {
-            //if (m_sommets[j]->getSuccSize() == 1)
-                ponde << m_sommets[j+1]->returnSuccSecond(k) << std::endl;
-        }
+            if(j != Ext1)
+            {
+                    ponde << m_sommets[j]->returnSuccSecond(k) << std::endl;
+                    if(m_sommets[j]->getSuccSize()>1)
+                    {
+                        ponde << m_sommets[j]->returnSuccSecond(k) << std::endl;
+                        ++k;
+                    }
+            }
+            else
+            {
+                //if (m_sommets[j]->getSuccSize() == 1)
+                    ponde << m_sommets[j+1]->returnSuccSecond(k) << std::endl;
+                    if(m_sommets[j]->getSuccSize()>1)
+                    {
+                        ponde << m_sommets[j]->returnSuccSecond(k) << std::endl;
+                        ++k;
+                    }
+            }
     }
     m_sommets.clear();
     m_arete.clear();
