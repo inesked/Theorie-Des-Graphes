@@ -48,6 +48,8 @@ void Graphe::GrapheCharger(std::string nomFichier)
                 if ( ifs.fail() )
                 throw std::runtime_error("Probleme lecture arc"); //blindage si pb lecture arc
                 m_arete.push_back(new Arete{num4, std::make_pair(num5,num6)}); //ajout d'une pair de coord correspondant à un arc
+                m_numarete.push_back(num5);
+                m_numarete.push_back(num6);
                 deg[num5] += 1;
                 deg[num6] += 1;
             }
@@ -478,3 +480,33 @@ float Graphe::CentraliteProxN(int num_s0)
               }
             }
 }*/
+
+///méthode pour calculer la centralite d'intermediraite si on considere qu'il n'existe qu'un seul chemin plus court d'un point A un un pt B
+///non-normalise
+void Graphe::CentrInter1CPC ()
+{
+    int num_sint;
+    int n_pccjk(i);
+    int n_pccjk;
+    for(int i=0; i<m_ordre; ++i)
+    {
+        if ()
+    }
+
+}
+
+
+
+
+
+///méthode pour calculer la centralite d'intermediraite si on considere qu'il n'existe qu'un seul chemin plus court d'un point A un un pt B
+///normalise
+void Graphe::CentrInter1CPCN ()
+{
+
+}
+
+
+
+
+
