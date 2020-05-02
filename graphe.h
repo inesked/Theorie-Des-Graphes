@@ -36,7 +36,8 @@ public:
     void CentraliteInter();
     std::vector<int> DijkstraAdap(int num_s0, int num_sf);
     void SauvegardeGraphe();
-    void SuppArete(int id);
+    void SuppArete(int Ext1,int Ext2);
+    void Connexite();
 };
 
 
