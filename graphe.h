@@ -17,6 +17,9 @@ private :
     std::vector <Sommet*> m_sommets; //vect avec les sommets
     std::vector <Arete*> m_arete; //vect avec les aretes
     std::vector <float> deg; //vect avec les degr�s
+    std::vector<std::vector<int>> gra;
+
+
 
 public:
 
@@ -38,6 +41,10 @@ public:
     void SauvegardeGraphe();
     void SuppArete(int Ext1,int Ext2);
     void Connexite();
+    void linkBFS(int d, int a, int it);
+    void afficheChemin(std::vector<int>& chemin, int minimum, int it, int &nbr1, int &nbr2);
+    int pasVisite(int x, std::vector<int>& chemin);
+    void chemins(std::vector<std::vector<int> >&g, int d, int a, int it);
 };
 
 
