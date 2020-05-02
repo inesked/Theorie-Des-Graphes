@@ -24,7 +24,6 @@ private :
 public:
 
     std::ofstream fichier;
-    std::ofstream fichier1;
     void GrapheChargerPonde(std:: string nomFichierPonde);
     void GrapheCharger(std::string nomFichier);
     std::vector<float> VecteurPropreNonN();
