@@ -64,9 +64,11 @@ int Graphe::Dijkstra(int num_s0, int num_sf)
 
 }
 
-std::vector<int> Graphe::DijkstraAdap(int num_s0, int num_sf)
+
+std::vector<int> Graphe::CentraliteInt1seulPluscourtchemin(int num_s0, int num_sf, int num_si)
        {
-           std::vector<int> preds((int) m_sommets.size(), -1); /// vecteur de prédécesseurs
+
+       std::vector<int> preds((int) m_sommets.size(), -1); /// vecteur de prédécesseurs
            std::vector<int> marquage ((int)m_sommets.size(),0); /// vecteur de marquage
            auto cmp= [](std::pair<Sommet*,int> paire1, std::pair<Sommet*,int> paire2){return paire2.second<paire1.second; }; /// auto comp permettant la comparaison automatique entre 2 sommets et leur distance
            std::priority_queue<std::pair<Sommet*,int>,std::vector<std::pair<Sommet*,int>>,decltype(cmp)> Queue(cmp); /// place en priorité le sommet avec le moins de distance de son prédécesseurs
@@ -105,22 +107,27 @@ std::vector<int> Graphe::DijkstraAdap(int num_s0, int num_sf)
                }
            }
            std::cout << std::endl;
-           std::cout << "Chemin du sommet "<< num_s0 << " au sommet " << num_sf <<" :" <<std::endl;
+           std::cout << "Admettons qu'il n'existe qu'un seul plus court chemin possible du sommet " << num_s0 << " au sommet " << num_sf <<" :" <<std::endl;
             std::cout << num_sf; /// on affiche le sommet finale
             for(auto p = preds[num_sf]; p != -1; p = preds[p]) /// boucle s'arrêtant jusqu'au dernier prédécesseur
             {                                                   /// affiche chaque prédécesseur
                 std::cout << "<--"<< p;
 
             }
+            bool inter = false;
             std::cout << std::endl;
-            std::cout << "longueur : " << distance[num_sf] - distance[preds[num_sf]]; /// calcul de la distance entre le sommet final et son prédécesseur
-            for(auto p = preds[num_sf]; p != -1; p = preds[p])/// boucle s'arrêtant jusqu'au dernier prédécesseur
-            {
-                if(distance[p] == 0) /// si la distance est null (si on est au sommet final)
-                    std::cout << " = " << distance[num_sf]; /// on affiche la distance totale
-                else /// sinon on affiche la distance entre chaque prédécesseur
-                    std::cout << "+" << distance[p]-distance[preds[p]];
+            for(auto p = preds[num_sf]; p != -1; p = preds[p]) /// boucle s'arrêtant jusqu'au dernier prédécesseur
+            {                                                   /// affiche chaque prédécesseur
+                if(num_si == p) inter = true;
 
+            }
+            if(inter){
+                std::cout << "le degree d'intermediarite non numerise du sommet " << num_si << " est de 1"  <<std::endl;
+                std::cout << "le degree d'intermediarite numerise du sommet " << num_si << " est de " << 2./float(m_ordre*m_ordre - 3*m_ordre + 2) <<std::endl;
+            }
+            else{
+                std:: cout << "le degree d'intermediarite non numerise du sommet " << num_si << " est de 0"  <<std::endl;
+                std:: cout << "le degree d'intermediarite numerise du sommet " << num_si << " est de 0"  <<std::endl;
             }
             return preds;
 }
