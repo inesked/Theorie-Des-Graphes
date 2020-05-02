@@ -53,6 +53,11 @@ void Graphe::GrapheCharger(std::string nomFichier)
                 deg[num5] += 1;
                 deg[num6] += 1;
             }
+            std::string nomFichierPonde;
+            std::cin >> nomFichierPonde;
+            GrapheChargerPonde(nomFichierPonde);
+            Afficher();
+            dessinerGraphe();
 }
 
 
@@ -356,7 +361,6 @@ float Graphe::CentraliteProxNonN(int num_s0)
             if(i != num_s0)
             {
                 longueurtot = longueurtot + Dijkstra(num_s0,i);
-                std::cout << std::endl;
             }
         }
     //}
@@ -367,7 +371,6 @@ float Graphe::CentraliteProxNonN(int num_s0)
     fichier << "CENTRALITE DE PROXIMITE" << std::endl;
     //fichier << "************************************" << std::endl;
     fichier << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << CP << std::endl;
-    std::cout << CP;
     return CP;
 }
 
@@ -382,7 +385,6 @@ float Graphe::CentraliteProxN(int num_s0)
         if(i != num_s0)
         {
             longueurtotale = longueurtotale + Dijkstra(num_s0, i);
-            std::cout << std::endl;
         }
     }
     //std::cout << longueurtotale << std::endl;

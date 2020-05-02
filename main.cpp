@@ -49,11 +49,6 @@ int main()
                     std::cout << "Quel graphe voulez-vous charger ?" << std::endl;///on demande � l'utilisateur le nom du graphe qu'il veut charger
                     std::cin >> nomFichier;
                     g.GrapheCharger(nomFichier);
-                    std::string nomFichierPonde;
-                    std::cin >> nomFichierPonde;
-                    g.GrapheChargerPonde(nomFichierPonde);
-                    g.dessinerGraphe();
-                    g.Afficher();
                     break;
                 }
             case 2:
@@ -72,9 +67,19 @@ int main()
                 }
             case 4:
                 {
-                    int id;
-                    std::cin >> id;
-                    g.SuppArete(id);
+                    int cmb;
+                    std::cout << "Combien d'arete voulez-vous retirer ?" << std::endl;
+                    std::cin >> cmb;
+                    int Ext1;
+                    int Ext2;
+                    for(int i=0; i<cmb ; ++i)
+                    {
+                        std::cout << "rentrer les extremites de l'arete a supprimer" << std::endl;
+                        std::cin >> Ext1;
+                        std::cin >> Ext2;
+                        g.SuppArete(Ext1,Ext2);
+                    }
+                    //g.Connexite();
                     break;
                 }
         }

@@ -43,7 +43,7 @@ int Graphe::Dijkstra(int num_s0, int num_sf)
                    }
                }
            }
-           std::cout << "Chemin du sommet "<< num_s0 << " au sommet " << num_sf <<" :" <<std::endl;
+           /*std::cout << "Chemin du sommet "<< num_s0 << " au sommet " << num_sf <<" :" <<std::endl;
             std::cout << num_sf; /// on affiche le sommet finale
             for(auto p = preds[num_sf]; p != -1; p = preds[p]) /// boucle s'arrêtant jusqu'au dernier prédécesseur
             {                                                   /// affiche chaque prédécesseur
@@ -52,14 +52,14 @@ int Graphe::Dijkstra(int num_s0, int num_sf)
             }
             std::cout << std::endl;
             std::cout << "longueur : " << distance[num_sf] - distance[preds[num_sf]]; /// calcul de la distance entre le sommet final et son prédécesseur
-            for(auto p = preds[num_sf]; p != -1; p = preds[p])/// boucle s'arrêtant jusqu'au dernier prédécesseur
+            /*for(auto p = preds[num_sf]; p != -1; p = preds[p])/// boucle s'arrêtant jusqu'au dernier prédécesseur
             {
                 if(distance[p] == 0) /// si la distance est null (si on est au sommet final)
                     std::cout << " = " << distance[num_sf]; /// on affiche la distance totale
                 else /// sinon on affiche la distance entre chaque prédécesseur
                     std::cout << "+" << distance[p]-distance[preds[p]];
 
-            }
+            }*/
             return distance[num_sf];
 
 }

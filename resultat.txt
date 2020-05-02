@@ -1,43 +1,5 @@
 Voici les resultats de la console : 
 ************************************
-CENTRALITE DE VECTEUR PROPRE
-************************************
-voici le vecteur propre normalise du sommet 0: 0.0523424
-voici le vecteur propre normalise du sommet 1: 0.0523424
-voici le vecteur propre normalise du sommet 2: 0.994505
-voici le vecteur propre normalise du sommet 3: 0.0523424
-voici le vecteur propre normalise du sommet 4: 0.0523424
-
-voici le vecteur propre non-normalise du sommet 0: 0.223607
-voici le vecteur propre non-normalise du sommet 1: 0.223607
-voici le vecteur propre non-normalise du sommet 2: 0.894427
-voici le vecteur propre non-normalise du sommet 3: 0.223607
-voici le vecteur propre non-normalise du sommet 4: 0.223607
-************************************
-CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 0: 0.142857
-************************************
-CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 1: 0.142857
-************************************
-CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 2: 0.25
-************************************
-CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 3: 0.142857
-************************************
-CENTRALITE DE PROXIMITE
-Voici la centralite de proximite non normalise pour le sommet 4: 0.142857
-Voici la centralite de proximite normalise pour le sommet 0: 0.571429
-
-Voici la centralite de proximite normalise pour le sommet 1: 0.571429
-
-Voici la centralite de proximite normalise pour le sommet 2: 1
-
-Voici la centralite de proximite normalise pour le sommet 3: 0.571429
-
-Voici la centralite de proximite normalise pour le sommet 4: 0.571429
-
 Nous avons a faire au graphe suivant :
 
 orientation: 0
@@ -57,8 +19,46 @@ taille: 4
 ************************************
 voici les successeurs de chaque sommet:
 0: 2(1)
-1: 2(1)
-2: 0(1)1(1)3(1)4(1)
-3: 2(1)
-4: 2(1)
+1: 2(3)
+2: 0(1)1(3)3(2)4(4)
+3: 2(2)
+4: 2(4)
+
+CENTRALITE DE VECTEUR PROPRE
+************************************
+voici le vecteur propre normalise du sommet 0: 0.0523424
+voici le vecteur propre normalise du sommet 1: 0.0523424
+voici le vecteur propre normalise du sommet 2: 0.994505
+voici le vecteur propre normalise du sommet 3: 0.0523424
+voici le vecteur propre normalise du sommet 4: 0.0523424
+
+voici le vecteur propre non-normalise du sommet 0: 0.223607
+voici le vecteur propre non-normalise du sommet 1: 0.223607
+voici le vecteur propre non-normalise du sommet 2: 0.894427
+voici le vecteur propre non-normalise du sommet 3: 0.223607
+voici le vecteur propre non-normalise du sommet 4: 0.223607
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 0: 0.0769231
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 1: 0.0526316
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 2: 0.1
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 3: 0.0625
+************************************
+CENTRALITE DE PROXIMITE
+Voici la centralite de proximite non normalise pour le sommet 4: 0.0454545
+Voici la centralite de proximite normalise pour le sommet 0: 0.307692
+
+Voici la centralite de proximite normalise pour le sommet 1: 0.210526
+
+Voici la centralite de proximite normalise pour le sommet 2: 0.4
+
+Voici la centralite de proximite normalise pour le sommet 3: 0.25
+
+Voici la centralite de proximite normalise pour le sommet 4: 0.181818
 
