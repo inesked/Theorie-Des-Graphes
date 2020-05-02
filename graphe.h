@@ -33,7 +33,7 @@ public:
     float CentraliteProxNonN(int num_s0);
     float CentraliteProxN(int num_s0);
     void CentraliteInter();
-    std::vector<int> DijkstraAdap(int num_s0, int num_sf);
+    std::vector<int> CentraliteInt1seulPluscourtchemin(int num_s0, int num_sf, int num_si);
     void SauvegardeGraphe();
     void SuppArete(int Ext1,int Ext2);
     void Connexite();
