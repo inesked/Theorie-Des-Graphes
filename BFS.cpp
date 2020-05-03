@@ -5,9 +5,13 @@
 #include <list>
 #include "graphe.h"
 
+
+///https://www.geeksforgeeks.org/number-shortest-paths-unweighted-directed-graph/
+///code source
 void Graphe::linkBFS(int d, int a, int it)
 {
     std::cout << std::endl << "Admettons qu'il n'existe un ou plusieurs plus courts chemins possibles du sommet " << d << " au sommet " << a << "," <<std::endl;
+    fichier << std::endl << "Admettons qu'il n'existe un ou plusieurs plus courts chemins possibles du sommet " << d << " au sommet " << a << "," <<std::endl;
     std::cout << "Les plus courts chemins du sommet " << d << " au sommet " << a << " sont: \n";
     chemins(gra, d, a, it);
 }
@@ -64,8 +68,12 @@ void Graphe::chemins(std::vector<std::vector<int> >&g, int d, int a, int it)
         }
     }
     std::cout << "Le nombre de plus courts chemins est de: "<< nbrche << std::endl;
+    fichier << "Le nombre de plus courts chemins est de: "<< nbrche << std::endl;
     std::cout << "Le nombre de plus courts chemins passant par " << it << " est de: "<< nbrcheit << std::endl;
+    fichier << "Le nombre de plus courts chemins passant par " << it << " est de: "<< nbrcheit << std::endl;
     std::cout << "Donc la centralite d'intermediarite non numerise du sommet " << it << " est de " << float(nbrcheit)/float(nbrche) <<std::endl;
+    fichier << "Donc la centralite d'intermediarite non numerise du sommet " << it << " est de " << float(nbrcheit)/float(nbrche) <<std::endl;
     std::cout << "Et le centralite d'intermediarite numerise du sommet " << it << " est de " << ((2.)*(float(nbrcheit)/float(nbrche)))/float(m_ordre*m_ordre - 3*m_ordre + 2) <<std::endl;
+    fichier << "Et le centralite d'intermediarite numerise du sommet " << it << " est de " << ((2.)*(float(nbrcheit)/float(nbrche)))/float(m_ordre*m_ordre - 3*m_ordre + 2) <<std::endl;
 }
 

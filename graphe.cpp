@@ -174,17 +174,17 @@ void Graphe::dessinerGraphe()  //dessin graphe avec le svg, voir commentaire svg
         svgout.addDisk((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100,3,"black");
         svgout.addText((m_sommets[i]->getCoords1())*100,(m_sommets[i]->getCoords2())*100-10,m_sommets[i]->getNom(),"black");
 
-        svgout.addDegre ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-30,std::to_string(deg[m_sommets[i]->getNum()]),"red");
+        svgout.addDegre ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-10,std::to_string(deg[m_sommets[i]->getNum()]),"red");
 
-        svgout.addDegreN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-45,std::to_string((deg[m_sommets[i]->getNum()])/(m_ordre-1)),"green");
+        svgout.addDegreN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-25,std::to_string((deg[m_sommets[i]->getNum()])/(m_ordre-1)),"green");
 
-        svgout.addVectProp ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-60,std::to_string(CVp[i]),"blue");
+        svgout.addVectProp ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-40,std::to_string(CVp[i]),"blue");
 
-        svgout.addVectPropN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-75,std::to_string(CVpN[i]),"magenta");
+        svgout.addVectPropN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-55,std::to_string(CVpN[i]),"magenta");
 
-        svgout.addProx ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-90,std::to_string(CP[i]),"gray");
+        svgout.addProx ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-70,std::to_string(CP[i]),"gray");
 
-        svgout.addProxN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-105,std::to_string(CPN[i]),"purple");
+        svgout.addProxN ((m_sommets[i]->getCoords1())*100+10,(m_sommets[i]->getCoords2())*100-85,std::to_string(CPN[i]),"purple");
     }
     for(int i=0; i<m_taille; ++i)
     {
