@@ -59,8 +59,6 @@ void Graphe::GrapheCharger(std::string nomFichier)
             std::string Ponde;
             std::cin >> Ponde;
             GrapheChargerPonde(Ponde);
-            //Afficher();
-            //dessinerGraphe();
 }
 
 
@@ -272,9 +270,9 @@ void Graphe::CentraliteDegreNormalise()
     int ndeg;
     float CD;
     std::cout <<"****************************"<< std::endl;
-    std::cout <<"CENTRALITE DEGRE NORMALISER"<< std::endl;
+    std::cout <<"CENTRALITE DEGRE NORMALISE"<< std::endl;
     fichier <<"****************************"<< std::endl;
-    fichier <<"CENTRALITE DEGRE NORMALISER"<< std::endl;
+    fichier <<"CENTRALITE DEGRE NORMALISE"<< std::endl;
     for(int i=0; i<m_ordre; ++i)
     {
         CD = (deg[i]/(m_ordre-1));
