@@ -70,3 +70,23 @@ void Sommet::afficher() //fct afficher x" "y
     std::cout << m_coordonnees.first << " " << m_coordonnees.second <<" ";
 }
 
+/*
+void Sommet::Connexite(int ext1, int&l)
+{
+    if(getCouleur()==2)//si il est noir
+    {
+        return;
+    }
+
+    if(ext1==getNum())
+    {
+        l++;
+        return;
+    }
+    m_couleur = 2;
+
+    for(int i=0; i<m_adjacents.size(), ++i)
+    {
+        m_adjacents[i]->connexite (ext1,l);
+    }
+}*/
