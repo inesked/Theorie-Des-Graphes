@@ -1,4 +1,4 @@
-/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
+/// Code rï¿½alisï¿½ par Roxane Calor Inï¿½s Kedjem et Alex Chrï¿½tien
 #include "Sommet.h"
 #include "arete.h"
 #include "graphe.h"
@@ -94,4 +94,3 @@ void Sommet::Connexite(int ext1, int&l)
         m_adjacents[i]->connexite (ext1,l);
     }
 }*/
-

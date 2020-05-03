@@ -135,6 +135,7 @@ void Graphe::Afficher() //affichage du txt
         fichier << std::endl;///affichage txt
 
     }
+
     fichier << std::endl;
     CentraliteDegreNonNorma();
     CentraliteDegreNormalise();
@@ -433,3 +434,126 @@ float Graphe::CentraliteProxN(int num_s0)
     return CP;
 }
 
+/*
+void Graphe::Connexite()
+{
+    if (m_orientation==1)
+        std::cout<<"le graphe est orienté, donc pas de k-connexité"<<std::endl;
+    else
+    {
+        int l, nbchem;
+        l=100;
+
+        for(unsigned int i=0; i<m_sommets.size(); ++i)
+        {
+            for(unsigned int j=0; j<m_sommets.size(); ++j)
+            {
+            if(i!=j)
+                {
+                for(unsigned int m=0; m<m_sommets.size();++m)
+                    {
+                        m_sommets[m]->setCouleur(0);
+                    }
+                    nbchem = 0;
+                    m_sommets[i]->connexite(j, nbchem);
+
+                    if(nbchem<l)
+                    {
+                    l=nbchem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+std::vector<int> DFS(int num_s0)const
+    {
+            /// dÈclaration de la pile
+            std::stack<int>pile;
+            /// pour le marquage
+            std::vector<int> couleurs((int)m_sommets.size(),0);
+            ///pour noter les prÈdÈcesseurs : on note les numÈros des prÈdÈcesseurs (on pourrait stocker des pointeurs sur ...)
+            std::vector<int> preds((int)m_sommets.size(),-1);
+
+            ///Ètape initiale : on enfile et on marque le sommet initial
+            pile.push(num_s0);
+            couleurs[num_s0]=1;
+
+            const Sommet*s;
+            ///tant que la file n'est pas vide
+            while (!pile.empty())
+
+            {
+                ///on dÈfile le prochain sommet
+                        s=m_sommets[pile.top()]; //on prend le premier sommet de la file //sommet ou sommets ?
+
+                        pile.pop();
+                        ///pour chaque successeur du sommet dÈfilÈ
+
+                        s=m_sommets[pile.top()]; //on prend le premier sommet de la file //sommet ou sommets ?
+
+                        pile.pop();
+                        //pour chaque successeur du sommet dÈfilÈ
+
+                        for (auto succ:s->getSucc().first)
+                        {
+                            if (couleurs[succ->getNum()]==0)//si il n'est pas marqué
+                            {
+                                couleurs[succ->getNum()]=1;//on le marque
+                                preds[succ->getNum()]=s->getNum();
+                                pile.push(succ->getNum()); //et on le met dans la file
+                            }
+                            couleurs[s->getNum()]=2;
+                        }
+                        s=m_sommet[pile.top()];
+                        pile.pop();
+                    }
+        return preds;
+            }
+
+
+
+//recherche et affichage des composantes connexes
+        void CC()
+    {
+            size_t num=0;
+            bool test;
+            int ncc=0;
+            ///pour noter les numÈros de CC
+            std::vector<int> cc(m_sommets.size(),-1);
+            do
+            {
+                cc[num]=num;
+                std::cout<<std::endl<<"composante connexe "<<ncc<<" : "<<num<<" ";
+                ncc++;
+                ///lancement d'un DFS sur le sommet num
+                std::vector<int> arbre_DFS=DFS(num);
+                ///affichage des sommets decouverts lors du parcours (ceux qui ont un predecesseur
+                for(size_t i=0;i<arbre_DFS.size();++i)
+                {
+                    if ((i!=num)&&(arbre_DFS[i]!=-1))
+                    {
+                            cc[i]=num;
+                            std::cout<<i<<" ";
+                    }
+                }
+                ///recherche d'un sommet non explorÈ
+                ///pour relancer un DFS au prochain tour
+                test=false;
+                for(size_t i=0;i<m_sommets.size();++i)
+                {
+                    if (cc[i]==-1)
+                    {
+                        num=i;
+                        test=true;
+                        break;
+                    }
+                }
+            }
+            while(test==true);
+            std::cout<<std::endl;
+        }
+};
+*/

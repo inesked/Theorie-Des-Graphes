@@ -42,3 +42,24 @@ void Arete::afficher() //fct affichage
         std::cout << m_extremites.first << " " << m_extremites.second;
 }
 
+/*ORIENTATION
+void Arete::desinnerA(Svgfile& svgout, Graphe* graphe)
+{
+    if(graphe->orientation() <=true)
+    {
+        Couleur noir [0,0,0];
+        svgout.addLine (m_sommet[0]->getx()*100,m_sommet[0]->gety()*100,m_sommet[1]->gety()*100, noir); //dessiner arete
+        svgout.addText(((m_sommet[0]->getx()*100)+m_sommet[1]->getx()*100)/2,
+                       ((m_sommet[0]->gety()*100)*m_sommet[1]->gety()*100)/2, getPoids(), noir); //dessin poid sur mileu arete
+    }
+    else
+    {
+        Couleur noir (0,0,0);
+        Couleur test(255,150,50);
+    svgout.addLine (m_sommet[0]->getx()*100,m_sommet[0]->gety()*100,m_sommet[1]->gety()*100, test); //dessiner arete
+    svgout.addText(((m_sommet[0]->getx()*100)+m_sommet[1]->getx()*100)/2,
+                       ((m_sommet[0]->gety()*100)*m_sommet[1]->gety()*100)/2, getPoids(), noir); //dessin poid sur mileu arete
+    }
+}
+*/
+
