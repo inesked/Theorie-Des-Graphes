@@ -13,9 +13,10 @@ void Graphe::SauvegardeGraphe()
     m_arete.clear();*/
 }
 
-void Graphe::SuppArete(int id)
+void Graphe::SuppArete(int Ext1, int Ext2)
 {
     std::ofstream ofs {"graphe_etoile1_topo_bis.txt"};
+    std::ofstream ponde{"ponde_bis.txt"};
     if(ofs.bad()) std::cout << "Erreur ecriture de fichier";
     ofs << m_orientation << std::endl;
     ofs << m_ordre << std::endl;
@@ -24,35 +25,55 @@ void Graphe::SuppArete(int id)
         ofs << m_sommets[i]->getNum() << " " << m_sommets[i]->getNom() << " " << m_sommets[i]->getCoords1() << " " << m_sommets[i]->getCoords2() << std::endl;
     }
     ofs << m_taille-1 << std::endl;
-    int i=0;
-    for(i; i<m_taille; ++i)
-    {
-        if(id == m_arete[i]->getId())
-        {
-            std::cout << m_arete[i]->getId();
-            m_arete.erase(m_arete.begin()+i);
-        }
-        /*if(id < m_arete[i]->getId())
-        {
-            std::cout << "c";
-            int x = m_arete[i]->getId();
-            m_arete[i]->setId(x-1);
-        }*/
-    }
+    ponde << m_taille-1 << std::endl;
     for(int i=0; i<m_taille; ++i)
     {
-        if(id < m_arete[i]->getId())
+        if( Ext1 == m_arete[i]->getExt1() && Ext2 == m_arete[i]->getExt2())
         {
-            int x = m_arete[i]->getId();
-            m_arete[i]->setId(x-1);
-            std::cout << m_arete[i]->getId();
+            m_arete.erase(m_arete.begin()+i);
         }
     }
-    for(int j=0; j<m_taille-1;++j)
+    for(int j=0; j<m_taille ;++j)
+    {
+        if(j < m_arete[j]->getId())
+        {
+            int x = m_arete[j]->getId();
+            m_arete[j]->setId(x-1);
+        }
+    }
+    for(int j=0; j<m_taille;++j)
     {
         ofs << m_arete[j]->getId() << " " << m_arete[j]->getExt1() << " " << m_arete[j]->getExt2() << std::endl;
     }
+    int k=0;
+    do{
+        if(k < Ext1)
+        {
+            ponde << m_arete[k]->getId() << " " ;
+            ponde << m_sommets[m_arete[k]->getId()]->returnSuccSecond(k) << std::endl;
+        }
+        else
+        {
+            ponde << m_arete[k]->getId() << " " ;
+            if(k == Ext1+1)
+                ponde << m_sommets[m_arete[k]->getId()]->returnSuccSecond(k) << std::endl;
+            ponde << m_sommets[m_arete[k+1]->getId()]->returnSuccSecond(k+1) << std::endl;
+        }
+        ++k;
+    }
+    while(k != m_taille-1);
     m_sommets.clear();
     m_arete.clear();
+    GrapheCharger("graphe_etoile1_topo_bis.txt");
+
+}
+
+void Graphe::Connexite()
+{
+    for(int i=0; i<m_ordre; ++i)
+    {
+        if(deg[i]==0)
+            std::cout << "le graphe n'est pas connexe" << std::endl;
+    }
 }
 

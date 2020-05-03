@@ -17,11 +17,13 @@ private :
     std::vector <Sommet*> m_sommets; //vect avec les sommets
     std::vector <Arete*> m_arete; //vect avec les aretes
     std::vector <float> deg; //vect avec les degr�s
+    std::vector<std::vector<int>> gra;
+
+
 
 public:
 
     std::ofstream fichier;
-    std::ofstream fichier1;
     void GrapheChargerPonde(std:: string nomFichierPonde);
     void GrapheCharger(std::string nomFichier);
     std::vector<float> VecteurPropreNonN();
@@ -34,9 +36,14 @@ public:
     float CentraliteProxNonN(int num_s0);
     float CentraliteProxN(int num_s0);
     void CentraliteInter();
-    std::vector<int> DijkstraAdap(int num_s0, int num_sf);
+    std::vector<int> CentraliteInt1seulPluscourtchemin(int num_s0, int num_sf, int num_si);
     void SauvegardeGraphe();
-    void SuppArete(int id);
+    void SuppArete(int Ext1,int Ext2);
+    void Connexite();
+    void linkBFS(int d, int a, int it);
+    void afficheChemin(std::vector<int>& chemin, int minimum, int it, int &nbr1, int &nbr2);
+    int pasVisite(int x, std::vector<int>& chemin);
+    void chemins(std::vector<std::vector<int> >&g, int d, int a, int it);
 };
 
 

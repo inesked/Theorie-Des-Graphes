@@ -39,7 +39,8 @@ int main()
     std::cout << "5. Quitter" << std::endl;
     std::cout << std::endl;
     do{
-            std::cout << std::endl;
+
+        std::cout << std::endl;
         std::cout << "Entrez choix (numero) : " << std::endl;
         std::cin >> choix;
         switch(choix)
@@ -49,11 +50,15 @@ int main()
                     std::cout << "Quel graphe voulez-vous charger ?" << std::endl;///on demande � l'utilisateur le nom du graphe qu'il veut charger
                     std::cin >> nomFichier;
                     g.GrapheCharger(nomFichier);
-                    std::string nomFichierPonde;
-                    std::cin >> nomFichierPonde;
-                    g.GrapheChargerPonde(nomFichierPonde);
-                    g.dessinerGraphe();
-                    g.Afficher();
+                    /*int d, a, i;
+                    std::cout << "Entrez un sommet de depart:";
+                    std::cin >> d;
+                    std::cout << "Entrez un sommet d'arrivee:";
+                    std::cin >> a;
+                    std::cout << "Entrez un sommet intermediaire:";
+                    std::cin >> i;
+                    g.CentraliteInt1seulPluscourtchemin(d, a, i);
+                    g.linkBFS(d, a, i);*/
                     break;
                 }
             case 2:
@@ -72,9 +77,19 @@ int main()
                 }
             case 4:
                 {
-                    int id;
-                    std::cin >> id;
-                    g.SuppArete(id);
+                    int cmb;
+                    std::cout << "Combien d'arete voulez-vous retirer ?" << std::endl;
+                    std::cin >> cmb;
+                    int Ext1;
+                    int Ext2;
+                    for(int i=0; i<cmb ; ++i)
+                    {
+                        std::cout << "rentrer les extremites de l'arete a supprimer" << std::endl;
+                        std::cin >> Ext1;
+                        std::cin >> Ext2;
+                        g.SuppArete(Ext1,Ext2);
+                    }
+                    //g.Connexite();
                     break;
                 }
         }

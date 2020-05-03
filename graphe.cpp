@@ -28,6 +28,7 @@ void Graphe::GrapheCharger(std::string nomFichier)
             int num0,num2,num3; //3 valeurs dans le txt, la premiere est l'id le deuxieme la premiere coord (x) la deuxieme coord (y)
             std::string let1;
             deg.resize(m_ordre);
+            gra.resize(m_ordre);
             for (int i=0; i<m_ordre; ++i){ //pour i compris entre 0 et l'ordre, on esplore toutes les coord
                 ifs>>num0>>let1>>num2>>num3;
                 if ( ifs.fail() )
@@ -50,7 +51,14 @@ void Graphe::GrapheCharger(std::string nomFichier)
                 m_arete.push_back(new Arete{num4, std::make_pair(num5,num6)}); //ajout d'une pair de coord correspondant à un arc
                 deg[num5] += 1;
                 deg[num6] += 1;
+                gra[num5].push_back(num6);
+                gra[num6].push_back(num5);
             }
+            std::string nomFichierPonde;
+            std::cin >> nomFichierPonde;
+            GrapheChargerPonde(nomFichierPonde);
+            Afficher();
+            dessinerGraphe();
 }
 
 
@@ -354,7 +362,6 @@ float Graphe::CentraliteProxNonN(int num_s0)
             if(i != num_s0)
             {
                 longueurtot = longueurtot + Dijkstra(num_s0,i);
-                std::cout << std::endl;
             }
         }
     //}
@@ -365,7 +372,6 @@ float Graphe::CentraliteProxNonN(int num_s0)
     fichier << "CENTRALITE DE PROXIMITE" << std::endl;
     //fichier << "************************************" << std::endl;
     fichier << "Voici la centralite de proximite non normalise pour le sommet " << num_s0 << ": " << CP << std::endl;
-    std::cout << CP;
     return CP;
 }
 
@@ -380,7 +386,6 @@ float Graphe::CentraliteProxN(int num_s0)
         if(i != num_s0)
         {
             longueurtotale = longueurtotale + Dijkstra(num_s0, i);
-            std::cout << std::endl;
         }
     }
     //std::cout << longueurtotale << std::endl;
@@ -391,90 +396,3 @@ float Graphe::CentraliteProxN(int num_s0)
     return CP;
 }
 
-/*void Graphe::CentraliteInter()
-{
-    int num_s0=0;
-    int b=0;
-    int CI=0;
-    std::cin >> b;
-    float compteur =0;
-    std::vector<int> PCC;
-    for(int i= 0 ; i<m_ordre ; ++i)
-    {
-        if( num_s0 < i )
-        {
-            PCC = DijkstraAdap(num_s0,i);
-            for(int j= 0 ; j<m_ordre ; ++j)
-            {
-                if(j < b)
-                {
-                    PCC = DijkstraAdap(j,b);
-                    for(int k= 0 ; k<m_ordre ; ++k)
-                    {
-                        if(b < k)
-                        {
-                            PCC = DijkstraAdap(b,k);
-                            std::cout << std::endl;
-                            if(PCC[k] == b)
-                            {
-                                compteur ++;
-                            }
-                        }
-                    }
-                }
-                std::cout << compteur << std::endl;
-            }
-            num_s0 ++;
-        }
-    }
-    std::cout << std::endl;
-    CI = compteur/4;
-    std::cout << CI;
-}*/
-
-/*void Graphe::CentraliteInter()
-{
-    for()
-            /// déclaration de la pile
-            std::stack<Sommet*> DFS;
-            /// pour le marquage
-            std::vector<int> couleurs((int)m_sommets.size(),0);
-            ///pour noter les prédécesseurs : on note les numéros des prédécesseurs (on pourrait stocker des pointeurs sur ...)
-            std::vector<int> preds((int)m_sommets.size(),-1);
-
-            ///étape initiale : on enfile et on marque le sommet initial
-            /// on initiale les sommets précédent à une couleur 0
-            for(int i=0; i< num_s0;++i)
-            {
-                couleurs[i]= 0;
-            }
-            /// on enfile dans notre pile le premier sommet
-            DFS.push(m_sommets[num_s0]);
-            /// on le marque
-            couleurs[num_s0] = 1;
-            Sommet*s;
-            std::vector<Sommet*> successeurs;
-            ///tant que la file n'est pas vide
-            while(!DFS.empty())
-            {
-                ///on défile le prochain sommet
-                /// on le place au dessus de la pile
-                s = DFS.top();
-                /// on le détruit directement après (premier arrivée, premier servi)
-                DFS.pop();
-                /// on attribue à successeurs les successeurs du sommet initial.
-                successeurs = m_sommets[s->getNum()]->getSucc();
-
-                ///pour chaque successeur du sommet défilé
-                for(int i=0 ; i < successeurs.size() ; ++i){
-                     if(couleurs[successeurs[i]->getNum()] == 0)
-                        {
-
-                            couleurs[successeurs[i]->getNum()] = 1; ///s'il n'est pas marqué
-                            preds[successeurs[i]->getNum()]= s->getNum(); ///on le marque
-                            DFS.push(successeurs[i]); ///on note son prédecesseur (=le sommet défilé)
-                        }
-
-              }
-            }
-}*/
