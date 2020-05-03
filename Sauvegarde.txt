@@ -46,11 +46,11 @@ voici le vecteur propre normalise du sommet 2: 0.994505
 voici le vecteur propre normalise du sommet 3: 0.0523424
 voici le vecteur propre normalise du sommet 4: 0.0523424
 
-voici le vecteur propre non-normalise du sommet 0: 0.223607
-voici le vecteur propre non-normalise du sommet 1: 0.223607
-voici le vecteur propre non-normalise du sommet 2: 0.894427
-voici le vecteur propre non-normalise du sommet 3: 0.223607
-voici le vecteur propre non-normalise du sommet 4: 0.223607
+voici le vecteur propre non-normalise du sommet 0: 0.0523424
+voici le vecteur propre non-normalise du sommet 1: 0.0523424
+voici le vecteur propre non-normalise du sommet 2: 0.994505
+voici le vecteur propre non-normalise du sommet 3: 0.0523424
+voici le vecteur propre non-normalise du sommet 4: 0.0523424
 ************************************
 CENTRALITE DE PROXIMITE
 Voici la centralite de proximite non normalise pour le sommet 0: 0.0769231

@@ -30,16 +30,10 @@ void Graphe::SuppArete(int Ext1, int Ext2)
     {
         if( Ext1 == m_arete[i]->getExt1() && Ext2 == m_arete[i]->getExt2())
         {
+            //delete m_aretes[Ext1];
             m_arete.erase(m_arete.begin()+i);
         }
     }
-    /*for(int k=0; k<m_ordre; ++k)
-    {
-        if(Ext1 == k)
-        {
-            m_sommets[k]->getSucc().erase(m_sommets[k]->getSucc().begin()+k);
-        }
-    }*/
     for(int j=0; j<m_taille ;++j)
     {
         if(j < m_arete[j]->getId())
