@@ -439,7 +439,7 @@ float Graphe::CentraliteProxN(int num_s0)
     return CP;
 }
 
-
+/*
 void Graphe::Connexite()
 {
     if (m_orientation==1)
@@ -561,3 +561,4 @@ std::vector<int> DFS(int num_s0)const
             std::cout<<std::endl;
         }
 };
+*/
