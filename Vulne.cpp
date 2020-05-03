@@ -85,6 +85,7 @@ void Graphe::Connexite()
     {
         if(deg[i]==0)
             std::cout << "le graphe n'est pas connexe" << std::endl;
+            fichier << "le graphe n'est pas connexe" << std::endl;
     }
 }
 
