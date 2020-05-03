@@ -62,8 +62,9 @@ int main()
             case 3:
                 {
                     g.Afficher();
-                    g.dessinerGraphe();
                     int d, a, i;
+                    std::cout << "*****************************" <<std::endl;
+                    std::cout <<"CENTRALITE DEGRE D'INTERMEDIARITE" <<std::endl;
                     std::cout << "Entrez un sommet de depart:";
                     std::cin >> d;
                     std::cout << "Entrez un sommet d'arrivee:";
@@ -72,6 +73,7 @@ int main()
                     std::cin >> i;
                     g.CentraliteInt1seulPluscourtchemin(d, a, i);
                     g.linkBFS(d, a, i);
+                    g.dessinerGraphe();
                     g.SauvegardeGraphe();
                     break;
                 }

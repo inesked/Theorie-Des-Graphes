@@ -63,7 +63,7 @@ Le sommet 6 pour Centralite de degre normalise; CD(s) : 0.375
 Le sommet 7 pour Centralite de degre normalise; CD(s) : 0.25
 Le sommet 8 pour Centralite de degre normalise; CD(s) : 0.25
 ************************************
-CENTRALITE DE VECTEUR PROPRE NORMALISE
+CENTRALITE DE VECTEUR PROPRE
 voici le vecteur propre normalise du sommet 0: 0.194181
 voici le vecteur propre normalise du sommet 1: 0.37071
 voici le vecteur propre normalise du sommet 2: 0.37071
@@ -74,16 +74,16 @@ voici le vecteur propre normalise du sommet 6: 0.37071
 voici le vecteur propre normalise du sommet 7: 0.194181
 voici le vecteur propre normalise du sommet 8: 0.194181
 ************************************
-CENTRALITE DE VECTEUR PROPRE
-voici le vecteur propre non-normalise du sommet 0: 0.242536
-voici le vecteur propre non-normalise du sommet 1: 0.363803
-voici le vecteur propre non-normalise du sommet 2: 0.363803
-voici le vecteur propre non-normalise du sommet 3: 0.485071
-voici le vecteur propre non-normalise du sommet 4: 0.363803
-voici le vecteur propre non-normalise du sommet 5: 0.242536
-voici le vecteur propre non-normalise du sommet 6: 0.363803
-voici le vecteur propre non-normalise du sommet 7: 0.242536
-voici le vecteur propre non-normalise du sommet 8: 0.242536
+CENTRALITE DE VECTEUR PROPRE NON NORMALISE
+voici le vecteur propre non-normalise du sommet 0: 0.194181
+voici le vecteur propre non-normalise du sommet 1: 0.37071
+voici le vecteur propre non-normalise du sommet 2: 0.37071
+voici le vecteur propre non-normalise du sommet 3: 0.547239
+voici le vecteur propre non-normalise du sommet 4: 0.37071
+voici le vecteur propre non-normalise du sommet 5: 0.194181
+voici le vecteur propre non-normalise du sommet 6: 0.37071
+voici le vecteur propre non-normalise du sommet 7: 0.194181
+voici le vecteur propre non-normalise du sommet 8: 0.194181
 ************************************
 CENTRALITE DE PROXIMITE
 Voici la centralite de proximite non normalise pour le sommet 0: 0.0196078
@@ -106,3 +106,12 @@ Voici la centralite de proximite normalise pour le sommet 5: 0.153846
 Voici la centralite de proximite normalise pour le sommet 6: 0.210526
 Voici la centralite de proximite normalise pour le sommet 7: 0.16
 Voici la centralite de proximite normalise pour le sommet 8: 0.2
+Admettons qu'il n'existe qu'un seul plus court chemin possible du sommet 2 au sommet 6 :
+le centralite d'intermediarite non numerise du sommet 5 est de 0
+le centralite d'intermediarite numerise du sommet 5 est de 0
+
+Admettons qu'il n'existe un ou plusieurs plus courts chemins possibles du sommet 2 au sommet 6,
+Le nombre de plus courts chemins est de: 2
+Le nombre de plus courts chemins passant par 5 est de: 0
+Donc la centralite d'intermediarite non numerise du sommet 5 est de 0
+Et le centralite d'intermediarite numerise du sommet 5 est de 0
