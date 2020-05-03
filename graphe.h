@@ -22,7 +22,6 @@ private :
 
 
 public:
-
     std::ofstream fichier;
     void GrapheChargerPonde(std:: string nomFichierPonde);
     void GrapheCharger(std::string nomFichier);

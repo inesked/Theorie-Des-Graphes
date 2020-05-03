@@ -50,7 +50,7 @@ int main()
                     std::cout << "Quel graphe voulez-vous charger ?" << std::endl;///on demande � l'utilisateur le nom du graphe qu'il veut charger
                     std::cin >> nomFichier;
                     g.GrapheCharger(nomFichier);
-                    int d, a, i;
+                    /*int d, a, i;
                     std::cout << "Entrez un sommet de depart:";
                     std::cin >> d;
                     std::cout << "Entrez un sommet d'arrivee:";
@@ -58,7 +58,7 @@ int main()
                     std::cout << "Entrez un sommet intermediaire:";
                     std::cin >> i;
                     g.CentraliteInt1seulPluscourtchemin(d, a, i);
-                    g.linkBFS(d, a, i);
+                    g.linkBFS(d, a, i);*/
                     break;
                 }
             case 2:
