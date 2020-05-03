@@ -59,8 +59,6 @@ void Graphe::GrapheCharger(std::string nomFichier)
             std::string Ponde;
             std::cin >> Ponde;
             GrapheChargerPonde(Ponde);
-            //Afficher();
-            //dessinerGraphe();
 }
 
 
@@ -169,9 +167,9 @@ void Graphe::dessinerGraphe()  //dessin graphe avec le svg, voir commentaire svg
         CPN.push_back(x);
     }
     fichier <<"***********************************" << std::endl;
-    fichier <<"CENTRALITE DE PROXIMITE NORMALISER" << std::endl;
+    fichier <<"CENTRALITE DE PROXIMITE NORMALISE" << std::endl;
     std::cout <<"***********************************" << std::endl;
-    std::cout <<"CENTRALITE DE PROXIMITE NORMALISER" << std::endl;
+    std::cout <<"CENTRALITE DE PROXIMITE NORMALISE" << std::endl;
     for(int i=0;i<m_ordre;++i)
     {
         float x ;
@@ -235,9 +233,9 @@ void Graphe::CentraliteDegreNormalise()
     int ndeg;
     float CD;
     std::cout <<"****************************"<< std::endl;
-    std::cout <<"CENTRALITE DEGRE NORMALISER"<< std::endl;
+    std::cout <<"CENTRALITE DEGRE NORMALISE"<< std::endl;
     fichier <<"****************************"<< std::endl;
-    fichier <<"CENTRALITE DEGRE NORMALISER"<< std::endl;
+    fichier <<"CENTRALITE DEGRE NORMALISE"<< std::endl;
     for(int i=0; i<m_ordre; ++i)
     {
         CD = (deg[i]/(m_ordre-1));
@@ -299,10 +297,12 @@ std::vector<float> Graphe::VecteurPropre()
     while(lambda<0.2); //des qu elambda ne varie plus trop donc lambda <0,2 on arete la boucle et on sort le CVp étudié
     //std::cout << "voici le vecteur propre normalise du sommet " << s << ": "<< CVp[s];
     //fichier << "************************************" << std::endl;
-    fichier << "CENTRALITE DE VECTEUR PROPRE" << std::endl;
+
     fichier << "************************************" << std::endl;
+    fichier << "CENTRALITE DE VECTEUR PROPRE NORMALISE" << std::endl;
+
     std::cout << "************************************" << std::endl;
-    std::cout << "CENTRALITE DE VECTEUR PROPRE"<< std::endl;
+    std::cout << "CENTRALITE DE VECTEUR PROPRE NORMALISE"<< std::endl;
     for(int i=0 ; i<m_ordre ;++i)
     {
         std::cout << "voici le vecteur propre normalise du sommet " << i << ": "<< CVp[i]<<std::endl;
@@ -367,11 +367,15 @@ std::vector<float> Graphe::VecteurPropreNonN()
         }
     }
     while(lambda<0.2);
-    //std::cout << "voici le vecteur propre non-normalise du sommet " << s << ": "<< CVp[s] <<std::endl;
-    fichier << std::endl;
-    std::cout << std::endl;
+    //fichier << std::endl;
+    //std::cout << std::endl;
+    fichier << "************************************" << std::endl;
+    fichier << "CENTRALITE DE VECTEUR PROPRE" << std::endl;
+    std::cout << "************************************" << std::endl;
+    std::cout << "CENTRALITE DE VECTEUR PROPRE" << std::endl;
     for(int i=0 ; i<m_ordre ; ++i)
     {
+
         std::cout << "voici le vecteur propre non-normalise du sommet " << i << ": "<< CVp[i]<<std::endl;
         fichier << "voici le vecteur propre non-normalise du sommet " << i << ": "<< CVp[i]<<std::endl;
     }
@@ -418,7 +422,7 @@ float Graphe::CentraliteProxN(int num_s0)
     CP = ((m_ordre-1)/longueurtotale);
     std::cout << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": ";
     std::cout << CP << std::endl;
-    fichier << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << CP << std::endl<<std::endl;
+    fichier << "Voici la centralite de proximite normalise pour le sommet " << num_s0 << ": " << CP << std::endl;
     return CP;
 }
 
