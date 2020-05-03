@@ -33,13 +33,13 @@ void Graphe::SuppArete(int Ext1, int Ext2)
             m_arete.erase(m_arete.begin()+i);
         }
     }
-    for(int k=0; k<m_ordre; ++k)
+    /*for(int k=0; k<m_ordre; ++k)
     {
         if(Ext1 == k)
         {
             m_sommets[k]->getSucc().erase(m_sommets[k]->getSucc().begin()+k);
         }
-    }
+    }*/
     for(int j=0; j<m_taille ;++j)
     {
         if(j < m_arete[j]->getId())
@@ -51,7 +51,14 @@ void Graphe::SuppArete(int Ext1, int Ext2)
     for(int j=0; j<m_taille;++j)
     {
         ofs << m_arete[j]->getId() << " " << m_arete[j]->getExt1() << " " << m_arete[j]->getExt2() << std::endl;
-        ponde << m_arete[j]->getId() << " " << m_sommets[j]->returnSuccSecond(0) << std::endl;
+        ponde << m_arete[j]->getId() << " ";
+        for(int k=0; k<m_ordre; k++)
+        {
+            for(int l=0; l<m_sommets[k]->getSuccSize(); ++l)
+            {
+                ponde << m_sommets[k]->returnSuccSecond(l) << std::endl;
+            }
+        }
     }
     /*do{
         if(k < Ext1)

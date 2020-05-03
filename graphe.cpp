@@ -56,16 +56,20 @@ void Graphe::GrapheCharger(std::string nomFichier)
                 gra[num5].push_back(num6);
                 gra[num6].push_back(num5);
             }
-            std::string nomFichierPonde;
-            std::cin >> nomFichierPonde;
-            GrapheChargerPonde(nomFichierPonde);
-            Afficher();
-            dessinerGraphe();
+            std::string Ponde;
+            std::cin >> Ponde;
+            GrapheChargerPonde(Ponde);
+            //Afficher();
+            //dessinerGraphe();
 }
 
 
 void Graphe::GrapheChargerPonde(std::string nomFichierPonde)
 {
+    for(int l=0; l<m_ordre; l++)
+    {
+        m_sommets[l]->getSucc().clear();
+    }
     std::ifstream ifs{nomFichierPonde};
     int taille;
     int poids;
@@ -137,6 +141,7 @@ void Graphe::Afficher() //affichage du txt
 
     }
     fichier << std::endl;
+
 }
 
 
