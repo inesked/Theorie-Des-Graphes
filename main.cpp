@@ -1,3 +1,10 @@
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
+/// sources : nos TP 2 et 3 (BFS, DFS et Dijsktra)
+/// Recherche personnelle
+///http://recherche.ign.fr/labos/cogit/pdf/RAPPORTS/Gleyze_rapport_reseaux.pdf
+///https://www.eecs.wsu.edu/~assefaw/CptS580-06/papers/brandes01centrality.pdf
+///https://piazza.com/class_profile/get_resource/hc7r2hz5r3y38z/hg7zvceh68t6q0
+
 #include <iostream>
 #include "graphe.h"
 #include "Sommet.h"
@@ -8,21 +15,9 @@
 #include "Svgfile.h"
 #include <fstream>
 
-
-
-
 int main()
 {
-/*
-    Graphe graphe1("France.txt");
-    graphe1.dessinerGraphe();
-/*
-    graphe1.Afficher();
-     //affiche le graphe avec la liste des sommets adjacents
-    graphe1.CentraliteDegreNonNorma();
-    graphe1.VecteurPropreNonN();
-    graphe1.CentraliteProxNonN();
-    graphe1.CentraliteProxN();*/
+
 ///menu du programme final
     Graphe g;
     int choix;
@@ -54,7 +49,7 @@ int main()
                 }
             case 2:
                 {
-                    std::cout <<"Quel fichier de ponderation voulez-vous charger ?" << std::endl;
+                    std::cout <<"Quel fichier de ponderation correspondant au graphe voulez-vous charger ?" << std::endl;
                     std::cin >> Ponde;
                     g.GrapheChargerPonde(Ponde);
                     break;
@@ -87,18 +82,18 @@ int main()
                     for(int i=0; i<cmb ; ++i)
                     {
                         std::cout << "rentrer les extremites de l'arete a supprimer" << std::endl;
+                        std::cout << "rentrer la premiere extremite"<<std::endl;
                         std::cin >> Ext1;
+                        std::cout << "rentrer la seconde extremite"<<std::endl;
                         std::cin >> Ext2;
                         g.SuppArete(Ext1,Ext2);
                     }
-                    //g.Connexite();
+                    g.dessinerGraphe();
                     break;
                 }
         }
     }
     while(choix != 5);
-
-
     return 0;
 }
 

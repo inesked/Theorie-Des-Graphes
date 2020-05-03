@@ -1,4 +1,5 @@
-
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
+/// Code repris projet semestre 1
 #ifndef SVGFILE_H_INCLUDED
 #define SVGFILE_H_INCLUDED
 #include <string>

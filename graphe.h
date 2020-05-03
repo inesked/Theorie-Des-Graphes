@@ -1,3 +1,4 @@
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
 #ifndef GRAPHE_H_INCLUDED
 #define GRAPHE_H_INCLUDED
 #include "Svgfile.h"

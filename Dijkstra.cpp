@@ -1,3 +1,5 @@
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
+/// Code repris du TP3
 #include <iostream>
 #include <vector>
 #include <fstream>

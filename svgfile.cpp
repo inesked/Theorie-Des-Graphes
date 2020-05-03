@@ -1,3 +1,5 @@
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
+/// Code repris du Projet Semestre 1
 #include "Svgfile.h"
 #include <iostream>
 #include <sstream>

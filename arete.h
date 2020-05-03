@@ -1,3 +1,4 @@
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
 #ifndef ARETE_H_INCLUDED
 #define ARETE_H_INCLUDED
 #include <vector>

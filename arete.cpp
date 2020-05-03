@@ -1,8 +1,11 @@
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
 #include "arete.h"
+#include "graphe.h"
 
 Arete::Arete(int indice, std::pair<int,int> extremites)
     : m_indice{indice}, m_extremites{extremites}
 {}//indice, et coord de l'arete
+
 
 void Arete::setId(int id)
 {

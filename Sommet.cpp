@@ -1,3 +1,4 @@
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
 #include "Sommet.h"
 #include "arete.h"
 #include "graphe.h"
@@ -12,12 +13,6 @@ int Sommet::getNum() //id numero du sommet
 {
     return m_num;
 }
-
-
-
-
-
-
 
 std::string Sommet::getNom() //id lettre du sommet
 {
@@ -36,12 +31,12 @@ double Sommet::getCoords2() //coord y du sommet
 
 
 
-void Sommet::ajouterSucc(std::pair<Sommet *,int> successeurs)
+void Sommet::ajouterSucc(std::pair<Sommet *,int> successeurs) //Ajout d'un successeur
 {
     m_successeurs.push_back(successeurs);
 }
 
-std::vector<std::pair<Sommet*,int>> Sommet::getSucc()
+std::vector<std::pair<Sommet*,int>> Sommet::getSucc() //renvoie le successeur
 {
     return m_successeurs;
 }
@@ -69,4 +64,34 @@ void Sommet::afficher() //fct afficher x" "y
 {
     std::cout << m_coordonnees.first << " " << m_coordonnees.second <<" ";
 }
+
+void Sommet::SuppAdj(Sommet* a)
+{
+    for(int i=0; i<m_successeurs.size();++i)
+    {
+        if(m_successeurs[i].first == a)
+            m_successeurs.erase(m_successeurs.begin()+i);
+    }
+}
+
+/*
+void Sommet::Connexite(int ext1, int&l)
+{
+    if(getCouleur()==2)//si il est noir
+    {
+        return;
+    }
+
+    if(ext1==getNum())
+    {
+        l++;
+        return;
+    }
+    m_couleur = 2;
+
+    for(int i=0; i<m_adjacents.size(), ++i)
+    {
+        m_adjacents[i]->connexite (ext1,l);
+    }
+}*/
 

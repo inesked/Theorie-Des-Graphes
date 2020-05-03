@@ -3,6 +3,7 @@
 #include <queue>
 #include <string>
 #include <list>
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
 #include <vector>
 //#include "graphe.h"
 
@@ -35,6 +36,7 @@ class Sommet
         void afficherSucc();
         int returnSuccFirst(int i);
         int returnSuccSecond(int i);
+        void SuppAdj(Sommet* a);
 
 };
 

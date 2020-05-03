@@ -1,3 +1,4 @@
+/// Code réalisé par Roxane Calor Inès Kedjem et Alex Chrétien
 #include "graphe.h"
 #include <fstream>
 #include <iostream>
@@ -7,7 +8,6 @@
 #include "arete.h"
 #include <cmath>
 #include <string>
-//inès
 
 void Graphe::GrapheCharger(std::string nomFichier)
 {
@@ -63,12 +63,8 @@ void Graphe::GrapheCharger(std::string nomFichier)
 }
 
 
-void Graphe::GrapheChargerPonde(std::string nomFichierPonde)
+void Graphe::GrapheChargerPonde(std::string nomFichierPonde) ///Chargement du fichier de pondération
 {
-    for(int l=0; l<m_ordre; l++)
-    {
-        m_sommets[l]->getSucc().clear();
-    }
     std::ifstream ifs{nomFichierPonde};
     int taille;
     int poids;
@@ -190,7 +186,6 @@ void Graphe::Afficher() //affichage du txt
         fichier << "Voici la centralite de proximite normalise pour le sommet " << i << ": " << CP[i] << std::endl;
     }
 
-
 }
 
 
@@ -277,7 +272,7 @@ void Graphe::CentraliteDegreNormalise()
     std::cout <<"CENTRALITE DEGRE NORMALISE"<< std::endl;
     fichier <<"****************************"<< std::endl;
     fichier <<"CENTRALITE DEGRE NORMALISE"<< std::endl;
-    for(int i=0; i<m_ordre; ++i)
+    for(int i=0; i<m_ordre; ++i) /// Calcul de la centralité de degre normalise
     {
         CD = (deg[i]/(m_ordre-1));
         std::cout << "Le sommet "<<i<< " pour Centralite de degre normalise; CD(s) : " << CD <<std::endl;
