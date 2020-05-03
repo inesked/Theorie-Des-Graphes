@@ -28,6 +28,7 @@ void Graphe::GrapheCharger(std::string nomFichier)
             int num0,num2,num3; //3 valeurs dans le txt, la premiere est l'id le deuxieme la premiere coord (x) la deuxieme coord (y)
             std::string let1;
             deg.resize(m_ordre);
+            gra.resize(m_ordre);
             for (int i=0; i<m_ordre; ++i){ //pour i compris entre 0 et l'ordre, on esplore toutes les coord
                 ifs>>num0>>let1>>num2>>num3;
                 if ( ifs.fail() )
@@ -50,6 +51,8 @@ void Graphe::GrapheCharger(std::string nomFichier)
                 m_arete.push_back(new Arete{num4, std::make_pair(num5,num6)}); //ajout d'une pair de coord correspondant à un arc
                 deg[num5] += 1;
                 deg[num6] += 1;
+                gra[num5].push_back(num6);
+                gra[num6].push_back(num5);
             }
             std::string nomFichierPonde;
             std::cin >> nomFichierPonde;

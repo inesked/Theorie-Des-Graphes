@@ -39,7 +39,8 @@ int main()
     std::cout << "5. Quitter" << std::endl;
     std::cout << std::endl;
     do{
-            std::cout << std::endl;
+
+        std::cout << std::endl;
         std::cout << "Entrez choix (numero) : " << std::endl;
         std::cin >> choix;
         switch(choix)
@@ -56,7 +57,8 @@ int main()
                     std::cin >> a;
                     std::cout << "Entrez un sommet intermediaire:";
                     std::cin >> i;
-                    g.CentraliteInt1seulPluscourtchemin(d, a, i);*/
+                    g.CentraliteInt1seulPluscourtchemin(d, a, i);
+                    g.linkBFS(d, a, i);*/
                     break;
                 }
             case 2:
