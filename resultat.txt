@@ -24,6 +24,20 @@ voici les successeurs de chaque sommet:
 3: 2(2)
 4: 2(4)
 
+************************************
+CENTRALITE DE DEGRE 
+Le sommet 0 a un degres de 1
+Le sommet 1 a un degres de 1
+Le sommet 2 a un degres de 4
+Le sommet 3 a un degres de 1
+Le sommet 4 a un degres de 1
+****************************
+CENTRALITE DEGRE NORMALISER
+Le sommet 0 pour Centralite de degre normalise; CD(s) : 0.25
+Le sommet 1 pour Centralite de degre normalise; CD(s) : 0.25
+Le sommet 2 pour Centralite de degre normalise; CD(s) : 1
+Le sommet 3 pour Centralite de degre normalise; CD(s) : 0.25
+Le sommet 4 pour Centralite de degre normalise; CD(s) : 0.25
 CENTRALITE DE VECTEUR PROPRE
 ************************************
 voici le vecteur propre normalise du sommet 0: 0.0523424
@@ -40,18 +54,12 @@ voici le vecteur propre non-normalise du sommet 4: 0.223607
 ************************************
 CENTRALITE DE PROXIMITE
 Voici la centralite de proximite non normalise pour le sommet 0: 0.0769231
-************************************
-CENTRALITE DE PROXIMITE
 Voici la centralite de proximite non normalise pour le sommet 1: 0.0526316
-************************************
-CENTRALITE DE PROXIMITE
 Voici la centralite de proximite non normalise pour le sommet 2: 0.1
-************************************
-CENTRALITE DE PROXIMITE
 Voici la centralite de proximite non normalise pour le sommet 3: 0.0625
-************************************
-CENTRALITE DE PROXIMITE
 Voici la centralite de proximite non normalise pour le sommet 4: 0.0454545
+***********************************
+CENTRALITE DE PROXIMITE NORMALISER
 Voici la centralite de proximite normalise pour le sommet 0: 0.307692
 
 Voici la centralite de proximite normalise pour le sommet 1: 0.210526

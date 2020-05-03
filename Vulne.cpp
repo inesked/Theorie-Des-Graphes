@@ -33,6 +33,13 @@ void Graphe::SuppArete(int Ext1, int Ext2)
             m_arete.erase(m_arete.begin()+i);
         }
     }
+    for(int k=0; k<m_ordre; ++k)
+    {
+        if(Ext1 == k)
+        {
+            m_sommets[k]->getSucc().erase(m_sommets[k]->getSucc().begin()+k);
+        }
+    }
     for(int j=0; j<m_taille ;++j)
     {
         if(j < m_arete[j]->getId())
@@ -44,9 +51,9 @@ void Graphe::SuppArete(int Ext1, int Ext2)
     for(int j=0; j<m_taille;++j)
     {
         ofs << m_arete[j]->getId() << " " << m_arete[j]->getExt1() << " " << m_arete[j]->getExt2() << std::endl;
+        ponde << m_arete[j]->getId() << " " << m_sommets[j]->returnSuccSecond(0) << std::endl;
     }
-    int k=0;
-    do{
+    /*do{
         if(k < Ext1)
         {
             ponde << m_arete[k]->getId() << " " ;
@@ -55,15 +62,12 @@ void Graphe::SuppArete(int Ext1, int Ext2)
         else
         {
             ponde << m_arete[k]->getId() << " " ;
-            if(k == Ext1+1)
-                ponde << m_sommets[m_arete[k]->getId()]->returnSuccSecond(k) << std::endl;
             ponde << m_sommets[m_arete[k+1]->getId()]->returnSuccSecond(k+1) << std::endl;
         }
         ++k;
     }
-    while(k != m_taille-1);
-    m_sommets.clear();
-    m_arete.clear();
+    while(k != m_taille-1);*/
+
     GrapheCharger("graphe_etoile1_topo_bis.txt");
 
 }
